@@ -1,6 +1,50 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
+
+
+  DYMKI
+<style>
+.tooltip-icon {
+  position: relative;
+  cursor: pointer;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  background: #fff;
+  color: #000;
+  text-align: left;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: max-content;
+  max-width: 200px;
+  font-size: 12px;
+  line-height: 1.4;
+  white-space: normal;
+}
+
+.tooltip-icon.active .tooltip-text {
+  visibility: visible;
+}
+</style>
+
+KONIEC DYMKÓW
+
+
+
+
+  
+
+  
   <meta charset="UTF-8">
   <title>CHECK</title>
 <!DOCTYPE html>
@@ -294,27 +338,27 @@
 
  <label><input type="checkbox" class="check table1" data-id="GQPLIK">
           <a href="https://lofty.so/">PLIK LOFTY.SO</a>
-          (<a href="https://lofty.so/" target="_blank">C</a>)<label>&nbsp;
+          (<a href="https://lofty.so/" target="_blank">C</a>)</label>label>&nbsp;
 
       <label><input type="checkbox" class="check table1" data-id="GQPLIKG">
           <a href="https://app.galxe.com/quest/Irys/GCKHCtm2b8">LOFTY QUEST</a>
-          (<a href="https://app.galxe.com/quest/Irys/GCKHCtm2b8" target="_blank">C</a>)<label>&nbsp;
+          (<a href="https://app.galxe.com/quest/Irys/GCKHCtm2b8" target="_blank">C</a>)</label>label>&nbsp;
     
     <label><input type="checkbox" class="check table1" data-id="GQGRA">
           <a href="https://irysarcade.xyz/">GRA</a>
-          (<a href="https://irysarcade.xyz/" target="_blank">C</a>)<label>&nbsp;
+          (<a href="https://irysarcade.xyz/" target="_blank">C</a>)</label>label>&nbsp;
 
 <label><input type="checkbox" class="check table1" data-id="GQGRAG">
           <a href="https://app.galxe.com/quest/Irys/GC1mCtmb1N">GRA QUEST</a>
-          (<a href="https://app.galxe.com/quest/Irys/GC1mCtmb1N" target="_blank">C</a>)<label>&nbsp;
+          (<a href="https://app.galxe.com/quest/Irys/GC1mCtmb1N" target="_blank">C</a>)</label>label>&nbsp;
    
      <label><input type="checkbox" class="check table1" data-id="GQF">
           <a href="https://irys.xyz/faucet">FAUCET</a>
-          (<a href="https://irys.xyz/faucet" target="_blank">C</a>)<label>&nbsp;
+          (<a href="https://irys.xyz/faucet" target="_blank">C</a>)</label>label>&nbsp;
 
        <label><input type="checkbox" class="check table1" data-id="GQFG">
           <a href="https://app.galxe.com/quest/Irys/GCxxCtmLMP">FAUCET QUEST</a>
-          (<a href="https://app.galxe.com/quest/Irys/GCxxCtmLMP" target="_blank">C</a>)<label>&nbsp;
+          (<a href="https://app.galxe.com/quest/Irys/GCxxCtmLMP" target="_blank">C</a>)</label>label>&nbsp;
 
 </td></tr>
        
@@ -329,19 +373,26 @@
 
       <tr><td><a href="https://base.app.tea.xyz/">TEA APP</a> (<a href="https://base.app.tea.xyz/" target="_blank">C</a>)</td><td>
     <label><input type="checkbox" class="check table1" data-id="TEA1"> <a href="https://base.app.tea.xyz/">BASE APP</a>
-          (<a href="https://base.app.tea.xyz/" target="_blank">C</a>)<label>&nbsp;
+          (<a href="https://base.app.tea.xyz/" target="_blank">C</a>)</label>label>&nbsp;
     <label><input type="checkbox" class="check table1" data-id="TEA2"> <a href="https://teatools.vercel.app/">TOOLS / FAUCET</a>
-          (<a href="https://teatools.vercel.app/" target="_blank">C</a>)<label>&nbsp;
+          (<a href="https://teatools.vercel.app/" target="_blank">C</a>)</label>label>&nbsp;
     <label><input type="checkbox" class="check table1" data-id="TEA3"> <a href="https://tea-dice-game-web.vercel.app/">DICE GAME (KOSTKA)</a>
-          (<a href="https://tea-dice-game-web.vercel.app/" target="_blank">C</a>)<label>&nbsp;
+          (<a href="https://tea-dice-game-web.vercel.app/" target="_blank">C</a>)</label>label>&nbsp;
   </td></tr>
 
 <tr><td><a href="https://base.app.tea.xyz/">TEA APP & NFT</a> (<a href="https://base.app.tea.xyz/" target="_blank">C</a>)</td><td>
              <label><input type="checkbox" class="check table1" data-id="TEA4"> <a href="https://tea-verse.vercel.app/">TEA VERSE NFT</a>
-          (<a href="https://tea-verse.vercel.app/" target="_blank">C</a>)<label>&nbsp;
+          (<a href="https://tea-verse.vercel.app/" target="_blank">C</a>)</label>label>&nbsp;
             <label><input type="checkbox" class="check table1" data-id="TEA5"> <a href="https://assam-tea.vercel.app/nft-mint">ASSAM TEA VERSE NFT</a>
-          (<a href="https://assam-tea.vercel.app/nft-mint" target="_blank">C</a>)<label>&nbsp;
-    
+          (<a href="https://assam-tea.vercel.app/nft-mint" target="_blank">C</a>)</label>label>&nbsp;
+            <span class="tooltip-icon" onclick="toggleTooltip(this)">❓
+ 
+              <span class="tooltip-text">
+    Odbiór tokenów z faucetu<br>
+    Tia Dice Game rzut kostką 2-3 razy dziennie
+  </span>
+</span>
+
   </td></tr>    
 
             <tr><td><a href="https://gigaverse.io/">GIGAVERSE</a> (<a href="https://gigaverse.io/" target="_blank">C</a>)</td><td><label><input type="checkbox" class="check table1" data-id="android18"> CHECK</label></td></tr>
@@ -506,11 +557,11 @@
 
 <label><input type="checkbox" class="check table2" data-id="f4"> 
 <a href="https://testnet.somnia.network/ /">SOMNIA FAUCET </a>
-          (<a href="https://testnet.somnia.network/ " target="_blank">C</a>)<label>&nbsp; 
+          (<a href="https://testnet.somnia.network/ " target="_blank">C</a>)</label>label>&nbsp; 
 
 <label><input type="checkbox" class="check table2" data-id="f4A"> 
 <a href="https://discord.com/channels/1209923224620761088/1306988055135256738 ">SOMNIA FAUCET DC </a>
-          (<a href="https://discord.com/channels/1209923224620761088/1306988055135256738  " target="_blank">C</a>)<label>&nbsp; 
+          (<a href="https://discord.com/channels/1209923224620761088/1306988055135256738  " target="_blank">C</a>)</label>label>&nbsp; 
 
 </td></tr> 
       
@@ -535,15 +586,15 @@
             <tr><td><a href="https://faucet.monad.xyz/">MONAD FAUCET</a> (<a href="https://faucet.monad.xyz/" target="_blank">C</a>)</td><td>
 
 <label><input type="checkbox" class="check table2" data-id="f16"><a href="https://faucet.monad.xyz/">MONAD TESTNET   </a>
-          (<a href="https://faucet.monad.xyz/" target="_blank">C</a>)<label>&nbsp; 
+          (<a href="https://faucet.monad.xyz/" target="_blank">C</a>)</label>label>&nbsp; 
 
 <label><input type="checkbox" class="check table2" data-id="f16A">
 <a href="https://faucet.nerzo.xyz/monad"> NERZO   </a>
-          (<a href="https://faucet.nerzo.xyz/monad" target="_blank">C</a>)<label>&nbsp; 
+          (<a href="https://faucet.nerzo.xyz/monad" target="_blank">C</a>)</label>label>&nbsp; 
 
 <label><input type="checkbox" class="check table2" data-id="f16B">
 <a href="https://faucet.morkie.xyz/monad">MORKIE   </a>
-          (<a href="https://faucet.morkie.xyz/monad " target="_blank">C</a>)<label>&nbsp; 
+          (<a href="https://faucet.morkie.xyz/monad " target="_blank">C</a>)</label>label>&nbsp; 
 
 </td></tr> 
       
@@ -584,11 +635,11 @@
       <tr><td><a href="https://faucet.sui.io/">SUI TESTNET FAUCET</a> (<a href="https://faucet.sui.io/" target="_blank">C</a>)</td><td>
 
 <label><input type="checkbox" class="check table2" data-id="f19"><a href="https://faucet.sui.io/ ">SUI TESTNET FAUCET  </a>
-          (<a href="https://faucet.sui.io/  " target="_blank">C</a>)<label>&nbsp; 
+          (<a href="https://faucet.sui.io/  " target="_blank">C</a>)</label>label>&nbsp; 
 
 <label><input type="checkbox" class="check table2" data-id="f19A"> 
 <a href="https://discord.com/channels/916379725201563759/1037811694564560966  ">SUI FAUCET DC  </a>
-          (<a href="https://discord.com/channels/916379725201563759/1037811694564560966   " target="_blank">C</a>)<label>&nbsp; 
+          (<a href="https://discord.com/channels/916379725201563759/1037811694564560966   " target="_blank">C</a>)</label>label>&nbsp; 
 </td></tr> 
             
             
@@ -751,7 +802,7 @@
 
 <tr><td><a href="https://base.app.tea.xyz/">TEA APP</a> (<a href="https://base.app.tea.xyz/" target="_blank">C</a>)</td><td>
  <label><input type="checkbox" class="check table1" data-id="TEA3"> <a href="https://tea-dice-game-web.vercel.app/">DICE GAME (KOSTKA)</a>
-          (<a href="https://tea-dice-game-web.vercel.app/" target="_blank">C</a>)<label>&nbsp;
+          (<a href="https://tea-dice-game-web.vercel.app/" target="_blank">C</a>)</label>label>&nbsp;
   </td></tr>
 
 
@@ -2517,7 +2568,24 @@
 </script>
 
   
+DO DYMKÓW
 
+  <script>
+function toggleTooltip(el) {
+  document.querySelectorAll('.tooltip-icon').forEach(icon => {
+    if (icon !== el) icon.classList.remove('active');
+  });
+  el.classList.toggle('active');
+}
+
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.tooltip-icon')) {
+    document.querySelectorAll('.tooltip-icon').forEach(el => el.classList.remove('active'));
+  }
+});
+</script>
+
+  KONIEC DO DYMKÓW
 
   
   
