@@ -60,11 +60,11 @@
     </div>
   </div>
 
-  <script>const password = "rutynadw"; // 👈 wpisz swoje hasło // Jeśli już zapisano hasło, chowamy overlay if (localStorage.getItem("haslo-ok") === "true") {document.getElementById("auth-overlay").style.display = "none";} function checkPassword() {const input = document.getElementById("password-input").value; if (input === password) {localStorage.setItem("haslo-ok", "true"); document.getElementById("auth-overlay").style.display = "none";} else {document.getElementById("error-msg").style.display = "block";}}</script>
-<button onclick="logout()" style="margin: 20px;">Wyloguj</button>
-<script>function logout() {localStorage.removeItem("haslo-ok"); location.reload();}</script>
-<button class="reset-all" id="reset-all">RESET ALL</button>
-<div class="tables-container">
+  <script>document.addEventListener("DOMContentLoaded",function(){const password="rutynadw"; // 👈 wpisz swoje hasło // 
+Jeśli już zapisano hasło, chowamy overlay if(localStorage.getItem("haslo-ok")==="true"){document.getElementById("auth-overlay")
+.style.display="none";}window.checkPassword=function(){const input=document.getElementById("password-input").value;
+if(input===password){localStorage.setItem("haslo-ok","true");document.getElementById("auth-overlay").style.display="none";}
+else{document.getElementById("error-msg").style.display="block";}};});</script>
 
 
     <!-- Tabela 1 – Projekty --> <table><tr> <th class="centered">PROJEKTY</th> <th><button class="reset-btn" id="reset-table1">RESET</button></th> </tr>
