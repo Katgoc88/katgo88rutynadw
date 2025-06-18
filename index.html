@@ -827,7 +827,43 @@
 </table>
   </div>
 
- 
+
+
+<table style="width:100%; margin-top:30px; border-collapse:collapse;">  <tr>
+    <td style="width:50%; padding:10px;">
+      <textarea id="notes1" placeholder="Notatki A..." style="width:100%;height:120px;padding:10px;border-radius:6px;border:1px solid #aaa;resize:none;overflow-y:auto;"></textarea>
+      <button onclick="clearNotes('notes1')" style="margin-top:10px; padding:6px 14px; background:#e67e22; color:#fff; border:none; border-radius:6px; cursor:pointer;">CLEAN</button>
+    </td>    <td style="width:50%; padding:10px;">
+      <textarea id="notes2" placeholder="Notatki B..." style="width:100%;height:120px;padding:10px;border-radius:6px;border:1px solid #aaa;resize:none;overflow-y:auto;"></textarea>
+      <button onclick="clearNotes('notes2')" style="margin-top:10px; padding:6px 14px; background:#e67e22; color:#fff; border:none; border-radius:6px; cursor:pointer;">CLEAN</button>
+    </td>  </tr></table>
+
+<script>
+// Ładowanie zapisanych notatek
+document.addEventListener("DOMContentLoaded", function () {
+  const notes1 = localStorage.getItem("notes1");
+  const notes2 = localStorage.getItem("notes2");
+  if (notes1) document.getElementById("notes1").value = notes1;
+  if (notes2) document.getElementById("notes2").value = notes2;});
+
+// Zapisywanie przy zmianie
+document.getElementById("notes1").addEventListener("input", () => {  localStorage.setItem("notes1", document.getElementById("notes1").value);});
+document.getElementById("notes2").addEventListener("input", () => {
+  localStorage.setItem("notes2", document.getElementById("notes2").value);});
+
+// Funkcja czyszczenia
+function clearNotes(id) {
+  document.getElementById(id).value = "";
+  localStorage.removeItem(id);}
+</script>
+
+
+
+
+
+
+
+  
 
 
 
