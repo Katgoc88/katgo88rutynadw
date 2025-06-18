@@ -835,44 +835,66 @@
  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░NOTATKI░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ --> 
    <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░NOTATKI░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ --> 
 
-  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
-  
-<table style="margin-top:30px; border-collapse: collapse; width: 100%;">
+ <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+<style>
+  .notes-table {width: 100%; border-collapse: collapse; margin-top: 40px;}
+  .notes-table td {padding: 10px; border: 1px solid #ccc; vertical-align: top;}
+  .notes-table textarea {width: 100%; height: 120px; resize: none; overflow-y: auto;}
+  .clean-btn {margin-top: 8px; padding: 6px 12px; font-weight: bold; background: #d35400; color: white; border: none; border-radius: 4px; cursor: pointer;}
+  #note1 {color: red;}
+  #note2 {color: green;}
+  #note3 {color: blue;}
+  #note4, #note5, #note6 {color: black;}
+</style>
+
+<table class="notes-table">
   <tr>
-    <td style="width: 33.3%; padding: 10px;">
-      <div style="font-weight: bold; margin-bottom: 4px;">NOWE WPISY - DO ZROBIENIA</div>
-      <textarea id="note1" placeholder="..." style="width: 100%; height: 120px; resize: vertical;"></textarea>
-      <button onclick="clearNote('note1')" style="margin-top: 6px;">CLEAN</button>
+    <td><strong>🔴 KRÓTKI DEADLINE</strong><br>
+      <textarea id="note1" placeholder="Notatka 1"></textarea><br>
+      <button class="clean-btn" onclick="clearNote('note1')">CLEAN</button>
     </td>
-    <td style="width: 33.3%; padding: 10px;">
-      <div style="font-weight: bold; margin-bottom: 4px;">STRONA - DO POPRAWY</div>
-      <textarea id="note2" placeholder="..." style="width: 100%; height: 120px; resize: vertical;"></textarea>
-      <button onclick="clearNote('note2')" style="margin-top: 6px;">CLEAN</button>
+    <td><strong>🟢 NOWE WPISY - DO ZROBIENIA</strong><br>
+      <textarea id="note2" placeholder="Notatka 2"></textarea><br>
+      <button class="clean-btn" onclick="clearNote('note2')">CLEAN</button>
     </td>
-    <td style="width: 33.3%; padding: 10px;">
-      <div style="font-weight: bold; margin-bottom: 4px;">WAŻNE</div>
-      <textarea id="note3" placeholder="..." style="width: 100%; height: 120px; resize: vertical;"></textarea>
-      <button onclick="clearNote('note3')" style="margin-top: 6px;">CLEAN</button>
+    <td><strong>🔵 STRONA - DO POPRAWY</strong><br>
+      <textarea id="note3" placeholder="Notatka 3"></textarea><br>
+      <button class="clean-btn" onclick="clearNote('note3')">CLEAN</button>
     </td>
   </tr>
   <tr>
-    <td style="width: 33.3%; padding: 10px;">
-      <div style="font-weight: bold; margin-bottom: 4px;">NOTATKA</div>
-      <textarea id="note4" placeholder="..." style="width: 100%; height: 120px; resize: vertical;"></textarea>
-      <button onclick="clearNote('note4')" style="margin-top: 6px;">CLEAN</button>
+    <td><strong>🔷 Ogólne</strong><br>
+      <textarea id="note4" placeholder="Notatka 4"></textarea><br>
+      <button class="clean-btn" onclick="clearNote('note4')">CLEAN</button>
     </td>
-    <td style="width: 33.3%; padding: 10px;">
-      <div style="font-weight: bold; margin-bottom: 4px;">NOTATKA</div>
-      <textarea id="note5" placeholder="..." style="width: 100%; height: 120px; resize: vertical;"></textarea>
-      <button onclick="clearNote('note5')" style="margin-top: 6px;">CLEAN</button>
+    <td><strong>🔷 Ogólne</strong><br>
+      <textarea id="note5" placeholder="Notatka 5"></textarea><br>
+      <button class="clean-btn" onclick="clearNote('note5')">CLEAN</button>
     </td>
-    <td style="width: 33.3%; padding: 10px;">
-      <div style="font-weight: bold; margin-bottom: 4px;">NOTATKA</div>
-      <textarea id="note6" placeholder="..." style="width: 100%; height: 120px; resize: vertical;"></textarea>
-      <button onclick="clearNote('note6')" style="margin-top: 6px;">CLEAN</button>
+    <td><strong>🔷 Ogólne</strong><br>
+      <textarea id="note6" placeholder="Notatka 6"></textarea><br>
+      <button class="clean-btn" onclick="clearNote('note6')">CLEAN</button>
     </td>
   </tr>
 </table>
+
+<script>
+  const noteIds = ['note1','note2','note3','note4','note5','note6'];
+  noteIds.forEach(id => {
+    const saved = localStorage.getItem(id);
+    if (saved !== null) document.getElementById(id).value = saved;
+    document.getElementById(id).addEventListener('input', function() {
+      localStorage.setItem(id, this.value);
+    });
+  });
+
+  function clearNote(id) {
+    if (confirm("Czy na pewno chcesz usunąć tę notatkę?")) {
+      document.getElementById(id).value = '';
+      localStorage.removeItem(id);
+    }
+  }
+</script>
 
 
 
