@@ -2152,7 +2152,7 @@ document.addEventListener('click', function(e) {
 
   
 
-<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ EXPORT ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░ EKSPORT ░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
 <div style="margin-top: 40px;">
   <button onclick="exportCheck()">Export CHECK</button>
   <button onclick="exportNotes()">Export NOTES</button>
@@ -2162,8 +2162,9 @@ document.addEventListener('click', function(e) {
 <script>
 function exportCheck() {
   const checkData = {};
-  document.querySelectorAll('input[type="checkbox"][data-id]').forEach(cb => {
-    checkData[cb.dataset.id] = cb.checked;
+  document.querySelectorAll('input.check').forEach(cb => {
+    const key = cb.dataset.id;
+    if (key) checkData[key] = cb.checked;
   });
   downloadJSON(checkData, 'check-export.json');
 }
@@ -2179,8 +2180,9 @@ function exportNotes() {
 
 function exportAll() {
   const allData = { checkboxes: {}, notes: {} };
-  document.querySelectorAll('input[type="checkbox"][data-id]').forEach(cb => {
-    allData.checkboxes[cb.dataset.id] = cb.checked;
+  document.querySelectorAll('input.check').forEach(cb => {
+    const key = cb.dataset.id;
+    if (key) allData.checkboxes[key] = cb.checked;
   });
   ['note1','note2','note3','note4','note5','note6'].forEach(id => {
     const val = localStorage.getItem(id);
@@ -2198,14 +2200,16 @@ function downloadJSON(data, filename) {
 }
 </script>
 
-<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ IMPORT ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░ IMPORT ░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
 <div style="margin-top: 40px;">
   <h3>📥 Import danych</h3>
+
   <input type="file" id="fileInput" style="margin-bottom: 10px;" />
   <button onclick="importFromFile('check')">Import CHECK z pliku</button>
   <button onclick="importFromFile('notes')">Import NOTES z pliku</button>
   <button onclick="importFromFile('all')">Import ALL z pliku</button>
   <br><br>
+
   <textarea id="pasteInput" placeholder="Wklej tutaj dane JSON..." style="width: 100%; height: 100px;"></textarea><br>
   <button onclick="importFromPaste('check')">Import CHECK (wklej)</button>
   <button onclick="importFromPaste('notes')">Import NOTES (wklej)</button>
@@ -2241,23 +2245,32 @@ function importFromPaste(type) {
 
 function importDataByType(type, data) {
   if (type === 'check' || type === 'all') {
-    const checkboxData = type === 'all' ? data.checkboxes : data;
-    for (const id in checkboxData) {
-      const cb = document.querySelector(`input[type="checkbox"][data-id="${id}"]`);
-      if (cb) cb.checked = checkboxData[id];
+    const checks = (type === 'check') ? data : data.checkboxes;
+    if (checks) {
+      document.querySelectorAll('input.check').forEach(cb => {
+        const key = cb.dataset.id;
+        if (key in checks) {
+          cb.checked = checks[key];
+        }
+      });
     }
   }
+
   if (type === 'notes' || type === 'all') {
-    const notesData = type === 'all' ? data.notes : data;
-    for (const id in notesData) {
-      localStorage.setItem(id, notesData[id]);
-      const el = document.getElementById(id);
-      if (el) el.value = notesData[id];
+    const notes = (type === 'notes') ? data : data.notes;
+    if (notes) {
+      for (const key in notes) {
+        localStorage.setItem(key, notes[key]);
+        const el = document.getElementById(key);
+        if (el) el.value = notes[key];
+      }
     }
   }
-  alert("Import zakończony. Odśwież stronę.");
+
+  alert("Import zakończony! Odśwież stronę.");
 }
 </script>
+
 
   
   
