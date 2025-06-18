@@ -829,33 +829,39 @@
 
 
 
-<table style="width:100%; margin-top:30px; border-collapse:collapse;">  <tr>
-    <td style="width:50%; padding:10px;">
-      <textarea id="notes1" placeholder="Notatki A..." style="width:100%;height:120px;padding:10px;border-radius:6px;border:1px solid #aaa;resize:none;overflow-y:auto;"></textarea>
-      <button onclick="clearNotes('notes1')" style="margin-top:10px; padding:6px 14px; background:#e67e22; color:#fff; border:none; border-radius:6px; cursor:pointer;">CLEAN</button>
-    </td>    <td style="width:50%; padding:10px;">
-      <textarea id="notes2" placeholder="Notatki B..." style="width:100%;height:120px;padding:10px;border-radius:6px;border:1px solid #aaa;resize:none;overflow-y:auto;"></textarea>
-      <button onclick="clearNotes('notes2')" style="margin-top:10px; padding:6px 14px; background:#e67e22; color:#fff; border:none; border-radius:6px; cursor:pointer;">CLEAN</button>
-    </td>  </tr></table>
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+<table style="margin-top:30px; border-collapse: collapse; width: 100%;">
+  <tr>
+    <td style="width: 33.3%; padding: 10px;">
+      <textarea id="note1" placeholder="Notatka 1" style="width: 100%; height: 120px; resize: vertical;"></textarea>
+      <button onclick="clearNote('note1')" style="margin-top: 6px;">CLEAN</button>
+    </td>
+    <td style="width: 33.3%; padding: 10px;">
+      <textarea id="note2" placeholder="Notatka 2" style="width: 100%; height: 120px; resize: vertical;"></textarea>
+      <button onclick="clearNote('note2')" style="margin-top: 6px;">CLEAN</button>
+    </td>
+    <td style="width: 33.3%; padding: 10px;">
+      <textarea id="note3" placeholder="Notatka 3" style="width: 100%; height: 120px; resize: vertical;"></textarea>
+      <button onclick="clearNote('note3')" style="margin-top: 6px;">CLEAN</button>
+    </td>
+  </tr>
+</table>
 
 <script>
-// Ładowanie zapisanych notatek
-document.addEventListener("DOMContentLoaded", function () {
-  const notes1 = localStorage.getItem("notes1");
-  const notes2 = localStorage.getItem("notes2");
-  if (notes1) document.getElementById("notes1").value = notes1;
-  if (notes2) document.getElementById("notes2").value = notes2;});
+['note1','note2','note3'].forEach(id => {
+  const el = document.getElementById(id);
+  el.value = localStorage.getItem(id) || "";
+  el.addEventListener("input", () => localStorage.setItem(id, el.value));
+});
 
-// Zapisywanie przy zmianie
-document.getElementById("notes1").addEventListener("input", () => {  localStorage.setItem("notes1", document.getElementById("notes1").value);});
-document.getElementById("notes2").addEventListener("input", () => {
-  localStorage.setItem("notes2", document.getElementById("notes2").value);});
-
-// Funkcja czyszczenia
-function clearNotes(id) {
-  document.getElementById(id).value = "";
-  localStorage.removeItem(id);}
+function clearNote(id) {
+  if (confirm("Czy na pewno chcesz wyczyścić tę notatkę?")) {
+    localStorage.removeItem(id);
+    document.getElementById(id).value = "";
+  }
+}
 </script>
+
 
 
 
