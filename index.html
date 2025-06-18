@@ -835,52 +835,45 @@
  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░NOTATKI░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ --> 
    <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░NOTATKI░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ --> 
 
-<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  
 <table style="margin-top:30px; border-collapse: collapse; width: 100%;">
   <tr>
     <td style="width: 33.3%; padding: 10px;">
-      <textarea id="note1" placeholder="Notatka 1" style="width: 100%; height: 120px; resize: vertical;"></textarea>
+      <div style="font-weight: bold; margin-bottom: 4px;">Notatka 1 – Zadania</div>
+      <textarea id="note1" placeholder="..." style="width: 100%; height: 120px; resize: vertical;"></textarea>
       <button onclick="clearNote('note1')" style="margin-top: 6px;">CLEAN</button>
     </td>
     <td style="width: 33.3%; padding: 10px;">
-      <textarea id="note2" placeholder="Notatka 2" style="width: 100%; height: 120px; resize: vertical;"></textarea>
+      <div style="font-weight: bold; margin-bottom: 4px;">Notatka 2 – Przemyślenia</div>
+      <textarea id="note2" placeholder="..." style="width: 100%; height: 120px; resize: vertical;"></textarea>
       <button onclick="clearNote('note2')" style="margin-top: 6px;">CLEAN</button>
     </td>
     <td style="width: 33.3%; padding: 10px;">
-      <textarea id="note3" placeholder="Notatka 3" style="width: 100%; height: 120px; resize: vertical;"></textarea>
+      <div style="font-weight: bold; margin-bottom: 4px;">Notatka 3 – Pomysły</div>
+      <textarea id="note3" placeholder="..." style="width: 100%; height: 120px; resize: vertical;"></textarea>
       <button onclick="clearNote('note3')" style="margin-top: 6px;">CLEAN</button>
     </td>
   </tr>
   <tr>
     <td style="width: 33.3%; padding: 10px;">
-      <textarea id="note4" placeholder="Notatka 4" style="width: 100%; height: 120px; resize: vertical;"></textarea>
+      <div style="font-weight: bold; margin-bottom: 4px;">Notatka 4 – Linki</div>
+      <textarea id="note4" placeholder="..." style="width: 100%; height: 120px; resize: vertical;"></textarea>
       <button onclick="clearNote('note4')" style="margin-top: 6px;">CLEAN</button>
     </td>
     <td style="width: 33.3%; padding: 10px;">
-      <textarea id="note5" placeholder="Notatka 5" style="width: 100%; height: 120px; resize: vertical;"></textarea>
+      <div style="font-weight: bold; margin-bottom: 4px;">Notatka 5 – TODO</div>
+      <textarea id="note5" placeholder="..." style="width: 100%; height: 120px; resize: vertical;"></textarea>
       <button onclick="clearNote('note5')" style="margin-top: 6px;">CLEAN</button>
     </td>
     <td style="width: 33.3%; padding: 10px;">
-      <textarea id="note6" placeholder="Notatka 6" style="width: 100%; height: 120px; resize: vertical;"></textarea>
+      <div style="font-weight: bold; margin-bottom: 4px;">Notatka 6 – Inne</div>
+      <textarea id="note6" placeholder="..." style="width: 100%; height: 120px; resize: vertical;"></textarea>
       <button onclick="clearNote('note6')" style="margin-top: 6px;">CLEAN</button>
     </td>
   </tr>
 </table>
 
-<script>
-['note1','note2','note3','note4','note5','note6'].forEach(id => {
-  const el = document.getElementById(id);
-  el.value = localStorage.getItem(id) || "";
-  el.addEventListener("input", () => localStorage.setItem(id, el.value));
-});
-
-function clearNote(id) {
-  if (confirm("Czy na pewno chcesz wyczyścić tę notatkę?")) {
-    localStorage.removeItem(id);
-    document.getElementById(id).value = "";
-  }
-}
-</script>
 
 
 
