@@ -1,71 +1,74 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <title>CHECK</title>
+
+   <!-- ░░░░░░░░░░░░░░░░░░░░░ SEPARATOR ░░░░░░░░░░░░░░░░░░░░░ -->
+
+<style>.tooltip-icon {position: relative; cursor: pointer; font-weight: bold; display: inline-block;} .tooltip-text {visibility: hidden; background: #fff; color: #000; text-align: left; padding: 10px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.2); position: absolute; bottom: 125%; left: 50%; transform: translateX(-50%); z-index: 1000; width: max-content; max-width: 200px; font-size: 12px; line-height: 1.4; white-space: normal;} .tooltip-icon.active .tooltip-text {visibility: visible;}</style>
+<meta charset="UTF-8"><title>CHECK</title><!DOCTYPE html><html lang="pl"><head><meta charset="UTF-8"><title>CHECK</title><style>body {font-family: sans-serif; padding: 20px;}
+
+    /* Kontener na obie tabele – elastyczny układ obok siebie */
+    .tables-container {display: flex; gap: 20px; align-items: flex-start;} /* ✅ tabele będą równe tylko od góry */
+   /* Tabela projektów – lewa, szersza (54%) */
+    .tables-container table:first-of-type {flex: 0 0 54%;}
+    /* Tabela faucetów – prawa, węższa (46%) */
+    .tables-container table:last-of-type {flex: 0 0 46%;}
+    /* Wspólne ustawienia dla obu tabel */
+    .tables-container table {border-collapse: collapse; width: 100%;}
+    /* Styl komórek */
+    th, td {border: 1px solid #aaa; padding: 8px; text-align: left; vertical-align: top;}
+    /* Nagłówki */
+    th {background-color: #f2f2f2;}
+    th .reset-btn {display: block; margin: 0 auto;}
+    /* Domyślny układ kolumn – dla wszystkich tabel (np. PROJEKTY) */
+    td:first-child, th:first-child {width: 30%;}
+    td:last-child, th:last-child {width: 70%;}
+    /* Nadpisanie tylko dla tabeli FAUCETY */
+    .faucets-table td:first-child, .faucets-table th:first-child {width: 38%;}
+    .faucets-table td:last-child, .faucets-table th:last-child {width: 62%;}  </style>
 
   <style>
-  .tooltip-icon {position: relative; cursor: pointer; font-weight: bold; display: inline-block;}
-  .tooltip-text {visibility: hidden; background: #fff; color: #000; text-align: left; padding: 10px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.2); position: absolute; bottom: 125%; left: 50%; transform: translateX(-50%); z-index: 1000; width: max-content; max-width: 200px; font-size: 12px; line-height: 1.4; white-space: normal;}
-  .tooltip-icon.active .tooltip-text {visibility: visible;}
+  /* Przycisk RESET ALL */ .reset-all {margin-bottom: 20px; padding: 10px 18px; font-weight: bold; background: #e74c3c; color: white; border: none; border-radius: 6px; cursor: pointer;}
 
-  body {font-family: sans-serif; padding: 20px;}
+.link-item {list-style: none;}
+.centered {text-align: center; font-weight: bold;}
 
-  /* Kontener na obie tabele – elastyczny układ obok siebie */
-  .tables-container {display: flex; gap: 20px; align-items: flex-start;} /* ✅ tabele będą równe tylko od góry */
-  .tables-container table:first-of-type {flex: 0 0 54%;}
-  .tables-container table:last-of-type {flex: 0 0 46%;}
-  .tables-container table {border-collapse: collapse; width: 100%;}
+.discord-table {margin-top: 40px; border-collapse: collapse; border: 1px solid #aaa; width: auto; table-layout: auto;}
+.discord-table th, .discord-table td {padding: 8px; white-space: nowrap; border: 1px solid #aaa; vertical-align: top;}
+.discord-table th {background-color: #f2f2f2; text-align: center; font-weight: bold;}
 
-  /* Styl komórek */
-  th, td {border: 1px solid #aaa; padding: 8px; text-align: left; vertical-align: top;}
+.single-column-tables {margin-top: 40px; display: flex; gap: 20px; align-items: flex-start; font-family: sans-serif;}
+.single-column-tables table {border-collapse: collapse; border: 1px solid #ccc; border-radius: 6px; box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.05); font-size: 14px; white-space: nowrap;}
+.single-column-tables th {background-color: #f2f2f2; padding: 8px 12px; text-align: center; font-weight: bold;}
+.single-column-tables td {padding: 6px 12px; border-top: 1px solid #eee;}
+.single-column-tables a {color: #0000ee; text-decoration: none;}
+.single-column-tables a:hover {text-decoration: underline;}
+</style>
 
-  /* Nagłówki */
-  th {background-color: #f2f2f2;}
-  th .reset-btn {display: block; margin: 0 auto;}
+  </head><body>
+<div id="auth-overlay" style="position: fixed; top:0; left:0; width:100%; height:100%; background:#000; display:flex; align-items:center; justify-content:center; z-index:9999;"><div style="text-align:center; background:#fff; padding:30px; border-radius:10px; box-shadow:0 0 15px rgba(0,0,0,0.3);"><h2>Enter Password</h2><input type="password" id="password-input" style="padding:8px; margin-top:10px;" placeholder="••••••••"><br><button onclick="checkPassword()" style="margin-top:10px; padding:6px 14px;">Login</button><p id="error-msg" style="color:red; display:none; margin-top:10px;">Wrong password.</p></div></div>
+<script>
+const password = "rutynadw"; // 👈 wpisz swoje hasło
+// Jeśli już zapisano hasło, chowamy overlay
+if (localStorage.getItem("haslo-ok") === "true") {document.getElementById("auth-overlay").style.display = "none";}
+function checkPassword() {const input = document.getElementById("password-input").value; if (input === password) {localStorage.setItem("haslo-ok", "true"); document.getElementById("auth-overlay").style.display = "none";} else {document.getElementById("error-msg").style.display = "block";}}
+</script>
+<button onclick="logout()" style="margin: 20px;">Wyloguj</button>
+<script>
+function logout() {localStorage.removeItem("haslo-ok"); location.reload();}
+</script>
+<button class="reset-all" id="reset-all">RESET ALL</button>
+<div class="tables-container">
 
-  /* Domyślny układ kolumn – dla wszystkich tabel (np. PROJEKTY) */
-  td:first-child, th:first-child {width: 30%;}
-  td:last-child, th:last-child {width: 70%;}
 
-  /* Nadpisanie tylko dla tabeli FAUCETY */
-  .faucets-table td:first-child, .faucets-table th:first-child {width: 38%;}
-  .faucets-table td:last-child, .faucets-table th:last-child {width: 62%;}
 
-  /* Przycisk RESET ALL */
-  .reset-all {margin-bottom: 20px; padding: 10px 18px; font-weight: bold; background: #e74c3c; color: white; border: none; border-radius: 6px; cursor: pointer;}
-  .link-item {list-style: none;}
-  .centered {text-align: center; font-weight: bold;}
 
-  .discord-table {margin-top: 40px; border-collapse: collapse; border: 1px solid #aaa; width: auto; table-layout: auto;}
-  .discord-table th, .discord-table td {padding: 8px; white-space: nowrap; border: 1px solid #aaa; vertical-align: top;}
-  .discord-table th {background-color: #f2f2f2; text-align: center; font-weight: bold;}
 
-  .single-column-tables {margin-top: 40px; display: flex; gap: 20px; align-items: flex-start; font-family: sans-serif;}
-  .single-column-tables table {border-collapse: collapse; border: 1px solid #ccc; border-radius: 6px; box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.05); font-size: 14px; white-space: nowrap;}
-  .single-column-tables th {background-color: #f2f2f2; padding: 8px 12px; text-align: center; font-weight: bold;}
-  .single-column-tables td {padding: 6px 12px; border-top: 1px solid #eee;}
-  .single-column-tables a {color: #0000ee; text-decoration: none;}
-  .single-column-tables a:hover {text-decoration: underline;}
-  </style>
-</head>
 
-<body>
-  <div id="auth-overlay" style="position: fixed; top:0; left:0; width:100%; height:100%; background:#000; display:flex; align-items:center; justify-content:center; z-index:9999;">
-    <div style="text-align:center; background:#fff; padding:30px; border-radius:10px; box-shadow:0 0 15px rgba(0,0,0,0.3);">
-      <h2>Enter Password</h2>
-      <input type="password" id="password-input" style="padding:8px; margin-top:10px;" placeholder="••••••••"><br>
-      <button onclick="checkPassword()" style="margin-top:10px; padding:6px 14px;">Login</button>
-      <p id="error-msg" style="color:red; display:none; margin-top:10px;">Wrong password.</p>
-    </div>
-  </div>
 
-  <script>document.addEventListener("DOMContentLoaded",function(){const password="rutynadw"; // 👈 wpisz swoje hasło // 
-Jeśli już zapisano hasło, chowamy overlay if(localStorage.getItem("haslo-ok")==="true"){document.getElementById("auth-overlay")
-.style.display="none";}window.checkPassword=function(){const input=document.getElementById("password-input").value;
-if(input===password){localStorage.setItem("haslo-ok","true");document.getElementById("auth-overlay").style.display="none";}
-else{document.getElementById("error-msg").style.display="block";}};});</script>
 
+
+  
 
     <!-- Tabela 1 – Projekty --> <table><tr> <th class="centered">PROJEKTY</th> <th><button class="reset-btn" id="reset-table1">RESET</button></th> </tr>
     
