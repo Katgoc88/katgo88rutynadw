@@ -2685,7 +2685,7 @@ function clearNote(id) {
 </script>
 
   
-DO DYMKÓW
+ <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░dymki░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
 
   <script>
 function toggleTooltip(el) {
@@ -2702,7 +2702,114 @@ document.addEventListener('click', function(e) {
 });
 </script>
 
-  KONIEC DO DYMKÓW
+
+
+  
+
+ <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░eksport░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+<div style="margin-top: 40px;">
+  <button onclick="exportCheck()">Export CHECK</button>
+  <button onclick="exportNotes()">Export NOTES</button>
+  <button onclick="exportAll()">Export ALL</button>
+</div>
+
+<script>
+function exportCheck() {
+  const checkData = {};
+  document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+    if (checkbox.id) checkData[checkbox.id] = checkbox.checked;
+  });
+  downloadJSON(checkData, 'check-export.json');
+}
+
+function exportNotes() {
+  const notes = {};
+  ['note1','note2','note3','note4','note5','note6'].forEach(id => {
+    const val = localStorage.getItem(id);
+    if (val !== null) notes[id] = val;
+  });
+  downloadJSON(notes, 'notes-export.json');
+}
+
+function exportAll() {
+  const allData = { checkboxes: {}, notes: {} };
+  document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+    if (checkbox.id) allData.checkboxes[checkbox.id] = checkbox.checked;
+  });
+  ['note1','note2','note3','note4','note5','note6'].forEach(id => {
+    const val = localStorage.getItem(id);
+    if (val !== null) allData.notes[id] = val;
+  });
+  downloadJSON(allData, 'full-export.json');
+}
+
+function downloadJSON(data, filename) {
+  const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = filename;
+  link.click();
+}
+</script>
+
+
+
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░import░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+<div style="margin-top: 40px;">
+  <h3>📥 Import danych</h3>
+
+  <!-- Import z pliku -->
+  <input type="file" id="fileInput" style="margin-bottom: 10px;" />
+  <button onclick="importFromFile('check')">Import CHECK z pliku</button>
+  <button onclick="importFromFile('notes')">Import NOTES z pliku</button>
+  <button onclick="importFromFile('all')">Import ALL z pliku</button>
+  <br><br>
+
+  <!-- Import przez wklejenie -->
+  <textarea id="pasteInput" placeholder="Wklej tutaj dane JSON..." style="width: 100%; height: 100px;"></textarea><br>
+  <button onclick="importFromPaste('check')">Import CHECK (wklej)</button>
+  <button onclick="importFromPaste('notes')">Import NOTES (wklej)</button>
+  <button onclick="importFromPaste('all')">Import ALL (wklej)</button>
+</div>
+
+<script>
+  function importFromFile(type) {
+    const input = document.getElementById("fileInput");
+    const file = input.files[0];
+    if (!file) return alert("Wybierz plik do importu");
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      try {
+        const data = JSON.parse(e.target.result);
+        importDataByType(type, data);
+      } catch {
+        alert("Nieprawidłowy plik lub format JSON");
+      }
+    };
+    reader.readAsText(file);
+  }
+
+  function importFromPaste(type) {
+    const data = document.getElementById("pasteInput").value;
+    try {
+      const json = JSON.parse(data);
+      importDataByType(type, json);
+    } catch {
+      alert("Nieprawidłowy format JSON");
+    }
+  }
+
+  function importDataByType(type, data) {
+    const save = (key, value) => localStorage.setItem(key, value);
+    if (type === 'check' || type === 'all') {
+      for (const key in data) if (key.startsWith('check-')) save(key, data[key]);
+    }
+    if (type === 'notes' || type === 'all') {
+      for (const key in data) if (key.startsWith('note')) save(key, data[key]);
+    }
+    alert("Import zakończony. Odśwież stronę.");
+  }
+</script>
 
   
   
