@@ -2194,7 +2194,7 @@ document.addEventListener('click', function(e) {
     <!-- Eksport DO PLIKU -->
   <div style="width: 50%; padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent; text-align: center;">
     <h3>📤 Eksport danych</h3>
-     <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+     <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
     <button onclick="exportCheck()" style="margin: 6px;  padding: 10px 18px;  border: 1px solid #999;
   border-radius: 8px;  background-color: #f4f4f4;  font-weight: bold;  cursor: pointer;  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;">Export ✅</button>
@@ -2209,7 +2209,7 @@ document.addEventListener('click', function(e) {
      <!-- Import z pliku -->
   <div style="width: 50%; padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent; text-align: center;">
     <h3>📥 Import danych</h3>
-     <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+     <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
        <button onclick="importFromFile('check')" style="margin: 6px;  padding: 10px 18px;  border: 1px solid #999;
   border-radius: 8px;  background-color: #f4f4f4;  font-weight: bold;  cursor: pointer;  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;">Import ✅</button>
@@ -2234,11 +2234,11 @@ document.addEventListener('click', function(e) {
 <!-- Eksport KOPIUJ/WKLEJ -->
 <div id="exportBox" style="width: 50%; padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent; text-align: center;">
   <h3>📤 Eksport (kopiuj JSON)</h3>
-   <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+   <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
   <button onclick="exportCheckCopy()" style="margin: 6px; padding: 10px 18px; border: 1px solid #999; border-radius: 8px; background-color: #f4f4f4; font-weight: bold; cursor: pointer; box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">Export ✅</button>
   <button onclick="exportNotesCopy()" style="margin: 6px; padding: 10px 18px; border: 1px solid #999; border-radius: 8px; background-color: #f4f4f4; font-weight: bold; cursor: pointer; box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">Export 📝</button>
   <button onclick="exportAllCopy()" style="margin: 6px; padding: 10px 18px; border: 1px solid #999; border-radius: 8px; background-color: #f4f4f4; font-weight: bold; cursor: pointer; box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">Export ✅+📝</button>
-  </div><br>
+   </div><br>
   <textarea id="exportOutput" placeholder="Tu pojawi się JSON do skopiowania" style="width: 90%; height: 60px; border-radius: 6px; padding: 10px; font-family: monospace;"></textarea>
   <br>
   <button onclick="copyExportJSON()" style="margin: 6px; padding: 8px 16px; border: 1px solid #999; border-radius: 6px; background-color: #fff; cursor: pointer;">📋 COPY</button>
@@ -2249,7 +2249,7 @@ document.addEventListener('click', function(e) {
      <!-- Import wklejany -->
  <div style="width: 50%; padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent; text-align: center;">
   <h3>📥 Import (wklej JSON)</h3>
-    <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+    <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
    <button onclick="importFromPaste('check')" style="margin: 6px; padding: 10px 18px; border: 1px solid #999; border-radius: 8px; background-color: #f4f4f4; font-weight: bold; cursor: pointer; box-shadow: 1px 1px 4px rgba(0,0,0,0.1); transition: background-color 0.3s ease;">Import ✅</button>
   <button onclick="importFromPaste('notes')" style="margin: 6px; padding: 10px 18px; border: 1px solid #999; border-radius: 8px; background-color: #f4f4f4; font-weight: bold; cursor: pointer; box-shadow: 1px 1px 4px rgba(0,0,0,0.1); transition: background-color 0.3s ease;">Import 📝</button>
   <button onclick="importFromPaste('all')" style="margin: 6px; padding: 10px 18px; border: 1px solid #999; border-radius: 8px; background-color: #f4f4f4; font-weight: bold; cursor: pointer; box-shadow: 1px 1px 4px rgba(0,0,0,0.1); transition: background-color 0.3s ease;">Import ✅+📝</button>
