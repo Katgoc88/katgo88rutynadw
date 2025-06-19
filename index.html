@@ -2331,9 +2331,9 @@ function importDataByType(type, data) {
 <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ EKSPORT MM TEST░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
 
 <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ EXPORT COPY ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
-<div style="margin-top: 40px; padding: 16px; border: 1px solid #999; border-radius: 8px;">
+<div id="exportBox" style="margin-top: 40px; padding: 16px; border: 1px solid #999; border-radius: 8px;">
   <h3>📋 Eksport (kopiuj do schowka lub wyślij)</h3>
-  <button onclick="exportCheckCopy()" style="margin: 4px;">Export ✅ (kopiuj)</button>
+  <button onclick="exportCheckCopy()" style="margin: 4px;">Ex  port ✅ (kopiuj)</button>
   <button onclick="exportNotesCopy()" style="margin: 4px;">Export 🖊️ (kopiuj)</button>
   <button onclick="exportAllCopy()" style="margin: 4px;">Export ✅+🖊️ (kopiuj)</button>
   <br><br>
@@ -2343,12 +2343,13 @@ function importDataByType(type, data) {
 <script>
 function showPopup(json) {
   const area = document.getElementById("exportOutput");
-  if (area) {
-    area.value = json;
-    area.scrollIntoView({ behavior: "smooth" });
-  } else {
-    alert("Nie znaleziono pola do wyświetlenia JSON-a");
+  if (!area) {
+    alert("Nie znaleziono pola tekstowego do wyświetlenia JSON-a");
+    return;
   }
+  area.value = json;
+  area.focus();
+  area.scrollIntoView({ behavior: "smooth" });
 }
 
 function exportCheckCopy() {
@@ -2377,7 +2378,9 @@ function exportAllCopy() {
     const val = localStorage.getItem(id);
     if (val !== null) allData.notes[id] = val;
   });
-  showPopup(JSON.stringify(allData,
+  showPopup(JSON.stringify(allData, null, 2));
+}
+</script>
 
 
 
