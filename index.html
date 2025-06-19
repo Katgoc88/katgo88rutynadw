@@ -1005,21 +1005,29 @@ color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1p
   <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░KALENDARZE░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ --> 
 
 <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ KALENDARZE ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
-<h3 style="text-align:center;">📱 NOTATKI Z TELEFONU – KALENDARZ</h3>
-<div style="text-align:center; margin-bottom: 10px;">
-  <button onclick="changeMonth('phone-comp', -1)">⬅️</button>
-  <span id="calendar-phone-title" style="margin: 0 10px;"></span>
-  <button onclick="changeMonth('phone-comp', 1)">➡️</button>
-</div>
-<table id="calendar-phone" style="width: 100%; border-collapse: collapse; table-layout: fixed; margin-bottom: 30px;"></table>
+<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+  <!-- TELEFON -->
+  <div style="width: 100%; max-width: 700px; flex: 1;">
+    <h3 style="text-align:center;">📱 NOTATKI Z TELEFONU – KALENDARZ</h3>
+    <div style="text-align:center; margin-bottom: 10px;">
+      <button onclick="changeMonth('phone-comp', -1)">⬅️</button>
+      <span id="calendar-phone-title" style="margin: 0 10px;"></span>
+      <button onclick="changeMonth('phone-comp', 1)">➡️</button>
+    </div>
+    <table id="calendar-phone" style="width: 100%; border-collapse: collapse; table-layout: fixed; margin-bottom: 30px;"></table>
+  </div>
 
-<h3 style="text-align:center;">💻 NOTATKI Z KOMPUTERA – KALENDARZ</h3>
-<div style="text-align:center; margin-bottom: 10px;">
-  <button onclick="changeMonth('computer-ph', -1)">⬅️</button>
-  <span id="calendar-computer-title" style="margin: 0 10px;"></span>
-  <button onclick="changeMonth('computer-ph', 1)">➡️</button>
+  <!-- KOMPUTER -->
+  <div style="width: 100%; max-width: 700px; flex: 1;">
+    <h3 style="text-align:center;">💻 NOTATKI Z KOMPUTERA – KALENDARZ</h3>
+    <div style="text-align:center; margin-bottom: 10px;">
+      <button onclick="changeMonth('computer-ph', -1)">⬅️</button>
+      <span id="calendar-computer-title" style="margin: 0 10px;"></span>
+      <button onclick="changeMonth('computer-ph', 1)">➡️</button>
+    </div>
+    <table id="calendar-computer" style="width: 100%; border-collapse: collapse; table-layout: fixed;"></table>
+  </div>
 </div>
-<table id="calendar-computer" style="width: 100%; border-collapse: collapse; table-layout: fixed;"></table>
 
 <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ SKRYPT KALENDARZY ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
 <script>
@@ -1066,10 +1074,11 @@ function generateCalendar(tableId, dataType) {
   }
 
   for (let day = 1; day <= daysInMonth; day++) {
-    const cell = document.createElement("td");
-    const id = `${dataType}-${year}-${month + 1}-${day}`;
+    const trueType = dataType === "phone-comp" ? "calendar-phone-comp" : "calendar-computer-ph";
+    const id = `${trueType}-${year}-${month + 1}-${day}`;
     const saved = localStorage.getItem(id) || "";
 
+    const cell = document.createElement("td");
     cell.style = "border: 1px solid #ccc; vertical-align: top; padding: 0; width: 14.28%; height: 120px; box-sizing: border-box; position: relative;";
 
     const wrapper = document.createElement("div");
@@ -1079,28 +1088,33 @@ function generateCalendar(tableId, dataType) {
     input.value = saved;
     input.placeholder = `${day}.${month + 1}`;
     input.style = "flex: 1; width: 100%; resize: none; padding: 6px; font-size: 12px; box-sizing: border-box; border: none; overflow-y: auto;";
-    input.dataset.type = dataType;
+    input.dataset.type = trueType;
     input.dataset.id = id;
     input.id = id;
     input.addEventListener("input", () => localStorage.setItem(id, input.value));
 
     const btnBox = document.createElement("div");
-    btnBox.style = "display: flex; justify-content: space-between; padding: 0 4px 4px 4px; gap: 4px;";
+    btnBox.style = "display: flex; align-items: center; justify-content: space-between; padding: 0 4px 4px 4px; gap: 4px;";
 
-    const showBtn = document.createElement("button");
-    showBtn.innerText = "POKAŻ";
-    showBtn.style = "flex: 1; font-size: 10px;";
-    showBtn.title = "Wyświetl notatkę w powiększeniu";
-    showBtn.onclick = () => showNote(id);
+    const dateLabel = document.createElement("span");
+    dateLabel.innerText = `${day}.${month + 1}`;
+    dateLabel.style = "font-size: 12px; font-weight: bold; color: #222;";
 
     const clearBtn = document.createElement("button");
-    clearBtn.innerText = "CLEAN";
-    clearBtn.style = "flex: 1; font-size: 10px;";
+    clearBtn.innerText = "🧹";
+    clearBtn.style = "font-size: 14px; padding: 2px;";
     clearBtn.title = "Wyczyść notatkę";
     clearBtn.onclick = () => clearNote(id);
 
-    btnBox.appendChild(showBtn);
+    const showBtn = document.createElement("button");
+    showBtn.innerText = "🔍";
+    showBtn.style = "font-size: 14px; padding: 2px;";
+    showBtn.title = "Wyświetl notatkę w powiększeniu";
+    showBtn.onclick = () => showNote(id);
+
+    btnBox.appendChild(dateLabel);
     btnBox.appendChild(clearBtn);
+    btnBox.appendChild(showBtn);
     wrapper.appendChild(input);
     wrapper.appendChild(btnBox);
     cell.appendChild(wrapper);
@@ -1119,11 +1133,9 @@ function generateCalendar(tableId, dataType) {
   }
 }
 
-// Inicjalizacja
 generateCalendar("calendar-phone", "phone-comp");
 generateCalendar("calendar-computer", "computer-ph");
 
-// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ FUNKCJE NOTATEK ░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 function clearNote(id) {
   if (confirm("Czy na pewno chcesz wyczyścić tę notatkę?")) {
     localStorage.removeItem(id);
@@ -1146,7 +1158,6 @@ function showNote(id) {
   document.body.appendChild(overlay);
 }
 </script>
-
 
   
   
