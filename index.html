@@ -1005,7 +1005,25 @@ color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1p
   <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░KALENDARZE░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ --> 
 
 <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ KALENDARZE ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
-<div id="calendar-container" style="display: flex; flex-wrap: wrap; gap: 50px; justify-content: center; flex-direction: row;">
+
+<!-- 🔧 Style do układu RWD -->
+<style>
+.calendar-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+  flex-direction: row;
+}
+@media (max-width: 768px) {
+  .calendar-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+</style>
+
+<div id="calendar-container" class="calendar-flex">
   <!-- TELEFON -->
   <div style="width: 100%; max-width: 700px; flex: 1;">
     <h3 style="text-align:center;">📱 NOTATKI Z TELEFONU – KALENDARZ</h3>
@@ -1028,16 +1046,6 @@ color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1p
     <table id="calendar-computer" style="width: 100%; border-collapse: separate; border-spacing: 0 8px; table-layout: fixed;"></table>
   </div>
 </div>
-
-<!-- 🔧 RWD poprawka: kalendarze pionowo na mobile -->
-<style>
-@media (max-width: 768px) {
-  #calendar-container {
-    flex-direction: column !important;
-    align-items: center;
-  }
-}
-</style>
 
 <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ SKRYPT KALENDARZY ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
 <script>
@@ -1168,9 +1176,6 @@ function showNote(id) {
   document.body.appendChild(overlay);
 }
 </script>
-
-  
-  
 
 
 
