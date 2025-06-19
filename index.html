@@ -2400,8 +2400,6 @@ document.addEventListener('click', function(e) {
 <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ EXPORT IMPORT PRZYCISKI ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
 <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ EXPORT IMPORT PRZYCISKI ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
 
-
-
 <!-- ✅ CAŁY BLOK EKSPORT/IMPORT -->
 <div style="display: flex; flex-direction: column; gap: 30px; align-items: center;">
 
@@ -2413,8 +2411,10 @@ document.addEventListener('click', function(e) {
       <h3>📤 Eksport danych</h3>
       <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
         <button onclick="exportCheck()">Export ✅</button>
-          <button onclick="exportNotesPhone()">Export ✏️📱</button>
+        <button onclick="exportNotesPhone()">Export ✏️📱</button>
         <button onclick="exportNotesComputer()">Export ✏️💻</button>
+        <button onclick="exportNotesCalendarPhone()">Export ✏️📅📱</button>
+        <button onclick="exportNotesCalendarComputer()">Export ✏️📅💻</button>
         <button onclick="exportAll()">Export ✅+📱💻</button>
       </div>
     </div>
@@ -2426,6 +2426,8 @@ document.addEventListener('click', function(e) {
         <button onclick="importFromFile('check')">Import ✅</button>
         <button onclick="importFromFile('notes-phone')">Import ✏️📱</button>
         <button onclick="importFromFile('notes-comp')">Import ✏️💻</button>
+        <button onclick="importFromFile('notes-calendar-phone')">Import ✏️📅📱</button>
+        <button onclick="importFromFile('notes-calendar-computer')">Import ✏️📅💻</button>
         <button onclick="importFromFile('all')">Import ✅+📱💻</button>
       </div><br>
       <input type="file" id="fileInput" />
@@ -2442,6 +2444,8 @@ document.addEventListener('click', function(e) {
         <button onclick="exportCheckCopy()">Export ✅</button>
         <button onclick="exportNotesPhoneCopy()">Export ✏️📱</button>
         <button onclick="exportNotesComputerCopy()">Export ✏️💻</button>
+        <button onclick="exportNotesCalendarPhoneCopy()">Export ✏️📅📱</button>
+        <button onclick="exportNotesCalendarComputerCopy()">Export ✏️📅💻</button>
         <button onclick="exportAllCopy()">Export ✅+📱💻</button>
       </div><br>
       <textarea id="exportOutput" placeholder="Tu pojawi się JSON do skopiowania" style="width: 90%; height: 60px;"></textarea><br>
@@ -2456,6 +2460,8 @@ document.addEventListener('click', function(e) {
         <button onclick="importFromPaste('check')">Import ✅</button>
         <button onclick="importFromPaste('notes-phone')">Import ✏️📱</button>
         <button onclick="importFromPaste('notes-comp')">Import ✏️💻</button>
+        <button onclick="importFromPaste('notes-calendar-phone')">Import ✏️📅📱</button>
+        <button onclick="importFromPaste('notes-calendar-computer')">Import ✏️📅💻</button>
         <button onclick="importFromPaste('all')">Import ✅+📱💻</button>
       </div><br>
       <textarea id="pasteInput" placeholder="Wklej tutaj dane JSON..." style="width: 90%; height: 60px;"></textarea><br>
@@ -2465,16 +2471,7 @@ document.addEventListener('click', function(e) {
   </div>
 </div>
 
-
-
-<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ EXPORT IMPORT SKRYPTY ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
-<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ EXPORT IMPORT SKRYPTY ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
-<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ EXPORT IMPORT SKRYPTY ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
-
-  
-
 <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ EXPORT ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
-
 <script>
 function exportCheck() {
   const checkData = {};
@@ -2491,9 +2488,20 @@ function exportNotes(type) {
     const val = localStorage.getItem(id);
     if (val !== null) notes[id] = val;
   });
-  const label = type === 'phone-comp' ? 'notes-phone' : 'notes-computer';
+  const labelMap = {
+    'phone-comp': 'notes-phone',
+    'computer-ph': 'notes-computer',
+    'calendar-phone-comp': 'notes-calendar-phone',
+    'calendar-computer-ph': 'notes-calendar-computer'
+  };
+  const label = labelMap[type] || 'notes';
   downloadJSON(notes, `${label}-export.json`);
 }
+
+function exportNotesPhone() { exportNotes('phone-comp'); }
+function exportNotesComputer() { exportNotes('computer-ph'); }
+function exportNotesCalendarPhone() { exportNotes('calendar-phone-comp'); }
+function exportNotesCalendarComputer() { exportNotes('calendar-computer-ph'); }
 
 function exportAll() {
   const allData = { checkboxes: {}, notes: {} };
@@ -2518,7 +2526,6 @@ function downloadJSON(data, filename) {
 </script>
 
 <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ IMPORT ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
-
 <script>
 function importFromFile(type) {
   const input = document.getElementById("fileInput");
@@ -2557,32 +2564,77 @@ function importDataByType(type, data) {
     document.querySelectorAll('input[type="checkbox"][data-id]').forEach(cb => {
       if (boxData.hasOwnProperty(cb.dataset.id)) {
         cb.checked = boxData[cb.dataset.id];
-        localStorage.setItem(cb.dataset.id, boxData[cb.dataset.id]);
+        localStorage.setItem(cb.dataset.id, cb.checked);
       }
     });
   }
 
-  if (['notes', 'phone', 'computer', 'all'].includes(type)) {
+  if (['notes-phone', 'notes-comp', 'notes-calendar-phone', 'notes-calendar-computer', 'all'].includes(type)) {
     const noteData = type === 'all' ? data.notes : data;
-    for (const id in noteData) {
-      const el = document.getElementById(id);
-      if (el && (
-          (type === 'notes') ||
-          (type === 'phone' && el.dataset.type === 'phone-comp') ||
-          (type === 'computer' && el.dataset.type === 'computer-ph')
-        )
-      ) {
+    const typeMap = {
+      'notes-phone': 'phone-comp',
+      'notes-comp': 'computer-ph',
+      'notes-calendar-phone': 'calendar-phone-comp',
+      'notes-calendar-computer': 'calendar-computer-ph'
+    };
+    document.querySelectorAll('textarea[data-type]').forEach(note => {
+      const id = note.id;
+      const expectedType = typeMap[type];
+      if ((type === 'all' || note.dataset.type === expectedType) && noteData.hasOwnProperty(id)) {
         localStorage.setItem(id, noteData[id]);
-        el.value = noteData[id];
+        note.value = noteData[id];
       }
-    }
+    });
   }
 
   alert("Import zakończony. Odśwież stronę.");
 }
 </script>
 
-
+<!-- ░░░ EXPORT KOPIUJ/WKLEJ FUNKCJE ░░░ -->
+<script>
+function exportCheckCopy() {
+  const data = {};
+  document.querySelectorAll('input[type="checkbox"][data-id]').forEach(cb => {
+    data[cb.dataset.id] = cb.checked;
+  });
+  document.getElementById("exportOutput").value = JSON.stringify(data, null, 2);
+}
+function exportNotesPhoneCopy() { exportNotesCopy('phone-comp'); }
+function exportNotesComputerCopy() { exportNotesCopy('computer-ph'); }
+function exportNotesCalendarPhoneCopy() { exportNotesCopy('calendar-phone-comp'); }
+function exportNotesCalendarComputerCopy() { exportNotesCopy('calendar-computer-ph'); }
+function exportAllCopy() {
+  const allData = { checkboxes: {}, notes: {} };
+  document.querySelectorAll('input[type="checkbox"][data-id]').forEach(cb => {
+    allData.checkboxes[cb.dataset.id] = cb.checked;
+  });
+  document.querySelectorAll('textarea[data-type]').forEach(note => {
+    const id = note.id;
+    const val = localStorage.getItem(id);
+    if (val !== null) allData.notes[id] = val;
+  });
+  document.getElementById("exportOutput").value = JSON.stringify(allData, null, 2);
+}
+function exportNotesCopy(type) {
+  const notes = {};
+  document.querySelectorAll(`textarea[data-type="${type}"]`).forEach(note => {
+    const id = note.id;
+    const val = localStorage.getItem(id);
+    if (val !== null) notes[id] = val;
+  });
+  document.getElementById("exportOutput").value = JSON.stringify(notes, null, 2);
+}
+function copyExportJSON() {
+  const area = document.getElementById("exportOutput");
+  area.select();
+  document.execCommand("copy");
+}
+function clearExportJSON() {
+  const area = document.getElementById("exportOutput");
+  if (area) area.value = "";
+}
+</script>
 
   
   
