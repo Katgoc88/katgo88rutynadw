@@ -2196,7 +2196,7 @@ document.addEventListener('click', function(e) {
   border-radius: 8px;  background-color: #f4f4f4;  font-weight: bold;  cursor: pointer;  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;">Export ✅+📝</button>
   </div>
-
+<br>
   <!-- Import z pliku -->
   <div style="width: 20%; padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent; text-align: center;">
     <h3>📥 Import danych</h3>
@@ -2213,7 +2213,7 @@ document.addEventListener('click', function(e) {
   border-radius: 8px;  background-color: #f4f4f4;  font-weight: bold;  cursor: pointer;  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;">Import ✅+📝</button>
   </div>
-
+<br>
   <!-- Import wklejany -->
   <div style="width: 25%; padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent; text-align: center;">
     <textarea id="pasteInput" placeholder="Wklej tutaj dane JSON..." style="width: 90%; height: 60px;"></textarea><br><br>
@@ -2327,6 +2327,57 @@ function importDataByType(type, data) {
 </script>
 
 
+
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ EKSPORT MM TEST░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ EXPORT COPY ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+<button onclick="exportCheckCopy()" style="margin: 4px;">Export ✅ (kopiuj)</button>
+<button onclick="exportNotesCopy()" style="margin: 4px;">Export 🖊️ (kopiuj)</button>
+<button onclick="exportAllCopy()" style="margin: 4px;">Export ✅+🖊️ (kopiuj)</button>
+
+<script>
+function showPopup(json, title = "Skopiuj dane JSON") {
+  const w = window.open("", "_blank", "width=500,height=500");
+  w.document.write(`
+    <pre style="white-space: pre-wrap; font-family: monospace; padding: 20px;">${json}</pre>
+  `);
+  w.document.title = title;
+}
+
+function exportCheckCopy() {
+  const checkData = {};
+  document.querySelectorAll('input[type="checkbox"][data-id]').forEach(cb => {
+    checkData[cb.dataset.id] = cb.checked;
+  });
+  showPopup(JSON.stringify(checkData, null, 2), "Checkboxy JSON");
+}
+
+function exportNotesCopy() {
+  const notes = {};
+  ['note1','note2','note3','note4','note5','note6'].forEach(id => {
+    const val = localStorage.getItem(id);
+    if (val !== null) notes[id] = val;
+  });
+  showPopup(JSON.stringify(notes, null, 2), "Notatki JSON");
+}
+
+function exportAllCopy() {
+  const allData = { checkboxes: {}, notes: {} };
+  document.querySelectorAll('input[type="checkbox"][data-id]').forEach(cb => {
+    allData.checkboxes[cb.dataset.id] = cb.checked;
+  });
+  ['note1','note2','note3','note4','note5','note6'].forEach(id => {
+    const val = localStorage.getItem(id);
+    if (val !== null) allData.notes[id] = val;
+  });
+  showPopup(JSON.stringify(allData, null, 2), "Wszystko JSON");
+}
+</script>
+
+
+
+
+  
   
   
 </body>
