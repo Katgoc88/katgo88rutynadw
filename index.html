@@ -1011,7 +1011,7 @@ color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1p
   <span id="calendar-phone-title" style="margin: 0 10px;"></span>
   <button onclick="changeMonth('phone-comp', 1)">➡️</button>
 </div>
-<table id="calendar-phone" style="width: 100%; border-collapse: collapse; margin-bottom: 30px;"></table>
+<table id="calendar-phone" style="width: 100%; border-collapse: collapse; table-layout: fixed; margin-bottom: 30px;"></table>
 
 <h3 style="text-align:center;">💻 NOTATKI Z KOMPUTERA – KALENDARZ</h3>
 <div style="text-align:center; margin-bottom: 10px;">
@@ -1019,7 +1019,7 @@ color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1p
   <span id="calendar-computer-title" style="margin: 0 10px;"></span>
   <button onclick="changeMonth('computer-ph', 1)">➡️</button>
 </div>
-<table id="calendar-computer" style="width: 100%; border-collapse: collapse;"></table>
+<table id="calendar-computer" style="width: 100%; border-collapse: collapse; table-layout: fixed;"></table>
 
 <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ SKRYPT KALENDARZY ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
 <script>
@@ -1037,7 +1037,7 @@ function changeMonth(type, delta) {
 function generateCalendar(tableId, dataType) {
   const now = calendarState[dataType];
   const year = now.getFullYear();
-  const month = now.getMonth(); // 0-indexed
+  const month = now.getMonth();
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   const firstDay = new Date(year, month, 1).getDay();
   const adjustedStart = (firstDay + 6) % 7;
@@ -1061,7 +1061,7 @@ function generateCalendar(tableId, dataType) {
   for (let i = 0; i < adjustedStart; i++) {
     const td = document.createElement("td");
     td.innerHTML = "&nbsp;";
-    td.style = "border: 1px solid #ccc; height: 120px; vertical-align: top;";
+    td.style = "border: 1px solid #ccc; height: 120px; vertical-align: top; padding: 0; width: 14.28%; box-sizing: border-box;";
     row.appendChild(td);
   }
 
@@ -1073,13 +1073,13 @@ function generateCalendar(tableId, dataType) {
     const input = document.createElement("textarea");
     input.value = saved;
     input.placeholder = `${day}.${month + 1}`;
-    input.style = "width: 100%; height: 100px; resize: none; padding: 6px; font-size: 12px; box-sizing: border-box;";
+    input.style = "width: 100%; height: 100%; resize: none; padding: 6px; font-size: 12px; box-sizing: border-box; border: none;";
     input.dataset.type = dataType;
     input.dataset.id = id;
 
     input.addEventListener("input", () => localStorage.setItem(id, input.value));
 
-    cell.style = "border: 1px solid #ccc; vertical-align: top;";
+    cell.style = "border: 1px solid #ccc; vertical-align: top; padding: 0; width: 14.28%; height: 120px; box-sizing: border-box;";
     cell.appendChild(input);
     row.appendChild(cell);
 
@@ -1087,7 +1087,7 @@ function generateCalendar(tableId, dataType) {
       while (row.children.length < 7) {
         const td = document.createElement("td");
         td.innerHTML = "&nbsp;";
-        td.style = "border: 1px solid #ccc; height: 120px; vertical-align: top;";
+        td.style = "border: 1px solid #ccc; height: 120px; vertical-align: top; padding: 0; width: 14.28%; box-sizing: border-box;";
         row.appendChild(td);
       }
       table.appendChild(row);
@@ -1100,7 +1100,6 @@ function generateCalendar(tableId, dataType) {
 generateCalendar("calendar-phone", "phone-comp");
 generateCalendar("calendar-computer", "computer-ph");
 </script>
-
 
 
 
