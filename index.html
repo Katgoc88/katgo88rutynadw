@@ -2329,24 +2329,23 @@ function importDataByType(type, data) {
 
 
 <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ EKSPORT MM TEST░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
-
 <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ EXPORT COPY ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
-<div id="exportBox" style="margin-top: 40px; padding: 16px; border: 1px solid #999; border-radius: 8px;">
-  <h3>📋 Eksport (kopiuj do schowka lub wyślij)</h3>
-  <button onclick="exportCheckCopy()" style="margin: 4px;">Ex  port ✅ (kopiuj)</button>
+<div id="exportBox" style="margin-top: 40px; padding: 16px; border: 1px solid #999; border-radius: 8px; text-align: center;">
+  <h3>📋 Eksport (kopiuj lub wyczyść)</h3>
+  <button onclick="exportCheckCopy()" style="margin: 4px;">Export ✅ (kopiuj)</button>
   <button onclick="exportNotesCopy()" style="margin: 4px;">Export 🖊️ (kopiuj)</button>
   <button onclick="exportAllCopy()" style="margin: 4px;">Export ✅+🖊️ (kopiuj)</button>
   <br><br>
   <textarea id="exportOutput" placeholder="Tu pojawi się JSON do skopiowania" style="width: 100%; height: 160px; border-radius: 6px; padding: 10px; font-family: monospace;"></textarea>
+  <br><br>
+  <button onclick="copyExportJSON()" style="margin: 4px;">📋 COPY</button>
+  <button onclick="clearExportJSON()" style="margin: 4px;">🧹 CLEAN</button>
 </div>
 
 <script>
 function showPopup(json) {
   const area = document.getElementById("exportOutput");
-  if (!area) {
-    alert("Nie znaleziono pola tekstowego do wyświetlenia JSON-a");
-    return;
-  }
+  if (!area) return alert("Nie znaleziono pola tekstowego");
   area.value = json;
   area.focus();
   area.scrollIntoView({ behavior: "smooth" });
@@ -2380,8 +2379,23 @@ function exportAllCopy() {
   });
   showPopup(JSON.stringify(allData, null, 2));
 }
-</script>
 
+function clearExportJSON() {
+  const area = document.getElementById("exportOutput");
+  if (area) area.value = "";
+}
+
+function copyExportJSON() {
+  const area = document.getElementById("exportOutput");
+  if (area && area.value) {
+    navigator.clipboard.writeText(area.value).then(() => {
+      alert("Skopiowano do schowka!");
+    }, () => {
+      alert("Błąd kopiowania.");
+    });
+  }
+}
+</script>
 
 
 
