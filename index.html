@@ -996,10 +996,100 @@ color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1p
   }
 </script>
 
- 
+ <br><br>
+
+  
+
+    <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░KALENDARZE░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ --> 
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░KALENDARZE░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ --> 
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░KALENDARZE░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ --> 
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░KALENDARZE░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ --> 
+  
+<h3 style="text-align:center;">📱 NOTATKI Z TELEFONU – KALENDARZ</h3>
+<table id="calendar-phone" style="width: 100%; border-collapse: collapse; margin-bottom: 30px;"></table>
+
+ <br><br>
+
+  <h3 style="text-align:center;">💻 NOTATKI Z KOMPUTERA – KALENDARZ</h3>
+<table id="calendar-computer" style="width: 100%; border-collapse: collapse;"></table>
 
 
 
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ SKRYPT KALENDARZA░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ --> 
+  
+  <script>
+function generateCalendar(tableId, dataType) {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = today.getMonth(); // 0-indexed
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const firstDay = new Date(year, month, 1).getDay(); // 0 = Sunday
+
+  const table = document.getElementById(tableId);
+  table.innerHTML = "";
+
+  const headerRow = document.createElement("tr");
+  ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].forEach(day => {
+    const th = document.createElement("th");
+    th.innerText = day;
+    th.style = "padding: 8px; border: 1px solid #ccc; background:#eee;";
+    headerRow.appendChild(th);
+  });
+  table.appendChild(headerRow);
+
+  let row = document.createElement("tr");
+  for (let i = 0; i < (firstDay + 6) % 7; i++) {
+    const td = document.createElement("td");
+    td.innerHTML = "&nbsp;";
+    td.style = "border: 1px solid #ccc;";
+    row.appendChild(td);
+  }
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    const cell = document.createElement("td");
+    const id = `${dataType}-${year}-${month + 1}-${day}`;
+    const saved = localStorage.getItem(id) || "";
+
+    const input = document.createElement("textarea");
+    input.value = saved;
+    input.placeholder = `🗓 ${day}.${month + 1}`;
+    input.style = "width: 100%; height: 80px; resize: vertical; padding: 6px; font-size: 12px;";
+    input.dataset.type = dataType;
+    input.dataset.id = id;
+
+    input.addEventListener("input", () => localStorage.setItem(id, input.value));
+
+    cell.style = "vertical-align: top; border: 1px solid #ccc; padding: 4px;";
+    cell.appendChild(input);
+    row.appendChild(cell);
+
+    if ((firstDay + day) % 7 === 0 || day === daysInMonth) {
+      while (row.children.length < 7) {
+        const td = document.createElement("td");
+        td.innerHTML = "&nbsp;";
+        td.style = "border: 1px solid #ccc;";
+        row.appendChild(td);
+      }
+      table.appendChild(row);
+      row = document.createElement("tr");
+    }
+  }
+}
+
+generateCalendar("calendar-phone", "phone-comp");
+generateCalendar("calendar-computer", "computer-ph");
+</script>
+
+   <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░KONIEC SKRYPTU KALENDARZA░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ --> 
+
+
+
+
+
+
+
+  
+  
 
 
 
