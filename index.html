@@ -2331,17 +2331,24 @@ function importDataByType(type, data) {
 <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ EKSPORT MM TEST░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
 
 <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ EXPORT COPY ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
-<button onclick="exportCheckCopy()" style="margin: 4px;">Export ✅ (kopiuj)</button>
-<button onclick="exportNotesCopy()" style="margin: 4px;">Export 🖊️ (kopiuj)</button>
-<button onclick="exportAllCopy()" style="margin: 4px;">Export ✅+🖊️ (kopiuj)</button>
+<div style="margin-top: 40px; padding: 16px; border: 1px solid #999; border-radius: 8px;">
+  <h3>📋 Eksport (kopiuj do schowka lub wyślij)</h3>
+  <button onclick="exportCheckCopy()" style="margin: 4px;">Export ✅ (kopiuj)</button>
+  <button onclick="exportNotesCopy()" style="margin: 4px;">Export 🖊️ (kopiuj)</button>
+  <button onclick="exportAllCopy()" style="margin: 4px;">Export ✅+🖊️ (kopiuj)</button>
+  <br><br>
+  <textarea id="exportOutput" placeholder="Tu pojawi się JSON do skopiowania" style="width: 100%; height: 160px; border-radius: 6px; padding: 10px; font-family: monospace;"></textarea>
+</div>
 
 <script>
-function showPopup(json, title = "Skopiuj dane JSON") {
-  const w = window.open("", "_blank", "width=500,height=500");
-  w.document.write(`
-    <pre style="white-space: pre-wrap; font-family: monospace; padding: 20px;">${json}</pre>
-  `);
-  w.document.title = title;
+function showPopup(json) {
+  const area = document.getElementById("exportOutput");
+  if (area) {
+    area.value = json;
+    area.scrollIntoView({ behavior: "smooth" });
+  } else {
+    alert("Nie znaleziono pola do wyświetlenia JSON-a");
+  }
 }
 
 function exportCheckCopy() {
@@ -2349,7 +2356,7 @@ function exportCheckCopy() {
   document.querySelectorAll('input[type="checkbox"][data-id]').forEach(cb => {
     checkData[cb.dataset.id] = cb.checked;
   });
-  showPopup(JSON.stringify(checkData, null, 2), "Checkboxy JSON");
+  showPopup(JSON.stringify(checkData, null, 2));
 }
 
 function exportNotesCopy() {
@@ -2358,7 +2365,7 @@ function exportNotesCopy() {
     const val = localStorage.getItem(id);
     if (val !== null) notes[id] = val;
   });
-  showPopup(JSON.stringify(notes, null, 2), "Notatki JSON");
+  showPopup(JSON.stringify(notes, null, 2));
 }
 
 function exportAllCopy() {
@@ -2370,9 +2377,7 @@ function exportAllCopy() {
     const val = localStorage.getItem(id);
     if (val !== null) allData.notes[id] = val;
   });
-  showPopup(JSON.stringify(allData, null, 2), "Wszystko JSON");
-}
-</script>
+  showPopup(JSON.stringify(allData,
 
 
 
