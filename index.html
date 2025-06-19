@@ -8,12 +8,30 @@
   <style>
 
 body {
-  background: linear-gradient(160deg, #e0e0e0, #f5f5f5 30%, #d0d0d0 60%, #fafafa);
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: #111;
+  background: linear-gradient(145deg, #1f1f1f, #4d4d4d, #a6a6a6, #e6e6e6, #bfbfbf, #3a3a3a);
+  background-size: 400% 400%;
+  animation: chromaFlow 20s ease infinite;
+  color: #f0f0f0;
+  font-family: 'Segoe UI', sans-serif;
 }
+
+@keyframes chromaFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+button, textarea, input, select {
+  background-color: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  backdrop-filter: blur(4px);
+}
+
+textarea::placeholder {
+  color: #bbb;
+}
+
 
 
   
