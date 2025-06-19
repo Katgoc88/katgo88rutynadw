@@ -2188,7 +2188,7 @@ document.addEventListener('click', function(e) {
   <!-- ✅ CAŁY BLOK EKSPORT/IMPORT -->
 <div style="display: flex; flex-direction: column; gap: 30px; align-items: center;">
 
-  <!-- ░░░ EKSPORTY ░░░ -->
+  <!-- ░░░ DO/Z PLIKU ░░░ -->
   <div style="display: flex; gap: 40px; justify-content: center;">
     
     <!-- Eksport DO PLIKU -->
@@ -2205,25 +2205,7 @@ document.addEventListener('click', function(e) {
   transition: background-color 0.3s ease;">Export ✅+📝</button>
   </div>
 
-<!-- Eksport KOPIUJ/WKLEJ -->
-<div id="exportBox" style="width: 40%; padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent; text-align: center;">
-  <h3>📤 Eksport danych</h3>
-  <button onclick="exportCheckCopy()" style="margin: 6px; padding: 10px 18px; border: 1px solid #999; border-radius: 8px; background-color: #f4f4f4; font-weight: bold; cursor: pointer; box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">Export ✅ (kopiuj)</button>
-  <button onclick="exportNotesCopy()" style="margin: 6px; padding: 10px 18px; border: 1px solid #999; border-radius: 8px; background-color: #f4f4f4; font-weight: bold; cursor: pointer; box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">Export 📝 (kopiuj)</button>
-  <button onclick="exportAllCopy()" style="margin: 6px; padding: 10px 18px; border: 1px solid #999; border-radius: 8px; background-color: #f4f4f4; font-weight: bold; cursor: pointer; box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">Export ✅+📝 (kopiuj)</button>
-  <br><br>
-  <textarea id="exportOutput" placeholder="Tu pojawi się JSON do skopiowania" style="width: 90%; height: 60px; border-radius: 6px; padding: 10px; font-family: monospace;"></textarea>
-  <br><br>
-  <button onclick="copyExportJSON()" style="margin: 6px; padding: 8px 16px; border: 1px solid #999; border-radius: 6px; background-color: #fff; cursor: pointer;">📋 COPY</button>
-  <button onclick="clearExportJSON()" style="margin: 6px; padding: 8px 16px; border: 1px solid #999; border-radius: 6px; background-color: #fff; cursor: pointer;">🧹 CLEAN</button>
-</div>
-
-  </div>
-
-  <!-- ░░░ IMPORTY ░░░ -->
-  <div style="display: flex; gap: 40px; justify-content: center;">
-    
-    <!-- Import z pliku -->
+     <!-- Import z pliku -->
   <div style="width: 40%; padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent; text-align: center;">
     <h3>📥 Import danych</h3>
        <button onclick="importFromFile('check')" style="margin: 6px;  padding: 10px 18px;  border: 1px solid #999;
@@ -2240,6 +2222,26 @@ document.addEventListener('click', function(e) {
   transition: background-color 0.3s ease;" />   
   </div>
 
+
+  </div>
+
+  <!-- ░░░ KOPIUJ/WKLEJ ░░░ -->
+  <div style="display: flex; gap: 40px; justify-content: center;">
+    
+   
+<!-- Eksport KOPIUJ/WKLEJ -->
+<div id="exportBox" style="width: 40%; padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent; text-align: center;">
+  <h3>📤 Eksport (kopiuj JSON)</h3>
+  <button onclick="exportCheckCopy()" style="margin: 6px; padding: 10px 18px; border: 1px solid #999; border-radius: 8px; background-color: #f4f4f4; font-weight: bold; cursor: pointer; box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">Export ✅ (kopiuj)</button>
+  <button onclick="exportNotesCopy()" style="margin: 6px; padding: 10px 18px; border: 1px solid #999; border-radius: 8px; background-color: #f4f4f4; font-weight: bold; cursor: pointer; box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">Export 📝 (kopiuj)</button>
+  <button onclick="exportAllCopy()" style="margin: 6px; padding: 10px 18px; border: 1px solid #999; border-radius: 8px; background-color: #f4f4f4; font-weight: bold; cursor: pointer; box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">Export ✅+📝 (kopiuj)</button>
+  <br><br>
+  <textarea id="exportOutput" placeholder="Tu pojawi się JSON do skopiowania" style="width: 90%; height: 60px; border-radius: 6px; padding: 10px; font-family: monospace;"></textarea>
+  <br><br>
+  <button onclick="copyExportJSON()" style="margin: 6px; padding: 8px 16px; border: 1px solid #999; border-radius: 6px; background-color: #fff; cursor: pointer;">📋 COPY</button>
+  <button onclick="clearExportJSON()" style="margin: 6px; padding: 8px 16px; border: 1px solid #999; border-radius: 6px; background-color: #fff; cursor: pointer;">🧹 CLEAN</button>
+</div>
+    
     <!-- IMPORT 2 – WKLEJ -->
      <!-- Import wklejany -->
  <div style="width: 40%; padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent; text-align: center;">
