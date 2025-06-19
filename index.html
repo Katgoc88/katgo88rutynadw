@@ -2406,12 +2406,12 @@ document.addEventListener('click', function(e) {
     <div style="width: 60%; padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent; text-align: center;">
       <h3>📤 Eksport danych</h3>
       <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
-        <button onclick="exportCheck()">Export ✅</button>
-        <button onclick="exportNotesPhone()">Export ✏️📱</button>
-        <button onclick="exportNotesComputer()">Export ✏️💻</button>
-        <button onclick="exportNotesCalendarPhone()">Export ✏️📅📱</button>
-        <button onclick="exportNotesCalendarComputer()">Export ✏️📅💻</button>
-        <button onclick="exportAll()">Export ✅+📱💻</button>
+        <button onclick="exportCheck()">📤✅checkboxy✅</button>
+        <button onclick="exportNotesPhone()">📤✏️notes telefon📱</button>
+        <button onclick="exportNotesComputer()">📤✏️notes komputer💻</button>
+        <button onclick="exportNotesCalendarPhone()">📤📅kalendarz telefon📱</button>
+        <button onclick="exportNotesCalendarComputer()">📤📅kalendarz komputer💻</button>
+        <button onclick="exportAll()">📤całość✅✏️📅</button>
       </div>
     </div>
 
@@ -2419,12 +2419,12 @@ document.addEventListener('click', function(e) {
     <div style="width: 60%; padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent; text-align: center;">
       <h3>📥 Import danych</h3>
       <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
-        <button onclick="importFromFile('check')">Import ✅</button>
-        <button onclick="importFromFile('notes-phone')">Import ✏️📱</button>
-        <button onclick="importFromFile('notes-comp')">Import ✏️💻</button>
-        <button onclick="importFromFile('notes-calendar-phone')">Import ✏️📅📱</button>
-        <button onclick="importFromFile('notes-calendar-computer')">Import ✏️📅💻</button>
-        <button onclick="importFromFile('all')">Import ✅+📱💻</button>
+        <button onclick="importFromFile('check')">📥✅checkboxy✅</button>
+        <button onclick="importFromFile('notes-phone')">📥✏️notes telefon📱</button>
+        <button onclick="importFromFile('notes-comp')">📥✏️notes komputer💻</button>
+        <button onclick="importFromFile('notes-calendar-phone')">📥📅kalendarz telefon📱</button>
+        <button onclick="importFromFile('notes-calendar-computer')">📥📅kalendarz komputer💻</button>
+        <button onclick="importFromFile('all')">📥całość✅✏️📅</button>
       </div><br>
       <input type="file" id="fileInput" />
     </div>
@@ -2437,12 +2437,12 @@ document.addEventListener('click', function(e) {
     <div id="exportBox" style="width: 60%; padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent; text-align: center;">
       <h3>📤 Eksport (kopiuj JSON)</h3>
       <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
-        <button onclick="exportCheckCopy()">✅checkboxy✅</button>
-        <button onclick="exportNotesPhoneCopy()">✏️notes telefon📱</button>
-        <button onclick="exportNotesComputerCopy()">✏️notes komputer💻</button>
-        <button onclick="exportNotesCalendarPhoneCopy()">📅kalendarz telefon📱</button>
-        <button onclick="exportNotesCalendarComputerCopy()">📅kalendarz komputer💻</button>
-        <button onclick="exportAllCopy()">całość✅✏️📅</button>
+        <button onclick="exportCheckCopy()">📤✅checkboxy✅</button>
+        <button onclick="exportNotesPhoneCopy()">📤✏️notes telefon📱</button>
+        <button onclick="exportNotesComputerCopy()">📤✏️notes komputer💻</button>
+        <button onclick="exportNotesCalendarPhoneCopy()">📤📅kalendarz telefon📱</button>
+        <button onclick="exportNotesCalendarComputerCopy()">📤📅kalendarz komputer💻</button>
+        <button onclick="exportAllCopy()">📤całość✅✏️📅</button>
       </div><br>
       <textarea id="exportOutput" placeholder="Tu pojawi się JSON do skopiowania" style="width: 90%; height: 60px;"></textarea><br>
       <button onclick="copyExportJSON()">📋 COPY</button>
@@ -2453,12 +2453,14 @@ document.addEventListener('click', function(e) {
     <div style="width: 60%; padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent; text-align: center;">
       <h3>📥 Import (wklej JSON)</h3>
       <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
-        <button onclick="importFromPaste('check')">Import ✅</button>
-        <button onclick="importFromPaste('notes-phone')">Import ✏️📱</button>
-        <button onclick="importFromPaste('notes-comp')">Import ✏️💻</button>
-        <button onclick="importFromPaste('notes-calendar-phone')">Import ✏️📅📱</button>
-        <button onclick="importFromPaste('notes-calendar-computer')">Import ✏️📅💻</button>
-        <button onclick="importFromPaste('all')">Import ✅+📱💻</button>
+        <button onclick="importFromPaste('check')">📥✅checkboxy✅</button>
+        <button onclick="importFromPaste('notes-phone')">📥✏️notes telefon📱</button>
+        <button onclick="importFromPaste('notes-comp')">📥✏️notes komputer💻</button>
+         </div>
+        <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
+        <button onclick="importFromPaste('notes-calendar-phone')">📥📅kalendarz telefon📱</button>
+        <button onclick="importFromPaste('notes-calendar-computer')">📥📅kalendarz komputer💻</button>
+        <button onclick="importFromPaste('all')">📥całość✅✏️📅</button>
       </div><br>
       <textarea id="pasteInput" placeholder="Wklej tutaj dane JSON..." style="width: 90%; height: 60px;"></textarea><br>
       <button onclick="clearPasteInput()">🧹 CLEAN</button>
