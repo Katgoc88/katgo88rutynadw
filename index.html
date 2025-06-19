@@ -864,12 +864,12 @@ body {
  
   <tr>  
       <td colspan="5" style="padding: 10px; background: #f8f8f8; text-align: center; font-weight: bold; font-size: 16px; border: 1px solid #ccc;">
-    📝  ✏️📱 NOTATKI SPISANE NA TELEFONIE ✏️📱  📝
+    📝✏️📱NOTES TELEFON
   </td>
 </tr>
 <tr>
 <td style="width: 20%; padding: 10px;">
-  <div style="font-weight: bold; margin-bottom: 4px;text-align: center;">🔴 KRÓTKI DEADLINE ✏️📱</div>
+  <div style="font-weight: bold; margin-bottom: 4px;text-align: center;">🔴krótki deadline✏️📱</div>
   <textarea id="note1A" data-type="phone-comp" placeholder="..." style="width: 90%; height: 110px; resize: vertical; padding: 10px; margin: 10px auto;
 color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.05);"></textarea>
   <button onclick="clearNote('note1A')" style="margin-top: 6px;">CLEAN</button>
@@ -878,7 +878,7 @@ color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1p
 
 
     <td style="width: 20%; padding: 10px;">
-  <div style="font-weight: bold; margin-bottom: 4px;text-align: center;">🟢 NOWE WPISY / TO-DO ✏️📱</div>
+  <div style="font-weight: bold; margin-bottom: 4px;text-align: center;">🟢nowe wpisy/to-do✏️📱</div>
   <textarea id="note1B" data-type="phone-comp" placeholder="..." style="width: 90%; height: 110px; resize: vertical; padding: 10px; margin: 10px auto;
 color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.05);"></textarea>
   <button onclick="clearNote('note1B')" style="margin-top: 6px;">CLEAN</button>
@@ -886,7 +886,7 @@ color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1p
 </td>
 
     <td style="width: 20%; padding: 10px;">
-  <div style="font-weight: bold; margin-bottom: 4px;text-align: center;">🔵 STRONKA(poprawki) ✏️📱</div>
+  <div style="font-weight: bold; margin-bottom: 4px;text-align: center;">🔵stronka/poprawki✏️📱</div>
   <textarea id="note1C" data-type="phone-comp" placeholder="..." style="width: 90%; height: 110px; resize: vertical; padding: 10px; margin: 10px auto;
 color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.05);"></textarea>
   <button onclick="clearNote('note1C')" style="margin-top: 6px;">CLEAN</button>
@@ -894,7 +894,7 @@ color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1p
 </td>
 
     <td style="width: 20%; padding: 10px;">
-  <div style="font-weight: bold; margin-bottom: 4px;text-align: center;">⚫ OGÓLNE ✏️📱</div>
+  <div style="font-weight: bold; margin-bottom: 4px;text-align: center;">⚫ogólne✏️📱</div>
   <textarea id="note1D" data-type="phone-comp" placeholder="..." style="width: 90%; height: 110px; resize: vertical; padding: 10px; margin: 10px auto;
 color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.05);"></textarea>
   <button onclick="clearNote('note1D')" style="margin-top: 6px;">CLEAN</button>
@@ -902,7 +902,7 @@ color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1p
 </td>
 
 <td style="width: 20%; padding: 10px;">
-  <div style="font-weight: bold; margin-bottom: 4px;text-align: center;">⚫ OGÓLNE ✏️📱</div>
+  <div style="font-weight: bold; margin-bottom: 4px;text-align: center;">⚫ogólne✏️📱</div>
   <textarea id="note1E" data-type="phone-comp" placeholder="..." style="width: 90%; height: 110px; resize: vertical; padding: 10px; margin: 10px auto;
 color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.05);"></textarea>
   <button onclick="clearNote('note1E')" style="margin-top: 6px;">CLEAN</button>
@@ -910,18 +910,35 @@ color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1p
 </td>
  </tr>
 </table>
+  
+<br>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+  <button onclick="exportNotesPhoneCopy()">📤</button>
+  <textarea id="exportNotesPhoneMini" style="width: 90%; height: 30px; font-size: 10px;"></textarea>
+  <div style="display: flex; gap: 6px;">
+    <button onclick="copyExportJSON()">📋</button>
+    <button onclick="clearExportJSON()">🧹</button>
+  </div>
+  <textarea id="importNotesPhoneMini" style="width: 90%; height: 30px; font-size: 10px;" placeholder="Wklej JSON..."></textarea>
+  <div style="display: flex; gap: 6px;">
+    <button onclick="importFromPaste('notes-phone')">📥</button>
+    <button onclick="clearPasteInput()">🧹</button>
+  </div>
+</div>
 
-<br><br>
+
+  
+<br><br><br><br>
   
   <table style="margin-top:30px; border-collapse: collapse; width: 100%;">
   <tr>    
      <td colspan="5" style="padding: 10px; background: #f8f8f8; text-align: center; font-weight: bold; font-size: 16px; border: 1px solid #ccc;">
-    📝  ✏️💻 NOTATKI SPISANE NA KOMPUTERZE ✏️💻  📝
+    📝✏️💻NOTES KOMPUTER
   </td>
 </tr>
 <tr>
 <td style="width: 20%; padding: 10px;">
-  <div style="font-weight: bold; margin-bottom: 4px;text-align: center;">🔴 KRÓTKI DEADLINE ✏️💻</div>
+  <div style="font-weight: bold; margin-bottom: 4px;text-align: center;">🔴krótki deadline✏️💻</div>
   <textarea id="note1KA" data-type="computer-ph" placeholder="..." style="width: 90%; height: 110px; resize: vertical; padding: 10px; margin: 10px auto;
 color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.05);"></textarea>
   <button onclick="clearNote('note1KA')" style="margin-top: 6px;">CLEAN</button>
@@ -929,7 +946,7 @@ color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1p
 </td>
 
     <td style="width: 20%; padding: 10px;">
-  <div style="font-weight: bold; margin-bottom: 4px;text-align: center;">🟢 NOWE WPISY / TO-DO ✏️💻</div>
+  <div style="font-weight: bold; margin-bottom: 4px;text-align: center;">🟢nowe wpisy/to-do✏️💻</div>
   <textarea id="note1KB" data-type="computer-ph" placeholder="..." style="width: 90%; height: 110px; resize: vertical; padding: 10px; margin: 10px auto;
 color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.05);"></textarea>
   <button onclick="clearNote('note1KB')" style="margin-top: 6px;">CLEAN</button>
@@ -937,7 +954,7 @@ color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1p
 </td>
 
     <td style="width: 20%; padding: 10px;">
-  <div style="font-weight: bold; margin-bottom: 4px;text-align: center;">🔵 STRONKA(poprawki) ✏️💻</div>
+  <div style="font-weight: bold; margin-bottom: 4px;text-align: center;">🔵stronka/poprawki✏️💻</div>
   <textarea id="note1KC" data-type="computer-ph" placeholder="..." style="width: 90%; height: 110px; resize: vertical; padding: 10px; margin: 10px auto;
 color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.05);"></textarea>
   <button onclick="clearNote('note1KC')" style="margin-top: 6px;">CLEAN</button>
@@ -945,7 +962,7 @@ color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1p
 </td>
 
     <td style="width: 20%; padding: 10px;">
-  <div style="font-weight: bold; margin-bottom: 4px;text-align: center;">⚫ OGÓLNE ✏️💻</div>
+  <div style="font-weight: bold; margin-bottom: 4px;text-align: center;">⚫ogólne✏️💻</div>
   <textarea id="note1KD" data-type="computer-ph" placeholder="..." style="width: 90%; height: 110px; resize: vertical; padding: 10px; margin: 10px auto;
 color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.05);"></textarea>
   <button onclick="clearNote('note1KD')" style="margin-top: 6px;">CLEAN</button>
@@ -953,7 +970,7 @@ color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1p
 </td>
 
 <td style="width: 20%; padding: 10px;">
-  <div style="font-weight: bold; margin-bottom: 4px;text-align: center;">⚫ OGÓLNE ✏️💻</div>
+  <div style="font-weight: bold; margin-bottom: 4px;text-align: center;">⚫ogólne✏️💻</div>
   <textarea id="note1KE" data-type="computer-ph" placeholder="..." style="width: 90%; height: 110px; resize: vertical; padding: 10px; margin: 10px auto;
 color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.05);"></textarea>
   <button onclick="clearNote('note1KE')" style="margin-top: 6px;">CLEAN</button>
@@ -962,14 +979,14 @@ color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1p
    </tr>
 </table>
   
-<br><br>
+<br>
 
-<!-- Eksport/Import DO PLIKU NOTES KOMPUTER -->
-      <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
-        <button onclick="exportNotesComputer()">📤eksport✏️💻</button>
-        <button onclick="importFromPaste('notes-comp')">📥import✏️💻</button>
-      </div>
-    </div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+  <button onclick="exportNotesComputer()">📤</button>
+  <button onclick="importFromFile('notes-comp')">📥</button>
+  <input type="file" onchange="importFromFile('notes-comp')" style="font-size: 10px; width: 100%;">
+</div>
+
 
  
 
@@ -1007,7 +1024,7 @@ color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1p
   }
 </script>
 
- <br><br>
+ <br><br><br><br>
 
   
 
@@ -1016,10 +1033,13 @@ color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1p
   <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░KALENDARZE░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ --> 
 
 <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ KALENDARZE ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  
 <div style="display: flex; flex-wrap: wrap; gap: 50px; justify-content: center;"> <!-- ZMIANA: gap 50px -->
+
+  
   <!-- TELEFON -->
   <div style="width: 100%; max-width: 700px; flex: 1;">
-    <h3 style="text-align:center;">📱 NOTATKI Z TELEFONU – KALENDARZ</h3>
+    <h3 style="text-align:center;">📱 TELEFON KALENDARZ </h3>
     <div style="text-align:center; margin-bottom: 10px;">
       <button onclick="changeMonth('phone-comp', -1)">⬅️</button>
       <span id="calendar-phone-title" style="margin: 0 10px;"></span>
@@ -1027,10 +1047,27 @@ color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1p
     </div>
     <table id="calendar-phone" style="width: 100%; border-collapse: separate; border-spacing: 0 8px; table-layout: fixed; margin-bottom: 30px;"></table> <!-- ZMIANA: border-spacing 8px -->
   </div>
+<br>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+  <button onclick="exportNotesCalendarPhoneCopy()">📤</button>
+  <textarea id="exportNotesCalendarPhoneMini" style="width: 90%; height: 30px; font-size: 10px;"></textarea>
+  <div style="display: flex; gap: 6px;">
+    <button onclick="copyExportJSON()">📋</button>
+    <button onclick="clearExportJSON()">🧹</button>
+  </div>
+  <textarea id="importNotesCalendarPhoneMini" style="width: 90%; height: 30px; font-size: 10px;" placeholder="Wklej JSON..."></textarea>
+  <div style="display: flex; gap: 6px;">
+    <button onclick="importFromPaste('notes-calendar-phone')">📥</button>
+    <button onclick="clearPasteInput()">🧹</button>
+  </div>
+</div>
 
+
+  
+  
   <!-- KOMPUTER -->
   <div style="width: 100%; max-width: 700px; flex: 1;">
-    <h3 style="text-align:center;">💻 NOTATKI Z KOMPUTERA – KALENDARZ</h3>
+    <h3 style="text-align:center;">💻 KOMPUTER KALENDARZ</h3>
     <div style="text-align:center; margin-bottom: 10px;">
       <button onclick="changeMonth('computer-ph', -1)">⬅️</button>
       <span id="calendar-computer-title" style="margin: 0 10px;"></span>
@@ -1038,19 +1075,21 @@ color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1p
     </div>
     <table id="calendar-computer" style="width: 100%; border-collapse: separate; border-spacing: 0 8px; table-layout: fixed;"></table> <!-- ZMIANA: border-spacing 8px -->
   </div>
+  <br>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+  <button onclick="exportNotesCalendarComputer()">📤</button>
+  <button onclick="importFromFile('notes-calendar-computer')">📥</button>
+  <input type="file" onchange="importFromFile('notes-calendar-computer')" style="font-size: 10px; width: 100%;">
+</div>
+ 
 </div>
 
 
 
-<br><br>
+<br><br><br><br><br><br>
 
-   <!-- Eksport/Import DO PLIKU KALENDARZ KOMPUTER -->
-         </div>
-        <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
-        <button onclick="exportNotesCalendarComputer()">📤eksport📅💻</button>          
-        <button onclick="importFromPaste('notes-calendar-computer')">📥import📅💻</button>
- </div>
-    </div>
+  
+
 
 
 
