@@ -2170,20 +2170,18 @@ document.addEventListener('click', function(e) {
 });
 </script>
 
-&nbsp;&nbsp;
-  &nbsp;
-  &nbsp;
-  &nbsp;
-  &nbsp;
-
+ <br><br> <br><br>
+ <br><br> <br><br>
   
 
 <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ EXPORT ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
-<div style="margin-top: 40px;">
+<div style="margin-top: 40px; padding: 16px; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); background-color: #fdfdfd;">
+  <h3>📤 Eksport danych</h3>
   <button onclick="exportCheck()">Export ✅</button>
   <button onclick="exportNotes()">Export 🖊️</button>
   <button onclick="exportAll()">Export ✅+🖊️</button>
 </div>
+
 
 <script>
 function exportCheck() {
@@ -2225,13 +2223,16 @@ function downloadJSON(data, filename) {
 </script>
 
 <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ IMPORT ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
-<div style="margin-top: 40px;">
+<div style="margin-top: 40px; padding: 16px; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); background-color: #fdfdfd;">
   <h3>📥 Import danych</h3>
   <input type="file" id="fileInput" style="margin-bottom: 10px;" />
   <button onclick="importFromFile('check')">Import ✅</button>
   <button onclick="importFromFile('notes')">Import 🖊️</button>
   <button onclick="importFromFile('all')">Import ✅+🖊️</button>
+</div>
+
   <br><br>
+  <div style="margin-top: 40px; padding: 16px; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); background-color: #fdfdfd;">
   <textarea id="pasteInput" placeholder="Wklej tutaj dane JSON..." style="width: 25%; height: 80px;"></textarea><br>
   <button onclick="importFromPaste('check')">Import ✅ (wklej)</button>
   <button onclick="importFromPaste('notes')">Import 🖊️ (wklej)</button>
