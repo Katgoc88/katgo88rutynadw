@@ -1005,25 +1005,7 @@ color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1p
   <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░KALENDARZE░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ --> 
 
 <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ KALENDARZE ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
-
-<!-- 🔧 Style do układu RWD -->
-<style>
-.calendar-flex {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 50px;
-  justify-content: center;
-  flex-direction: row;
-}
-@media (max-width: 768px) {
-  .calendar-flex {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-</style>
-
-<div id="calendar-container" class="calendar-flex">
+<div style="display: flex; flex-wrap: wrap; gap: 50px; justify-content: center;"> <!-- ZMIANA: gap 50px -->
   <!-- TELEFON -->
   <div style="width: 100%; max-width: 700px; flex: 1;">
     <h3 style="text-align:center;">📱 NOTATKI Z TELEFONU – KALENDARZ</h3>
@@ -1032,7 +1014,7 @@ color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1p
       <span id="calendar-phone-title" style="margin: 0 10px;"></span>
       <button onclick="changeMonth('phone-comp', 1)">➡️</button>
     </div>
-    <table id="calendar-phone" style="width: 100%; border-collapse: separate; border-spacing: 0 8px; table-layout: fixed; margin-bottom: 30px;"></table>
+    <table id="calendar-phone" style="width: 100%; border-collapse: separate; border-spacing: 0 8px; table-layout: fixed; margin-bottom: 30px;"></table> <!-- ZMIANA: border-spacing 8px -->
   </div>
 
   <!-- KOMPUTER -->
@@ -1043,11 +1025,10 @@ color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1p
       <span id="calendar-computer-title" style="margin: 0 10px;"></span>
       <button onclick="changeMonth('computer-ph', 1)">➡️</button>
     </div>
-    <table id="calendar-computer" style="width: 100%; border-collapse: separate; border-spacing: 0 8px; table-layout: fixed;"></table>
+    <table id="calendar-computer" style="width: 100%; border-collapse: separate; border-spacing: 0 8px; table-layout: fixed;"></table> <!-- ZMIANA: border-spacing 8px -->
   </div>
 </div>
 
-<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ SKRYPT KALENDARZY ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
 <script>
 const calendarState = {
   "phone-comp": new Date(),
@@ -1120,13 +1101,13 @@ function generateCalendar(tableId, dataType) {
 
     const clearBtn = document.createElement("button");
     clearBtn.innerText = "🧹";
-    clearBtn.style = "font-size: 12px; padding: 1px;";
+    clearBtn.style = "font-size: 12px; padding: 1px;"; // ZMIANA: mniejsze ikonki
     clearBtn.title = "Wyczyść notatkę";
     clearBtn.onclick = () => clearNote(id);
 
     const showBtn = document.createElement("button");
     showBtn.innerText = "🔍";
-    showBtn.style = "font-size: 12px; padding: 1px;";
+    showBtn.style = "font-size: 12px; padding: 1px;"; // ZMIANA: mniejsze ikonki
     showBtn.title = "Wyświetl notatkę w powiększeniu";
     showBtn.onclick = () => showNote(id);
 
