@@ -1003,33 +1003,53 @@ color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1p
     <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░KALENDARZE░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ --> 
   <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░KALENDARZE░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ --> 
   <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░KALENDARZE░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ --> 
-  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░KALENDARZE░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ --> 
-  
+
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ KALENDARZE ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
 <h3 style="text-align:center;">📱 NOTATKI Z TELEFONU – KALENDARZ</h3>
+<div style="text-align:center; margin-bottom: 10px;">
+  <button onclick="changeMonth('phone-comp', -1)">⬅️</button>
+  <span id="calendar-phone-title" style="margin: 0 10px;"></span>
+  <button onclick="changeMonth('phone-comp', 1)">➡️</button>
+</div>
 <table id="calendar-phone" style="width: 100%; border-collapse: collapse; margin-bottom: 30px;"></table>
 
- <br><br>
-
-  <h3 style="text-align:center;">💻 NOTATKI Z KOMPUTERA – KALENDARZ</h3>
+<h3 style="text-align:center;">💻 NOTATKI Z KOMPUTERA – KALENDARZ</h3>
+<div style="text-align:center; margin-bottom: 10px;">
+  <button onclick="changeMonth('computer-ph', -1)">⬅️</button>
+  <span id="calendar-computer-title" style="margin: 0 10px;"></span>
+  <button onclick="changeMonth('computer-ph', 1)">➡️</button>
+</div>
 <table id="calendar-computer" style="width: 100%; border-collapse: collapse;"></table>
 
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ SKRYPT KALENDARZY ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+<script>
+const calendarState = {
+  "phone-comp": new Date(),
+  "computer-ph": new Date()
+};
 
+function changeMonth(type, delta) {
+  const date = calendarState[type];
+  date.setMonth(date.getMonth() + delta);
+  generateCalendar(type === 'phone-comp' ? 'calendar-phone' : 'calendar-computer', type);
+}
 
-  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ SKRYPT KALENDARZA░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ --> 
-  
-  <script>
 function generateCalendar(tableId, dataType) {
-  const today = new Date();
-  const year = today.getFullYear();
-  const month = today.getMonth(); // 0-indexed
+  const now = calendarState[dataType];
+  const year = now.getFullYear();
+  const month = now.getMonth(); // 0-indexed
   const daysInMonth = new Date(year, month + 1, 0).getDate();
-  const firstDay = new Date(year, month, 1).getDay(); // 0 = Sunday
+  const firstDay = new Date(year, month, 1).getDay();
+  const adjustedStart = (firstDay + 6) % 7;
 
   const table = document.getElementById(tableId);
-  table.innerHTML = "";
+  const title = document.getElementById(tableId + "-title");
+  const monthNames = ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"];
+  title.innerText = `${monthNames[month]} ${year}`;
 
+  table.innerHTML = "";
   const headerRow = document.createElement("tr");
-  ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].forEach(day => {
+  ["Pon", "Wt", "Śr", "Czw", "Pt", "Sob", "Nd"].forEach(day => {
     const th = document.createElement("th");
     th.innerText = day;
     th.style = "padding: 8px; border: 1px solid #ccc; background:#eee;";
@@ -1038,10 +1058,10 @@ function generateCalendar(tableId, dataType) {
   table.appendChild(headerRow);
 
   let row = document.createElement("tr");
-  for (let i = 0; i < (firstDay + 6) % 7; i++) {
+  for (let i = 0; i < adjustedStart; i++) {
     const td = document.createElement("td");
     td.innerHTML = "&nbsp;";
-    td.style = "border: 1px solid #ccc;";
+    td.style = "border: 1px solid #ccc; height: 120px; vertical-align: top;";
     row.appendChild(td);
   }
 
@@ -1052,22 +1072,22 @@ function generateCalendar(tableId, dataType) {
 
     const input = document.createElement("textarea");
     input.value = saved;
-    input.placeholder = `🗓 ${day}.${month + 1}`;
-    input.style = "width: 100%; height: 80px; resize: vertical; padding: 6px; font-size: 12px;";
+    input.placeholder = `${day}.${month + 1}`;
+    input.style = "width: 100%; height: 100px; resize: none; padding: 6px; font-size: 12px; box-sizing: border-box;";
     input.dataset.type = dataType;
     input.dataset.id = id;
 
     input.addEventListener("input", () => localStorage.setItem(id, input.value));
 
-    cell.style = "vertical-align: top; border: 1px solid #ccc; padding: 4px;";
+    cell.style = "border: 1px solid #ccc; vertical-align: top;";
     cell.appendChild(input);
     row.appendChild(cell);
 
-    if ((firstDay + day) % 7 === 0 || day === daysInMonth) {
+    if ((adjustedStart + day) % 7 === 0 || day === daysInMonth) {
       while (row.children.length < 7) {
         const td = document.createElement("td");
         td.innerHTML = "&nbsp;";
-        td.style = "border: 1px solid #ccc;";
+        td.style = "border: 1px solid #ccc; height: 120px; vertical-align: top;";
         row.appendChild(td);
       }
       table.appendChild(row);
@@ -1076,12 +1096,10 @@ function generateCalendar(tableId, dataType) {
   }
 }
 
+// Inicjalizacja
 generateCalendar("calendar-phone", "phone-comp");
 generateCalendar("calendar-computer", "computer-ph");
 </script>
-
-   <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░KONIEC SKRYPTU KALENDARZA░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ --> 
-
 
 
 
