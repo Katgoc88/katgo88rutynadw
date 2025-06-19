@@ -2175,10 +2175,10 @@ document.addEventListener('click', function(e) {
   
 
 <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ EXPORT ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
-<div style="width: 25%;margin-top: 40px; padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent;">
+<div style="width: 20%;margin-top: 40px; padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent;">
   <h3>📤 Eksport danych</h3>
-  <button onclick="exportCheck()style="margin-right: 6px;">Export ✅</button>
-  <button onclick="exportNotes()style="margin-right: 6px;">Export 🖊️</button>
+  <button onclick="exportCheck()style="margin-right: 8px;">Export ✅</button>
+  <button onclick="exportNotes()style="margin-right: 8px;">Export 🖊️</button>
   <button onclick="exportAll()">Export ✅+🖊️</button>
 </div>
 
@@ -2223,19 +2223,18 @@ function downloadJSON(data, filename) {
 </script>
 
 <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ IMPORT ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
-<div style="width: 25%;margin-top: 40px; padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent;">
+<div style="width: 20%;margin-top: 40px; padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent;">
   <h3>📥 Import danych</h3>
   <input type="file" id="fileInput" style="margin-bottom: 10px;" />
-  <button onclick="importFromFile('check')style="margin-right: 6px;">Import ✅</button>
-  <button onclick="importFromFile('notes')style="margin-right: 6px;">Import 🖊️</button>
+  <button onclick="importFromFile('check')style="margin-right: 8px;">Import ✅</button>
+  <button onclick="importFromFile('notes')style="margin-right: 8px;">Import 🖊️</button>
   <button onclick="importFromFile('all')">Import ✅+🖊️</button>
 </div>
 
-  <br>
-  <div style="width: 25%;margin-top: 40px; padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent;">
+  <div style="width: 20%;margin-top: 40px; padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent;">
   <textarea id="pasteInput" placeholder="Wklej tutaj dane JSON..." style="width: 80%; height: 80px;"></textarea><br>
-  <button onclick="importFromPaste('check')style="margin-right: 6px;">Import ✅ (wklej)</button>
-  <button onclick="importFromPaste('notes')style="margin-right: 6px;">Import 🖊️ (wklej)</button>
+  <button onclick="importFromPaste('check')style="margin-right: 8px;">Import ✅ (wklej)</button>
+  <button onclick="importFromPaste('notes')style="margin-right: 8px;">Import 🖊️ (wklej)</button>
   <button onclick="importFromPaste('all')">Import  ✅+🖊️ (wklej)</button>
 </div>
 
