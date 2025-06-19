@@ -1052,7 +1052,7 @@ function generateCalendar(tableId, dataType) {
   ["Pon", "Wt", "Śr", "Czw", "Pt", "Sob", "Nd"].forEach(day => {
     const th = document.createElement("th");
     th.innerText = day;
-    th.style = "padding: 8px; border: 1px solid #ccc; background:#eee;";
+    th.style = "padding: 8px; border: 1px solid #ccc; background:#eee; width: 14.28%;";
     headerRow.appendChild(th);
   });
   table.appendChild(headerRow);
@@ -1100,7 +1100,6 @@ function generateCalendar(tableId, dataType) {
 generateCalendar("calendar-phone", "phone-comp");
 generateCalendar("calendar-computer", "computer-ph");
 </script>
-
 
 
 
