@@ -850,7 +850,7 @@ body {
   </div>
 
 
-
+<br><br><br><br>
 
   
 
@@ -1003,7 +1003,7 @@ color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1p
 
 
 
-
+<br><br><br><br>
 
   
 
@@ -2252,10 +2252,9 @@ document.addEventListener('click', function(e) {
       <h3>📤 Eksport danych</h3>
       <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
         <button onclick="exportCheck()">Export ✅</button>
-        <button onclick="exportNotes()">Export 📝</button>
-        <button onclick="exportNotesPhone()">Export ✏️📱</button>
+          <button onclick="exportNotesPhone()">Export ✏️📱</button>
         <button onclick="exportNotesComputer()">Export ✏️💻</button>
-        <button onclick="exportAll()">Export ✅+📝</button>
+        <button onclick="exportAll()">Export ✅+📝📱💻</button>
       </div>
     </div>
 
@@ -2264,10 +2263,9 @@ document.addEventListener('click', function(e) {
       <h3>📥 Import danych</h3>
       <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
         <button onclick="importFromFile('check')">Import ✅</button>
-        <button onclick="importFromFile('notes')">Import 📝</button>
         <button onclick="importFromFile('notes-phone')">Import ✏️📱</button>
         <button onclick="importFromFile('notes-comp')">Import ✏️💻</button>
-        <button onclick="importFromFile('all')">Import ✅+📝</button>
+        <button onclick="importFromFile('all')">Import ✅+📝📱💻</button>
       </div><br>
       <input type="file" id="fileInput" />
     </div>
@@ -2281,10 +2279,9 @@ document.addEventListener('click', function(e) {
       <h3>📤 Eksport (kopiuj JSON)</h3>
       <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
         <button onclick="exportCheckCopy()">Export ✅</button>
-        <button onclick="exportNotesCopy()">Export 📝</button>
         <button onclick="exportNotesPhoneCopy()">Export ✏️📱</button>
         <button onclick="exportNotesComputerCopy()">Export ✏️💻</button>
-        <button onclick="exportAllCopy()">Export ✅+📝</button>
+        <button onclick="exportAllCopy()">Export ✅+📝📱💻</button>
       </div><br>
       <textarea id="exportOutput" placeholder="Tu pojawi się JSON do skopiowania" style="width: 90%; height: 60px;"></textarea><br>
       <button onclick="copyExportJSON()">📋 COPY</button>
@@ -2296,10 +2293,9 @@ document.addEventListener('click', function(e) {
       <h3>📥 Import (wklej JSON)</h3>
       <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
         <button onclick="importFromPaste('check')">Import ✅</button>
-        <button onclick="importFromPaste('notes')">Import 📝</button>
         <button onclick="importFromPaste('notes-phone')">Import ✏️📱</button>
         <button onclick="importFromPaste('notes-comp')">Import ✏️💻</button>
-        <button onclick="importFromPaste('all')">Import ✅+📝</button>
+        <button onclick="importFromPaste('all')">Import ✅+📝📱💻</button>
       </div><br>
       <textarea id="pasteInput" placeholder="Wklej tutaj dane JSON..." style="width: 90%; height: 60px;"></textarea><br>
       <button onclick="clearPasteInput()">🧹 CLEAN</button>
