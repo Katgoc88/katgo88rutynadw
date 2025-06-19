@@ -960,9 +960,20 @@ color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1p
   <button onclick="showNote('note1KE')" style="margin-top: 6px;">POKAŻ</button>
 </td>
    </tr>
-  
 </table>
+  
+<br><br>
 
+<!-- Eksport/Import DO PLIKU NOTES KOMPUTER -->
+      <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
+        <button onclick="exportNotesComputer()">📤eksport✏️💻</button>
+        <button onclick="importFromPaste('notes-comp')">📥import✏️💻</button>
+      </div>
+    </div>
+
+ 
+
+  
 <script>
   // Obsługa wszystkich notatek o id zaczynającym się na "note"
   document.querySelectorAll("textarea[id^='note']").forEach(el => {
@@ -1029,6 +1040,22 @@ color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1p
   </div>
 </div>
 
+
+
+<br><br>
+
+   <!-- Eksport/Import DO PLIKU KALENDARZ KOMPUTER -->
+         </div>
+        <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
+        <button onclick="exportNotesCalendarComputer()">📤eksport📅💻</button>          
+        <button onclick="importFromPaste('notes-calendar-computer')">📥import📅💻</button>
+ </div>
+    </div>
+
+
+
+
+  
 <script>
 const calendarState = {
   "phone-comp": new Date(),
@@ -2409,6 +2436,8 @@ document.addEventListener('click', function(e) {
         <button onclick="exportCheck()">📤✅checkboxy✅</button>
         <button onclick="exportNotesPhone()">📤✏️notes telefon📱</button>
         <button onclick="exportNotesComputer()">📤✏️notes komputer💻</button>
+        </div>
+        <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
         <button onclick="exportNotesCalendarPhone()">📤📅kalendarz telefon📱</button>
         <button onclick="exportNotesCalendarComputer()">📤📅kalendarz komputer💻</button>
         <button onclick="exportAll()">📤całość✅✏️📅</button>
@@ -2422,6 +2451,8 @@ document.addEventListener('click', function(e) {
         <button onclick="importFromFile('check')">📥✅checkboxy✅</button>
         <button onclick="importFromFile('notes-phone')">📥✏️notes telefon📱</button>
         <button onclick="importFromFile('notes-comp')">📥✏️notes komputer💻</button>
+        </div>
+        <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
         <button onclick="importFromFile('notes-calendar-phone')">📥📅kalendarz telefon📱</button>
         <button onclick="importFromFile('notes-calendar-computer')">📥📅kalendarz komputer💻</button>
         <button onclick="importFromFile('all')">📥całość✅✏️📅</button>
@@ -2440,6 +2471,8 @@ document.addEventListener('click', function(e) {
         <button onclick="exportCheckCopy()">📤✅checkboxy✅</button>
         <button onclick="exportNotesPhoneCopy()">📤✏️notes telefon📱</button>
         <button onclick="exportNotesComputerCopy()">📤✏️notes komputer💻</button>
+        </div>
+        <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
         <button onclick="exportNotesCalendarPhoneCopy()">📤📅kalendarz telefon📱</button>
         <button onclick="exportNotesCalendarComputerCopy()">📤📅kalendarz komputer💻</button>
         <button onclick="exportAllCopy()">📤całość✅✏️📅</button>
