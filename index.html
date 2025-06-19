@@ -954,7 +954,7 @@ color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1p
 
 <td style="width: 20%; padding: 10px;">
   <div style="font-weight: bold; margin-bottom: 4px;text-align: center;">⚫ OGÓLNE ✏️💻</div>
-  <textarea id="note1KE" data-type="computer-ph" placeholder="..."width: 90%; height: 110px; resize: vertical; padding: 10px; margin: 10px auto;
+  <textarea id="note1KE" data-type="computer-ph" placeholder="..." style="width: 90%; height: 110px; resize: vertical; padding: 10px; margin: 10px auto;
 color: red; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.05);"></textarea>
   <button onclick="clearNote('note1KE')" style="margin-top: 6px;">CLEAN</button>
   <button onclick="showNote('note1KE')" style="margin-top: 6px;">POKAŻ</button>
@@ -2248,24 +2248,24 @@ document.addEventListener('click', function(e) {
   <div style="display: flex; gap: 40px; justify-content: center;">
 
     <!-- Eksport DO PLIKU -->
-    <div style="width: 50%; padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent; text-align: center;">
+    <div style="width: 60%; padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent; text-align: center;">
       <h3>📤 Eksport danych</h3>
       <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
         <button onclick="exportCheck()">Export ✅</button>
           <button onclick="exportNotesPhone()">Export ✏️📱</button>
         <button onclick="exportNotesComputer()">Export ✏️💻</button>
-        <button onclick="exportAll()">Export ✅+📝📱💻</button>
+        <button onclick="exportAll()">Export ✅+📱💻</button>
       </div>
     </div>
 
     <!-- Import z pliku -->
-    <div style="width: 50%; padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent; text-align: center;">
+    <div style="width: 60%; padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent; text-align: center;">
       <h3>📥 Import danych</h3>
       <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
         <button onclick="importFromFile('check')">Import ✅</button>
         <button onclick="importFromFile('notes-phone')">Import ✏️📱</button>
         <button onclick="importFromFile('notes-comp')">Import ✏️💻</button>
-        <button onclick="importFromFile('all')">Import ✅+📝📱💻</button>
+        <button onclick="importFromFile('all')">Import ✅+📱💻</button>
       </div><br>
       <input type="file" id="fileInput" />
     </div>
@@ -2275,13 +2275,13 @@ document.addEventListener('click', function(e) {
   <div style="display: flex; gap: 40px; justify-content: center;">
 
     <!-- Eksport KOPIUJ/WKLEJ -->
-    <div id="exportBox" style="width: 50%; padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent; text-align: center;">
+    <div id="exportBox" style="width: 60%; padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent; text-align: center;">
       <h3>📤 Eksport (kopiuj JSON)</h3>
       <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
         <button onclick="exportCheckCopy()">Export ✅</button>
         <button onclick="exportNotesPhoneCopy()">Export ✏️📱</button>
         <button onclick="exportNotesComputerCopy()">Export ✏️💻</button>
-        <button onclick="exportAllCopy()">Export ✅+📝📱💻</button>
+        <button onclick="exportAllCopy()">Export ✅+📱💻</button>
       </div><br>
       <textarea id="exportOutput" placeholder="Tu pojawi się JSON do skopiowania" style="width: 90%; height: 60px;"></textarea><br>
       <button onclick="copyExportJSON()">📋 COPY</button>
@@ -2289,13 +2289,13 @@ document.addEventListener('click', function(e) {
     </div>
 
     <!-- Import WKLEJ -->
-    <div style="width: 50%; padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent; text-align: center;">
+    <div style="width: 60%; padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent; text-align: center;">
       <h3>📥 Import (wklej JSON)</h3>
       <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
         <button onclick="importFromPaste('check')">Import ✅</button>
         <button onclick="importFromPaste('notes-phone')">Import ✏️📱</button>
         <button onclick="importFromPaste('notes-comp')">Import ✏️💻</button>
-        <button onclick="importFromPaste('all')">Import ✅+📝📱💻</button>
+        <button onclick="importFromPaste('all')">Import ✅+📱💻</button>
       </div><br>
       <textarea id="pasteInput" placeholder="Wklej tutaj dane JSON..." style="width: 90%; height: 60px;"></textarea><br>
       <button onclick="clearPasteInput()">🧹 CLEAN</button>
