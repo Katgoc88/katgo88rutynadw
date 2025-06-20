@@ -915,6 +915,32 @@ body {
 </table>
   </div>
 
+<br>
+  
+<div style="display: flex; justify-content: center; gap: 30px; margin-bottom: 30px;">
+  <!-- Eksport kopiuj -->
+  <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+    <button onclick="exportCheckCopy()">📤</button>
+    <textarea id="exportCheckMini" style="width: 30px; height: 20px; font-size: 10px;"></textarea>
+    <div style="display: flex; gap: 4px;">
+      <button onclick="copyExportJSON()">📋</button>
+      <button onclick="clearExportJSON()">🧹</button>
+    </div>
+  </div>
+
+  <!-- Eksport do pliku -->
+  <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+    <button onclick="exportCheck()">💾📤</button>
+  </div>
+
+  <!-- Import z pliku -->
+  <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+    <button onclick="importFromFile('check')">📥</button>
+    <input type="file" onchange="importFromFile('check')" style="font-size: 10px; width: 100px;">
+  </div>
+</div>
+
+  
 
 <br><br><br><br>
 
@@ -988,12 +1014,11 @@ color: black; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 
     </div>
   </div>
   <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
-    <button onclick="importFromPaste('notes-phone')">📥</button>
-    <textarea id="importNotesPhoneMini" style="width: 30px; height: 20px; font-size: 10px;" placeholder="..."></textarea>
-    <div style="display: flex; gap: 4px;">
-      <button onclick="clearPasteInput()">🧹</button>
-    </div>
+    <button onclick="importFromFile('notes-phone')">📥</button>
+    <input type="file" onchange="importFromFile('notes-phone')" style="font-size: 10px; width: 100px;">
+  </div>
 </div>
+
 
 </div>
 
@@ -1153,14 +1178,20 @@ color: black; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 
     <table id="calendar-computer" style="width: 100%; border-collapse: separate; border-spacing: 0 8px; table-layout: fixed; margin-bottom: 20px;"></table>
     
     <div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 30px;">
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
-        <button onclick="exportNotesCalendarComputer()">📤</button>
-      </div>
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
-        <button onclick="importFromFile('notes-calendar-computer')">📥</button>
-        <input type="file" onchange="importFromFile('notes-calendar-computer')" style="font-size: 10px; width: 100px;">
-      </div>
+  <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+    <button onclick="exportNotesCalendarPhoneCopy()">📤</button>
+    <textarea id="exportNotesCalendarPhoneMini" style="width: 30px; height: 20px; font-size: 10px;"></textarea>
+    <div style="display: flex; gap: 4px;">
+      <button onclick="copyExportJSON()">📋</button>
+      <button onclick="clearExportJSON()">🧹</button>
     </div>
+  </div>
+  <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+    <button onclick="importFromFile('notes-calendar-phone')">📥</button>
+    <input type="file" onchange="importFromFile('notes-calendar-phone')" style="font-size: 10px; width: 100px;">
+  </div>
+</div>
+
   </div>
 
 </div>
@@ -2586,84 +2617,61 @@ document.addEventListener('click', function(e) {
 <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ EXPORT IMPORT PRZYCISKI ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
 <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ EXPORT IMPORT PRZYCISKI ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
 
-<!-- ✅ CAŁY BLOK EKSPORT/IMPORT -->
-<div style="display: flex; flex-direction: column; gap: 30px; align-items: center;">
+<!-- ✅ CAŁY BLOK EKSPORT/IMPORT (bez importu wklej) -->
+<div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; margin-bottom: 30px;">
 
-  <!-- ░░░ DO/Z PLIKU ░░░ -->
-  <div style="display: flex; gap: 40px; justify-content: center;">
-
-    <!-- Eksport DO PLIKU -->
-    <div style="width: 60%; padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent; text-align: center;">
-      <h3>📤 Eksport danych</h3>
-      <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
-        <button onclick="exportCheck()">📤✅checkboxy✅</button>
-        <button onclick="exportNotesPhone()">📤✏️notes telefon📱</button>
-        <button onclick="exportNotesComputer()">📤✏️notes komputer💻</button>
-        </div>
-        <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
-        <button onclick="exportNotesCalendarPhone()">📤📅kalendarz telefon📱</button>
-        <button onclick="exportNotesCalendarComputer()">📤📅kalendarz komputer💻</button>
-        <button onclick="exportAll()">📤całość✅✏️📅</button>
-      </div>
+  <!-- 📤 EKSPORT (kopiuj JSON) -->
+  <div style="padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent; text-align: center;">
+    <h3>📤 Eksport (kopiuj JSON)</h3>
+    <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
+      <button onclick="exportCheckCopy()">📤✅checkboxy✅</button>
+      <button onclick="exportNotesPhoneCopy()">📤✏️notes telefon📱</button>
+      <button onclick="exportNotesComputerCopy()">📤✏️notes komputer💻</button>
     </div>
+    <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
+      <button onclick="exportNotesCalendarPhoneCopy()">📤📅kalendarz telefon📱</button>
+      <button onclick="exportNotesCalendarComputerCopy()">📤📅kalendarz komputer💻</button>
+      <button onclick="exportAllCopy()">📤całość✅✏️📅</button>
+    </div><br>
+    <textarea id="exportOutput" placeholder="Tu pojawi się JSON do skopiowania" style="width: 90%; height: 60px;"></textarea><br>
+    <button onclick="copyExportJSON()">📋 COPY</button>
+    <button onclick="clearExportJSON()">🧹 CLEAN</button>
+  </div>
 
-    <!-- Import z pliku -->
-    <div style="width: 60%; padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent; text-align: center;">
-      <h3>📥 Import danych</h3>
-      <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
-        <button onclick="importFromFile('check')">📥✅checkboxy✅</button>
-        <button onclick="importFromFile('notes-phone')">📥✏️notes telefon📱</button>
-        <button onclick="importFromFile('notes-comp')">📥✏️notes komputer💻</button>
-        </div>
-        <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
-        <button onclick="importFromFile('notes-calendar-phone')">📥📅kalendarz telefon📱</button>
-        <button onclick="importFromFile('notes-calendar-computer')">📥📅kalendarz komputer💻</button>
-        <button onclick="importFromFile('all')">📥całość✅✏️📅</button>
-      </div><br>
-      <input type="file" id="fileInput" />
+  <!-- 📤 EKSPORT (do pliku) -->
+  <div style="padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent; text-align: center;">
+    <h3>📤 Eksport (plik)</h3>
+    <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
+      <button onclick="exportCheck()">📤✅checkboxy✅</button>
+      <button onclick="exportNotesPhone()">📤✏️notes telefon📱</button>
+      <button onclick="exportNotesComputer()">📤✏️notes komputer💻</button>
+    </div>
+    <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
+      <button onclick="exportNotesCalendarPhone()">📤📅kalendarz telefon📱</button>
+      <button onclick="exportNotesCalendarComputer()">📤📅kalendarz komputer💻</button>
+      <button onclick="exportAll()">📤całość✅✏️📅</button>
     </div>
   </div>
 
-  <!-- ░░░ KOPIUJ/WKLEJ ░░░ -->
-  <div style="display: flex; gap: 40px; justify-content: center;">
-
-    <!-- Eksport KOPIUJ/WKLEJ -->
-    <div id="exportBox" style="width: 60%; padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent; text-align: center;">
-      <h3>📤 Eksport (kopiuj JSON)</h3>
-      <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
-        <button onclick="exportCheckCopy()">📤✅checkboxy✅</button>
-        <button onclick="exportNotesPhoneCopy()">📤✏️notes telefon📱</button>
-        <button onclick="exportNotesComputerCopy()">📤✏️notes komputer💻</button>
-        </div>
-        <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
-        <button onclick="exportNotesCalendarPhoneCopy()">📤📅kalendarz telefon📱</button>
-        <button onclick="exportNotesCalendarComputerCopy()">📤📅kalendarz komputer💻</button>
-        <button onclick="exportAllCopy()">📤całość✅✏️📅</button>
-      </div><br>
-      <textarea id="exportOutput" placeholder="Tu pojawi się JSON do skopiowania" style="width: 90%; height: 60px;"></textarea><br>
-      <button onclick="copyExportJSON()">📋 COPY</button>
-      <button onclick="clearExportJSON()">🧹 CLEAN</button>
+  <!-- 📥 IMPORT (z pliku) -->
+  <div style="padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent; text-align: center;">
+    <h3>📥 Import (plik)</h3>
+    <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
+      <button onclick="importFromFile('check')">📥✅checkboxy✅</button>
+      <button onclick="importFromFile('notes-phone')">📥✏️notes telefon📱</button>
+      <button onclick="importFromFile('notes-comp')">📥✏️notes komputer💻</button>
     </div>
-
-    <!-- Import WKLEJ -->
-    <div style="width: 60%; padding: 12px; border: 1px solid #999; border-radius: 6px; background-color: transparent; text-align: center;">
-      <h3>📥 Import (wklej JSON)</h3>
-      <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
-        <button onclick="importFromPaste('check')">📥✅checkboxy✅</button>
-        <button onclick="importFromPaste('notes-phone')">📥✏️notes telefon📱</button>
-        <button onclick="importFromPaste('notes-comp')">📥✏️notes komputer💻</button>
-         </div>
-        <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
-        <button onclick="importFromPaste('notes-calendar-phone')">📥📅kalendarz telefon📱</button>
-        <button onclick="importFromPaste('notes-calendar-computer')">📥📅kalendarz komputer💻</button>
-        <button onclick="importFromPaste('all')">📥całość✅✏️📅</button>
-      </div><br>
-      <textarea id="pasteInput" placeholder="Wklej tutaj dane JSON..." style="width: 90%; height: 60px;"></textarea><br>
-      <button onclick="clearPasteInput()">🧹 CLEAN</button>
-    </div>
-
+    <div style="display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;">
+      <button onclick="importFromFile('notes-calendar-phone')">📥📅kalendarz telefon📱</button>
+      <button onclick="importFromFile('notes-calendar-computer')">📥📅kalendarz komputer💻</button>
+      <button onclick="importFromFile('all')">📥całość✅✏️📅</button>
+    </div><br>
+    <input type="file" id="fileInput" />
   </div>
+
 </div>
+
+
 
 <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ EXPORT ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
 <script>
