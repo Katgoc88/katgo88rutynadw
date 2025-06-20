@@ -583,14 +583,21 @@ body {
     <!-- Tabela 2 – Faucety -->    <table class="faucets-table">  <tr>
 
     <tr><td colspan="2" style="text-align: center;"><strong>💥 BĘDZIE BOLAŁO... ALE WIESZ, ŻE WARTO 💥</strong></td>
-    </tr>        <th class="centered"> FAUCETY/24H </th>    <th><button class="reset-btn" id="reset-table2">RESET</button></th>  </tr>
+    </tr>        <th class="centered"> FAUCETY i 1/24H </th>    <th><button class="reset-btn" id="reset-table2">RESET</button></th>  </tr>
 
+ 
+<!-- ----------------------------GM ON INK------------------------------ -->   
+      <tr><td><a href="https://gm.inkonchain.com/">INK GM</a> (<a href="https://gm.inkonchain.com/" target="_blank">C</a>)
+      <span class="tooltip-icon" onclick="toggleTooltip(this)">⚠️<span class="tooltip-text">
+    👉GM na stronce gm.inkonchain.com<br> </span></span>
+      </td><td> <label><input type="checkbox" class="check table2" data-id="gmink"> DAILY GM</label></td></tr>
 
-    <!-- ---------------------------------------------------------------------- -->   
+       <!-- ---------------------------------------------------------------------- -->   
   <tr><td><a href="https://www.magicnewton.com/portal/rewards">MAGIC NEWTON PORTAL</a> (<a href="https://www.magicnewton.com/portal/rewards" target="_blank">C</a>)<span class="tooltip-icon" onclick="toggleTooltip(this)">⚠️<span class="tooltip-text">
     👉Roll Now odbiór punktów<br>👉Minesweeper 3 razy zagrać, raz dziennie odbiór punktów</span></span></td><td>
         <label><input type="checkbox" class="check table2" data-id="f1"> CHECK</label></td></tr>
- 
+
+      
       <!-- ---------------------------------------------------------------------- -->
       <tr><td><a href="https://faucet.saharalabs.ai/">SAHARA FAUCET</a> (<a href="https://faucet.saharalabs.ai/" target="_blank">C</a>)</td><td><label><input type="checkbox" class="check table2" data-id="f2"> CHECK</label></td></tr>
 
@@ -832,7 +839,14 @@ body {
  </td></tr>
 
   <!-- -----------------------------TOWNS-------------------------------- -->   
-      <tr><td><a href="https://app.towns.com/">TOWNS a`la discord</a> (<a href="https://app.towns.com/" target="_blank">C</a>)</td><td><label><input type="checkbox" class="check table1" data-id="TOWN"> CHECK</label></td></tr>
+      <tr><td><a href="https://app.towns.com/">TOWNS a`la discord</a> (<a href="https://app.towns.com/" target="_blank">C</a>)</td><td>
+        <label><input type="checkbox" class="check table1" data-id="TOWN"> CHECK</label>
+       </td><td> <label><input type="checkbox" class="check table1" data-id="townnapiwek"> NAPIWEK</label>&nbsp;
+<label><input type="checkbox" class="check table1" data-id="townbober"> <a href="........">DAILY BÓBR </a> (<a href="........" target="_blank">C</a>)</label>&nbsp; 
+      </td></tr> 
+      
+      
+      </td></tr>
 
   <!-- ----------------------------DE.FI------------------------------ -->   
       <tr><td><a href="https://de.fi/dashboard/progress">De.Fi </a> (<a href="https://de.fi/dashboard/progress" target="_blank">C</a>)
@@ -849,11 +863,7 @@ body {
       </td></tr> 
             
 
-<!-- ----------------------------GM ON INK------------------------------ -->   
-      <tr><td><a href="https://gm.inkonchain.com/">INK GM</a> (<a href="https://gm.inkonchain.com/" target="_blank">C</a>)
-      <span class="tooltip-icon" onclick="toggleTooltip(this)">⚠️<span class="tooltip-text">
-    👉GM na stronce gm.inkonchain.com<br> </span></span>
-      </td><td> <label><input type="checkbox" class="check table1" data-id="gmink"> DAILY GM</label></td></tr>
+
 
 <!-- ----------------------------AXION (TAIKO)------------------------------ -->   
 
@@ -1108,7 +1118,7 @@ color: black; border: 1px solid #ccc; border-radius: 8px; box-shadow: inset 1px 
 
 <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ KALENDARZE ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
 
-<div style="display: flex; flex-wrap: wrap; gap: 50px; justify-content: center;">
+<div style="display: flex; flex-wrap: wrap; gap: 100px; justify-content: center;">
 
   <!-- TELEFON -->
   <div style="width: 100%; max-width: 700px; flex: 1;">
