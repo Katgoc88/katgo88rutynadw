@@ -1312,7 +1312,7 @@ function showNote(id) {
 
 <br><br><br><br>
 
- <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ TABELA DISCORD + TAIKO ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ TRZY TABELKI OBOK SIEBIE ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
 
 <style>
   .kontener-tabel {
@@ -1351,16 +1351,22 @@ function showNote(id) {
   .mini-tabela th:nth-child(3), .mini-tabela td:nth-child(3) { width: 140px; }
 
   .mini-discord-tabela {
-    width: 400px;
+    width: auto;
   }
 
-  .mini-discord-tabela td:first-child {
-    width: 150px;
-    text-align: center;
+  .mini-discord-tabela th {
+    background-color: #e0e0e0;
+    font-size: 13px;
   }
 
-  .mini-discord-tabela td:last-child {
-    width: 250px;
+  .mini-discord-tabela td {
+    padding: 4px 10px;
+  }
+
+  .mini-discord-tabela .inner-table td {
+    border: none;
+    text-align: left;
+    padding-left: 0;
   }
 </style>
 
@@ -1369,17 +1375,16 @@ function showNote(id) {
   <!-- TABELA DISCORDA -->
   <table class="mini-discord-tabela">
     <tr>
-      <td colspan="2" style="font-weight: bold; font-size: 13px; background-color: #f0f0f0;">
-        DOLCE WITAM
+      <th colspan="2">Dolce Witam Discord</th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <strong><a href="https://discord.com/channels/758584467484442695/929411734563852308">GŁÓWNY KANAŁ</a></strong> (<a href="https://discord.com/channels/758584467484442695/929411734563852308" target="_blank">C</a>)
       </td>
     </tr>
     <tr>
-      <td>
-        <a href="https://discord.com/channels/758584467484442695/929411734563852308/">GŁÓWNY LINK</a>
-        (<a href="https://discord.com/channels/758584467484442695/929411734563852308" target="_blank">C</a>)
-      </td>
-      <td>
-        <table style="width: 100%; border-collapse: collapse;">
+      <td colspan="2">
+        <table class="inner-table">
           <tr><td><label><input type="checkbox" class="check table1" data-id="introdw"> <a href="https://discord.com/channels/758584467484442695/890585424014237768">intro chat</a> (<a href="https://discord.com/channels/758584467484442695/890585424014237768" target="_blank">C</a>)</label></td></tr>
           <tr><td><label><input type="checkbox" class="check table1" data-id="premiumdw"> <a href="https://discord.com/channels/758584467484442695/929411734563852308">premium chat</a> (<a href="https://discord.com/channels/758584467484442695/929411734563852308" target="_blank">C</a>)</label></td></tr>
           <tr><td><label><input type="checkbox" class="check table1" data-id="krótki"> <a href="https://discord.com/channels/758584467484442695/1159813456803934219">krótki deadline</a> (<a href="https://discord.com/channels/758584467484442695/1159813456803934219" target="_blank">C</a>)</label></td></tr>
@@ -1391,7 +1396,7 @@ function showNote(id) {
     </tr>
   </table>
 
-  <!-- TABELA TAIKO -->
+  <!-- TAIKO – PIERWSZA POŁOWA -->
   <table class="mini-tabela">
     <thead>
       <tr>
@@ -1409,6 +1414,19 @@ function showNote(id) {
       <tr><td>21.06.2025</td><td>1 709 998</td><td>2 931 427</td></tr>
       <tr><td>22.06.2025</td><td>1 998 432</td><td>3 425 885</td></tr>
       <tr><td>23.06.2025</td><td>2 286 866</td><td>3 920 343</td></tr>
+    </tbody>
+  </table>
+
+  <!-- TAIKO – DRUGA POŁOWA -->
+  <table class="mini-tabela">
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Daily max</th>
+        <th>Daily max z taikoinei</th>
+      </tr>
+    </thead>
+    <tbody>
       <tr><td>24.06.2025</td><td>2 575 299</td><td>4 414 800</td></tr>
       <tr><td>25.06.2025</td><td>2 863 733</td><td>4 909 258</td></tr>
       <tr><td>26.06.2025</td><td>3 152 166</td><td>5 403 715</td></tr>
