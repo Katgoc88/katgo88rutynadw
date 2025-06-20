@@ -985,72 +985,6 @@ discord
   
 
 <br><br><br><br>
-
-
-     
-<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░DOLCE WITAM DISCORD░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ --> 
- <style>
-  .mini-discord {
-    border-collapse: collapse;
-    font-family: sans-serif;
-    font-size: 12px;
-    margin: 20px auto;
-    table-layout: fixed;
-    width: 500px;
-  }
-
-  .mini-discord td, .mini-discord th {
-    border: 1px solid #999;
-    padding: 6px;
-    vertical-align: top;
-  }
-
-  .mini-discord td:first-child {
-    width: 150px;
-    white-space: nowrap;
-    text-align: center;
-  }
-
-  .mini-discord td:last-child {
-    width: 350px;
-  }
-
-  .mini-discord .column {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  .mini-discord label {
-    display: flex;
-    gap: 4px;
-    align-items: center;
-  }
-</style>
-
-<!-- ░░░░░░░░DW DC░░░░░░░░░░░░░░ -->
-<table class="mini-discord">
-  <tr>
-    <td>
-      <a href="https://discord.com/channels/758584467484442695/929411734563852308/">DOLCE WITAM DISCORD</a>
-      (<a href="https://discord.com/channels/758584467484442695/929411734563852308" target="_blank">C</a>)
-    </td>
-    <td>
-      <div class="column">
-        <label><input type="checkbox" class="check table1" data-id="introdw"> <a href="https://discord.com/channels/758584467484442695/890585424014237768">intro chat</a> (<a href="https://discord.com/channels/758584467484442695/890585424014237768" target="_blank">C</a>)</label>
-        <label><input type="checkbox" class="check table1" data-id="premiumdw"> <a href="https://discord.com/channels/758584467484442695/929411734563852308">premium chat</a> (<a href="https://discord.com/channels/758584467484442695/929411734563852308" target="_blank">C</a>)</label>
-        <label><input type="checkbox" class="check table1" data-id="krótki"> <a href="https://discord.com/channels/758584467484442695/1159813456803934219">krótki deadline</a> (<a href="https://discord.com/channels/758584467484442695/1159813456803934219" target="_blank">C</a>)</label>
-        <label><input type="checkbox" class="check table1" data-id="ruchy"> <a href="https://discord.com/channels/758584467484442695/1056793384041332746">ruchy pod airdropy</a> (<a href="https://discord.com/channels/758584467484442695/1056793384041332746" target="_blank">C</a>)</label>
-        <label><input type="checkbox" class="check table1" data-id="nagrania"> <a href="https://discord.com/channels/758584467484442695/1034018843380686938">nagrania</a> (<a href="https://discord.com/channels/758584467484442695/1034018843380686938" target="_blank">C</a>)</label>
-        <label><input type="checkbox" class="check table1" data-id="linki"> <a href="https://discord.com/channels/758584467484442695/1317498855973195787">spis-linków</a> (<a href="https://discord.com/channels/758584467484442695/1317498855973195787" target="_blank">C</a>)</label>
-      </div>
-    </td>
-  </tr>
-</table>
-
-
-
-
  
   
 
@@ -1378,23 +1312,27 @@ function showNote(id) {
 
 <br><br><br><br>
 
-  
- <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ TAIKO MAXY ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ --> 
- <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ TAIKO MAXY ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ --> 
-   
+ <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ TABELA DISCORD + TAIKO ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
 
 <style>
-  .mini-tabela {
+  .kontener-tabel {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin: 40px auto;
+    flex-wrap: wrap;
+  }
+
+  .mini-tabela, .mini-discord-tabela {
     border-collapse: collapse;
     font-family: sans-serif;
     font-size: 12px;
-    margin: 20px auto;
     table-layout: fixed;
-    width: 380px;
+    border: 1px solid #999;
   }
 
-  .mini-tabela th,
-  .mini-tabela td {
+  .mini-tabela th, .mini-tabela td,
+  .mini-discord-tabela th, .mini-discord-tabela td {
     border: 1px solid #999;
     padding: 4px 6px;
     height: 28px;
@@ -1404,50 +1342,85 @@ function showNote(id) {
     text-overflow: ellipsis;
   }
 
-  .mini-tabela th:nth-child(1),
-  .mini-tabela td:nth-child(1) {
-    width: 90px;
+  .mini-tabela {
+    width: 380px;
   }
 
-  .mini-tabela th:nth-child(2),
-  .mini-tabela td:nth-child(2) {
-    width: 110px;
+  .mini-tabela th:nth-child(1), .mini-tabela td:nth-child(1) { width: 90px; }
+  .mini-tabela th:nth-child(2), .mini-tabela td:nth-child(2) { width: 110px; }
+  .mini-tabela th:nth-child(3), .mini-tabela td:nth-child(3) { width: 140px; }
+
+  .mini-discord-tabela {
+    width: 400px;
   }
 
-  .mini-tabela th:nth-child(3),
-  .mini-tabela td:nth-child(3) {
-    width: 140px;
+  .mini-discord-tabela td:first-child {
+    width: 150px;
+    text-align: center;
+  }
+
+  .mini-discord-tabela td:last-child {
+    width: 250px;
   }
 </style>
 
-<table class="mini-tabela">
-  <thead>
-    <tr>
-      <th>Data</th>
-      <th>Daily max</th>
-      <th>Daily max z taikoinei</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>16.06.2025</td><td>278 132</td><td>476 798</td></tr>
-    <tr><td>17.06.2025</td><td>556 264</td><td>953 597</td></tr>
-    <tr><td>18.06.2025</td><td>844 698</td><td>1 448 055</td></tr>
-    <tr><td>19.06.2025</td><td>1 133 131</td><td>1 942 512</td></tr>
-    <tr><td>20.06.2025</td><td>1 421 565</td><td>2 436 970</td></tr>
-    <tr><td>21.06.2025</td><td>1 709 998</td><td>2 931 427</td></tr>
-    <tr><td>22.06.2025</td><td>1 998 432</td><td>3 425 885</td></tr>
-    <tr><td>23.06.2025</td><td>2 286 866</td><td>3 920 343</td></tr>
-    <tr><td>24.06.2025</td><td>2 575 299</td><td>4 414 800</td></tr>
-    <tr><td>25.06.2025</td><td>2 863 733</td><td>4 909 258</td></tr>
-    <tr><td>26.06.2025</td><td>3 152 166</td><td>5 403 715</td></tr>
-    <tr><td>27.06.2025</td><td>3 440 600</td><td>5 898 173</td></tr>
-    <tr><td>28.06.2025</td><td>3 729 034</td><td>6 392 631</td></tr>
-    <tr><td>29.06.2025</td><td>4 017 467</td><td>6 887 088</td></tr>
-    <tr><td>30.06.2025</td><td>4 305 901</td><td>7 381 546</td></tr>
-    <tr><td>01.07.2025</td><td>4 594 334</td><td>7 876 003</td></tr>
-  </tbody>
-</table>
+<div class="kontener-tabel">
 
+  <!-- TABELA DISCORDA -->
+  <table class="mini-discord-tabela">
+    <tr>
+      <td colspan="2" style="font-weight: bold; font-size: 13px; background-color: #f0f0f0;">
+        DOLCE WITAM
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="https://discord.com/channels/758584467484442695/929411734563852308/">GŁÓWNY LINK</a>
+        (<a href="https://discord.com/channels/758584467484442695/929411734563852308" target="_blank">C</a>)
+      </td>
+      <td>
+        <table style="width: 100%; border-collapse: collapse;">
+          <tr><td><label><input type="checkbox" class="check table1" data-id="introdw"> <a href="https://discord.com/channels/758584467484442695/890585424014237768">intro chat</a> (<a href="https://discord.com/channels/758584467484442695/890585424014237768" target="_blank">C</a>)</label></td></tr>
+          <tr><td><label><input type="checkbox" class="check table1" data-id="premiumdw"> <a href="https://discord.com/channels/758584467484442695/929411734563852308">premium chat</a> (<a href="https://discord.com/channels/758584467484442695/929411734563852308" target="_blank">C</a>)</label></td></tr>
+          <tr><td><label><input type="checkbox" class="check table1" data-id="krótki"> <a href="https://discord.com/channels/758584467484442695/1159813456803934219">krótki deadline</a> (<a href="https://discord.com/channels/758584467484442695/1159813456803934219" target="_blank">C</a>)</label></td></tr>
+          <tr><td><label><input type="checkbox" class="check table1" data-id="ruchy"> <a href="https://discord.com/channels/758584467484442695/1056793384041332746">ruchy pod airdropy</a> (<a href="https://discord.com/channels/758584467484442695/1056793384041332746" target="_blank">C</a>)</label></td></tr>
+          <tr><td><label><input type="checkbox" class="check table1" data-id="nagrania"> <a href="https://discord.com/channels/758584467484442695/1034018843380686938">nagrania</a> (<a href="https://discord.com/channels/758584467484442695/1034018843380686938" target="_blank">C</a>)</label></td></tr>
+          <tr><td><label><input type="checkbox" class="check table1" data-id="linki"> <a href="https://discord.com/channels/758584467484442695/1317498855973195787">spis-linków</a> (<a href="https://discord.com/channels/758584467484442695/1317498855973195787" target="_blank">C</a>)</label></td></tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+  <!-- TABELA TAIKO -->
+  <table class="mini-tabela">
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Daily max</th>
+        <th>Daily max z taikoinei</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>16.06.2025</td><td>278 132</td><td>476 798</td></tr>
+      <tr><td>17.06.2025</td><td>556 264</td><td>953 597</td></tr>
+      <tr><td>18.06.2025</td><td>844 698</td><td>1 448 055</td></tr>
+      <tr><td>19.06.2025</td><td>1 133 131</td><td>1 942 512</td></tr>
+      <tr><td>20.06.2025</td><td>1 421 565</td><td>2 436 970</td></tr>
+      <tr><td>21.06.2025</td><td>1 709 998</td><td>2 931 427</td></tr>
+      <tr><td>22.06.2025</td><td>1 998 432</td><td>3 425 885</td></tr>
+      <tr><td>23.06.2025</td><td>2 286 866</td><td>3 920 343</td></tr>
+      <tr><td>24.06.2025</td><td>2 575 299</td><td>4 414 800</td></tr>
+      <tr><td>25.06.2025</td><td>2 863 733</td><td>4 909 258</td></tr>
+      <tr><td>26.06.2025</td><td>3 152 166</td><td>5 403 715</td></tr>
+      <tr><td>27.06.2025</td><td>3 440 600</td><td>5 898 173</td></tr>
+      <tr><td>28.06.2025</td><td>3 729 034</td><td>6 392 631</td></tr>
+      <tr><td>29.06.2025</td><td>4 017 467</td><td>6 887 088</td></tr>
+      <tr><td>30.06.2025</td><td>4 305 901</td><td>7 381 546</td></tr>
+      <tr><td>01.07.2025</td><td>4 594 334</td><td>7 876 003</td></tr>
+    </tbody>
+  </table>
+
+</div>
 
 
 
