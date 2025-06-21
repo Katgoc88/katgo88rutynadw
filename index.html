@@ -188,8 +188,85 @@ body {
     
 
       <!-- -----------------------KITE AI-------------------------------- -->
-     <tr><td><a href="https://testnet.gokite.ai/">KITE AI</a> (<a href="https://testnet.gokite.ai/" target="_blank">C</a>)<span class="tooltip-icon" onclick="toggleTooltip(this)">⚠️<span class="tooltip-text">
-    👉Codzienny Quiz<br>👉Odbiór tokenów i dodanie ich do stakingu<br>👉Rozmowa z Botami  </span></span></td><td>       
+     <tr><td><a href="https://testnet.gokite.ai/">KITE AI</a> (<a href="https://testnet.gokite.ai/" target="_blank">C</a>)
+       <span class="tooltip-icon" onclick="toggleTooltip(this)">⚠️<span class="tooltip-text">
+    👉Codzienny Quiz<br>👉Odbiór tokenów i dodanie ich do stakingu<br>👉Rozmowa z Botami </span></span>
+&nbsp;
+       <span style="cursor:pointer;" onclick="showInfoinfoPopup('Kite AI', [
+  {
+    text: 'Kite AI nowa sieć Testnet Ozone! 🔍',
+    url: 'https://discord.com/channels/758584467484442695/1056793384041332746/1379859228721942528',
+    search: true,
+    detail: `🔗 Kite.Ai Testnet Ozone
+
+Kolejna faza testów nowej sieci Kite.Ai! Sprawdź ich kanał #aktualizacje oraz linki techniczne.  
+Pamiętaj, aby przed dołączeniem sprawdzić najnowsze zmiany w systemie naliczania XP i stakingu!`
+  },
+  {
+    text: 'Kite AI misja Galxe 🔍',
+    url: 'https://discord.com/channels/758584467484442695/1056793384041332746/1378991257770000494',
+    search: true,
+    detail: `@everyone
+
+🔥 Kite.Ai Galxe
+
+– Kite.Ai przeszło do kolejnej fazy testnetu, ale nie wrzucamy jeszcze wpisu – są problemy z naliczaniem poleceń 😬  
+– Misje w Galxe wrzucam dziś, żeby były odhaczone ✅
+
+🛑 Uwaga: jedna z misji to odwiedzenie strony testnetu. NIE ŁĄCZ portfela – spalony ref!
+
+🔗 Link do misji Galxe:  
+https://app.galxe.com/quest/KiteAI/GCwcstmCQV?referral_code=GRFr2J0m6ym5H3qmptrEqCev1ZR4AbUFSzjWxBrk5ajZTgh
+
+🧩 Misje:  
+– 2x follow  
+– Odwiedziny strony (bez walleta!)  
+– Rola na Discordzie  
+– Like + RT`
+  },
+  {
+    text: 'Kite AI Ozone update 🔍',
+    url: 'https://discord.com/channels/758584467484442695/1056793384041332746/1381255281475977226',
+    search: true,
+    detail: `📢 Update Ozone
+
+Zespół KiteAI wprowadził nowy interfejs użytkownika do sieci testowej Ozone.  
+🧪 Zmiany obejmują UX walleta, staking, interakcję z botem.  
+✅ Sprawdź, czy nie pojawiły się nowe źródła XP lub możliwości testowe.`
+  },
+  {
+    text: 'Strategia pod KiteAI 🔍',
+    url: 'https://discord.com/channels/758584467484442695/1056793384041332746/1381989266720030770',
+    search: true,
+    detail: `🧠 Wstęp do projektu:  
+→ 🎖 ruchy-pod-airdropy  
+→ 🔗 spis-linków  
+
+📊 Obecnie 525 XP dziennie:  
++75 XP – staking (3x po 25)  
++50 – quiz  
++50 – staking 1 KITE  
++50 – kranik  
++300 – rozmowy z botem  
+→ Nalicza się z opóźnieniem (~12:00 PL)
+
+🧪 Praktyka:  
+→ Kranik → staking do każdego validatora  
+→ Odbiór nagród (u wszystkich 3)  
+→ Quiz (bot Professor)  
+→ Rozmowy z botem (15–20 wiadomości max)`
+  }
+])">ℹ️</span>
+
+       
+     
+     
+     
+     
+     
+     </td>
+       
+       <td>       
        <label><input type="checkbox" class="check table1" data-id="poz3"> FAUCET</label>&nbsp;
     <label><input type="checkbox" class="check table1" data-id="poz3b"> STAKE</label>&nbsp;
     <label><input type="checkbox" class="check table1" data-id="poz3c"> CLAIM STAKING</label>&nbsp;
@@ -2962,6 +3039,55 @@ function clearExportJSON() {
   if (area) area.value = "";
 }
 </script>
+
+
+
+
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ INFOINFO – POPUP GŁÓWNY ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+<div id="infoinfo-popup" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); z-index:9999; background:#fff; padding:20px; border-radius:10px; box-shadow:0 0 20px rgba(0,0,0,0.3); width:90%; max-width:500px; max-height:300px; overflow-y:auto; font-family:sans-serif;">
+  <div id="infoinfo-popup-content"></div>
+  <button onclick="closeInfoinfoPopup()" style="margin-top:15px; padding:6px 12px; border:none; background:#333; color:#fff; border-radius:5px; cursor:pointer;">Zamknij</button>
+</div>
+
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ INFOINFO – POPUP SZCZEGÓŁOWY (LUPKA) ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+<div id="infoinfo-popup-detail" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); z-index:10000; background:#fff8e1; padding:20px; border-radius:10px; box-shadow:0 0 20px rgba(0,0,0,0.3); width:90%; max-width:500px; max-height:300px; overflow-y:auto; font-family:sans-serif;">
+  <div id="infoinfo-popup-detail-content"></div>
+  <button onclick="closeInfoinfoPopupDetail()" style="margin-top:15px; padding:6px 12px; border:none; background:#444; color:#fff; border-radius:5px; cursor:pointer;">Zamknij</button>
+</div>
+
+<script>
+  function showInfoinfoPopup(projectName, entries) {
+    let html = `<h3 style="margin-top:0;">${projectName}</h3>`;
+    entries.forEach((e, i) => {
+      html += `<p style="margin:5px 0;">
+        <a href="${e.url}" target="_blank" style="color:#0077cc; text-decoration:none;">${e.text}</a>
+        ${e.search ? `<span style="margin-left:10px; cursor:pointer;" onclick="showInfoinfoPopupDetail('${e.text}', \`${e.detail || 'Brak danych'}\`)">🔍</span>` : ''}
+      </p>`;
+    });
+    document.getElementById("infoinfo-popup-content").innerHTML = html;
+    document.getElementById("infoinfo-popup").style.display = "block";
+  }
+
+  function closeInfoinfoPopup() {
+    document.getElementById("infoinfo-popup").style.display = "none";
+  }
+
+  function showInfoinfoPopupDetail(title, content) {
+    document.getElementById("infoinfo-popup-detail-content").innerHTML = `<h3 style="margin-top:0;">${title}</h3><p style="white-space:pre-wrap; margin:10px 0;">${content}</p>`;
+    document.getElementById("infoinfo-popup-detail").style.display = "block";
+  }
+
+  function closeInfoinfoPopupDetail() {
+    document.getElementById("infoinfo-popup-detail").style.display = "none";
+  }
+</script>
+
+
+
+
+
+
+
 
   
   
