@@ -1307,7 +1307,7 @@ discord
   <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░KALENDARZE░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ --> 
   <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░KALENDARZE░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ --> 
 
-<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ KALENDARZE ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ KALENDARZ KOMPUTER (OGÓLNY) ░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
 
 <div style="width: 100%; max-width: 700px; margin: 0 auto;">
   <h3 style="text-align:center;">💻 KALENDARZ KOMPUTER (OGÓLNY)</h3>
@@ -1319,20 +1319,15 @@ discord
   <table id="calendar-computer" style="width: 100%; border-collapse: separate; border-spacing: 0 8px; table-layout: fixed; margin-bottom: 20px;"></table>
 </div>
 
-
-<br><br><br><br><br><br>
-
-  
 <script>
 const calendarState = {
-  "phone-comp": new Date(),
   "computer-ph": new Date()
 };
 
 function changeMonth(type, delta) {
   const date = calendarState[type];
   date.setMonth(date.getMonth() + delta);
-  generateCalendar(type === 'phone-comp' ? 'calendar-phone' : 'calendar-computer', type);
+  generateCalendar("calendar-computer", type);
 }
 
 function generateCalendar(tableId, dataType) {
@@ -1367,8 +1362,7 @@ function generateCalendar(tableId, dataType) {
   }
 
   for (let day = 1; day <= daysInMonth; day++) {
-    const trueType = dataType === "phone-comp" ? "calendar-phone-comp" : "calendar-computer-ph";
-    const id = `${trueType}-${year}-${month + 1}-${day}`;
+    const id = `calendar-computer-ph-${year}-${month + 1}-${day}`;
     const saved = localStorage.getItem(id) || "";
 
     const cell = document.createElement("td");
@@ -1380,77 +1374,7 @@ function generateCalendar(tableId, dataType) {
     const input = document.createElement("textarea");
     input.value = saved;
     input.placeholder = `${day}.${month + 1}`;
-    input.style = "flex: 1; width: 100%; resize: none; padding: 6px; font-size: 12px; box-sizing: border-box; border: none; overflow-y: auto;";
-    input.dataset.type = trueType;
-    input.dataset.id = id;
-    input.id = id;
-    input.addEventListener("input", () => localStorage.setItem(id, input.value));
-
-    const btnBox = document.createElement("div");
-    btnBox.style = "display: flex; align-items: center; justify-content: space-between; padding: 0 4px 4px 4px; gap: 4px;";
-
-    const dateLabel = document.createElement("span");
-    dateLabel.innerText = `${day}.${month + 1}`;
-    dateLabel.style = "font-size: 12px; font-weight: bold; color: #222;";
-
-    const clearBtn = document.createElement("button");
-    clearBtn.innerText = "🧹";
-    clearBtn.style = "font-size: 12px; padding: 1px;"; // ZMIANA: mniejsze ikonki
-    clearBtn.title = "Wyczyść notatkę";
-    clearBtn.onclick = () => clearNote(id);
-
-    const showBtn = document.createElement("button");
-    showBtn.innerText = "🔍";
-    showBtn.style = "font-size: 12px; padding: 1px;"; // ZMIANA: mniejsze ikonki
-    showBtn.title = "Wyświetl notatkę w powiększeniu";
-    showBtn.onclick = () => showNote(id);
-
-    btnBox.appendChild(dateLabel);
-    btnBox.appendChild(clearBtn);
-    btnBox.appendChild(showBtn);
-    wrapper.appendChild(input);
-    wrapper.appendChild(btnBox);
-    cell.appendChild(wrapper);
-    row.appendChild(cell);
-
-    if ((adjustedStart + day) % 7 === 0 || day === daysInMonth) {
-      while (row.children.length < 7) {
-        const td = document.createElement("td");
-        td.innerHTML = "&nbsp;";
-        td.style = "border: 1px solid #ccc; height: 120px; vertical-align: top; padding: 0; width: 14.28%; box-sizing: border-box;";
-        row.appendChild(td);
-      }
-      table.appendChild(row);
-      row = document.createElement("tr");
-    }
-  }
-}
-
-generateCalendar("calendar-phone", "phone-comp");
-generateCalendar("calendar-computer", "computer-ph");
-
-function clearNote(id) {
-  if (confirm("Czy na pewno chcesz wyczyścić tę notatkę?")) {
-    localStorage.removeItem(id);
-    document.getElementById(id).value = "";
-  }
-}
-
-function showNote(id) {
-  const content = localStorage.getItem(id) || "";
-  const overlay = document.createElement("div");
-  overlay.style = "position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; z-index: 9999;";
-
-  const box = document.createElement("div");
-  box.style = "background: white; padding: 20px; max-width: 600px; width: 90%; max-height: 80%; overflow-y: auto; font-family: sans-serif; font-size: 16px; border-radius: 8px;";
-
-  const parsed = content.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
-  box.innerHTML = `<div style="margin-bottom: 16px;"><strong>Zawartość notatki:</strong></div><div style="white-space: pre-wrap;">${parsed}</div><br><button onclick="this.parentElement.parentElement.remove()" style="margin-top: 20px;">Zamknij</button>`;
-
-  overlay.appendChild(box);
-  document.body.appendChild(overlay);
-}
-</script>
+    input.style
 
 
 
