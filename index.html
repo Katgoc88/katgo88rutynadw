@@ -2414,19 +2414,15 @@ UNION TRANSAKCJE
 <span style="cursor:pointer;" onclick="showInfoinfoPopup('FRACTION AI', [
   { text: 'Fraction AI Mainet- wprowadzenie', url: 'https://discord.com/channels/758584467484442695/1056793384041332746/1375419555215835256', search: true, detail: `Fraction AI Mainet
 
-:info: Projekt przeszedł, już do fazy mainet, dlatego zaczynamy od rejestracji z linku ososby, z którą współpracujesz:
+ Projekt przeszedł, już do fazy mainet, dlatego zaczynamy od rejestracji z linku ososby, z którą współpracujesz:
 Patryk https://dapp.fractionai.xyz/?referral=BA4BDFB6
-Bartosz https://dapp.fractionai.xyz/?referral=C1414670
-Maciej https://dapp.fractionai.xyz/?referral=5204F5B3
-Krzysztof https://dapp.fractionai.xyz/?referral=E808092E
-Paweł https://dapp.fractionai.xyz/?referral=5578A6CC
-Fabian https://dapp.fractionai.xyz/?referral=325E8637
+
 Połacz wallet EVM a nastepnie po lewej stronie kliknij zakładkę Fractals połacz wallet i wykonaj migracje z testnetu, na mainet zdj.1
 (możesz mieć połaczony Rabby z poprzednich ruchów, wiec najpierw odłacz Fraction w roszerzeniu na Rabby i wtedy się połączysz )
 Natępnie zakładka dashboard i tworzymy swojego agenta:
 -jednak zanim to zrobimy, to najpierw dodamy środki: min 10$ na sieci BASE -> jak klikniesz Create Agent, to pokażą Ci się opcje wpłaty, możesz wybrac Transfer from Wallet, to przerzuci Ci bezpośrednio z salda na Rabby
 🔗 https://fractionai.xyz/dapp/dashboard
-jesli już masz środki to wracasz do dasboard i tworzsz pierwszego agenta BTC Trader zdj.2 ℹ️  Nazwę i awatar ustawiam własną, żeby było mi łatwiej ich rozpoznać,
+jesli już masz środki to wracasz do dasboard i tworzsz pierwszego agenta BTC Trader zdj.2   Nazwę i awatar ustawiam własną, żeby było mi łatwiej ich rozpoznać,
 jeżeli później będzie potrzeba stowrzenia kolejnych. Nastomiast Prompt generuje za pomocą AI klikjąc jaskrawy napis po prawej stronie Generate with AI
 Informacyjnie
 BTC Tradewars: to agent AI, który handluje kryptowalutami, w "zawodach/bitwie" z innymi agentami
@@ -2441,21 +2437,20 @@ Bid Tac Toe: agent grający w coś na wzór "kółko krzyżyk"
 Jak masz już zrobionych dwóch agencików, zdj.3 to teraz wysyłasz ich do gry klikając zielone Enable Automation :alert: zaczynaj od najniższych stawek bo ja wybrałem za 0.25 i nie moge zejsc niżej, a mój trader motherfu.. wyneberował mi strate, wiec po pierwszej sensi byłem 0.5 w plecy :catJAM1:
 :arrow: Plan jest taki, że dodaje to do Daily i krece tymi 10 USDC które dodałem, zobaczę na ile mi to wystarczy 
 -jak strace wsyztsko, to podejme decyzje co dalej
-ALE zakładam, że mój prompt bedzie kotem handlu i wtedy wypłace zyski :money_logo: bo można 😎` },
+ALE zakładam, że mój prompt bedzie kotem handlu i wtedy wypłace zyski :money_logo: bo można ` },
 
   { text: 'Fraction AI Mainet: nowe bardziej wydajne prompty dla agentów', url: 'https://discord.com/channels/758584467484442695/1056793384041332746/1384541928992804965', search: true, detail: `Fraction AI Mainet: nowe bardziej wydajne prompty dla agentów
-ℹ️ Spis linków najdziesz w tym wpisie:
-⁠🧯┇spis-linków⁠
+
 Dodali nowego agenta, którego sobie zaraz stworzymy, jednak najpierw poprawimy wydajność naszych starych Agentów, których tworzyliśmy w poprzednim wpisie:
 Zaczniemy od Agenta Bid Tac Toe zdjęcie.1
-wejdź w swój dasboard i wybierz agenta Bid Tac Toe czyli tego odpowiedzialnego za gre w "kółko krzyżyk"
+wejdź w swój dasboard i wybierz agenta Bid Tac Toe czyli tego odpowiedzialnego za gre w kółko krzyżyk
 https://fractionai.xyz/dapp/dashboard
-:info: przed poprawieniem promptu miałem poziom ROI -22.96%, a po ok 6/7 sesjach poprawiłem ROI do -11.42% 
+ przed poprawieniem promptu miałem poziom ROI -22.96%, a po ok 6/7 sesjach poprawiłem ROI do -11.42% 
 -oczywiście nie jest to idealna strategia, nie wszystko jest na plus, ale skoro poprawia wyniki to robimy to :check: 
 -jeżeli opisałeś go tak jak sugerowałem w poprzednim wpisie, to prawdopodobnie masz podobną nazwe: zdj.2 
 -kliknij koło zębate a do System Promptu wklei, to co załączam poniżej: 
 
-🔽 🔽 🔽 skopiuj cały teskt:
+skopiuj cały teskt:
 You are a bidding strategist and perfect Tic-Tac-Toe player. You play a modified game of Tic-Tac-Toe where before each move, both players secretly submit a bid (from a limited token budget). The highest bidder places their mark (X or O) on the board at the chosen position. 
 Your goal is to win the game while conserving as much of your bidding budget as possible. If you lose all your budget early, you may lose the game even with better positioning.
 Follow these strategic principles:
@@ -2477,12 +2472,12 @@ Output your bid amount (as an integer).
 Output your intended move (cell 1–9, top-left to bottom-right).
 Briefly explain reasoning (optional, for evaluation).
 You are rational, opportunistic, and budget-conscious. You play to win, not to show off.
-🔼 🔼 🔼 KONIEC promptu to "... You play to win, not to show off."        
+KONIEC promptu to "... You play to win, not to show off."        
 
 Teraz kolei na BTC Tradewars zdjęcie 3
 tutaj poprawa proptu była juz nieco mniejsza bo z okolicy - 11,11% podniosła sie do -4.29%   (ale po dziejszej sensji znowu nieco spadło :memes_gif_sus:
 -zasada ta sama co przy poprzednim agencie, czyli zakładka dasboard, wybierasz agenta i pod ikoną ustawień wklejasz nowy prompt:
-🔽 🔽 🔽 skopiuj całość:
+ skopiuj całość:
 RSI, EMA Crossover, MACD, and OBV to determine market conditions and price movements.
 Analysis Methods:
 Divergence: Identify trend reversals.
@@ -2498,18 +2493,18 @@ Order Entry:
 Long if indicators show strong bullish conditions, and Short if bearish.
 Avoid Conflicts:
 Use divergence analysis to resolve conflicts between RSI and MACD.
-🔼 🔼 🔼 KONIEC promptu to "...between RSI and MACD..."
+KONIEC promptu to "...between RSI and MACD..."
 Tworzenie nowego agenta w kolejnym wpisie:` },
     { text: 'Fraction AI Mainet: nowy agent do handlu na BTC', url: 'https://discord.com/channels/758584467484442695/1056793384041332746/1384543350769844325', search: true, detail: `Fraction AI Mainet: nowy agent do handlu na BTC
 
-ℹ️ Spis linków najdziesz w tym wpisie:
+ℹSpis linków najdziesz w tym wpisie:
 ⁠🧯┇spis-linków⁠
 Natomiast teraz stworzymy nowego agenta, którego zadaniem jest handel na BTC:
 Wejdz w Dasboard i kliknij po prawej niebieskie: Create new Agent
 -i teraz tak jak na zdjeciu 1 wybierz agenta BTC Tradewars , ustaw nazwe (ja ustawim cos prostego dodaje #1 zeby poźniej wiedzieć co jest co)
 -na razie wybieram dwie pierwsze strategie zdj.2 i srawdze jak działa po 5/10 sesjach: jesli bedzie miernie, to wprowadzę zmiany, ktrymi sie tutaj podziele
 https://fractionai.xyz/dapp/dashboard
-ℹ️ jesli nie będzie chciało Ci zapisać i dodać twojej strategii, to zmień dowolny parametr i wtedy pójdzie :logoa_check: 
+ℹ jesli nie będzie chciało Ci zapisać i dodać twojej strategii, to zmień dowolny parametr i wtedy pójdzie :logoa_check: 
 Teraz jak już wiesz wejdź w link, kliknij join space i puść swojego nowego agenta na walke handlowa 😎
 🔗 https://fractionai.xyz/dapp/spaces
 Podsumowując:
