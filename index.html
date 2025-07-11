@@ -2444,11 +2444,88 @@ ALE zakładam, że mój prompt bedzie kotem handlu i wtedy wypłace zyski :money
 
    { text: 'Fraction AI Mainet: nowe bardziej wydajne prompty dla agentów', url: 'https://discord.com/channels/758584467484442695/1056793384041332746/1384541928992804965', search: true, detail: `Fraction AI Mainet: nowe bardziej wydajne prompty dla agentów
 
+Dodali nowego agenta, którego sobie zaraz stworzymy, jednak najpierw poprawimy wydajność naszych starych Agentów, których tworzyliśmy w poprzednim wpisie:
+Zaczniemy od Agenta Bid Tac Toe zdjęcie.1
+wejdź w swój dasboard i wybierz agenta Bid Tac Toe czyli tego odpowiedzialnego za gre w "kółko krzyżyk"
+https://fractionai.xyz/dapp/dashboard
+ przed poprawieniem promptu miałem poziom ROI -22.96%, a po ok 6/7 sesjach poprawiłem ROI do -11.42% 
+-oczywiście nie jest to idealna strategia, nie wszystko jest na plus, ale skoro poprawia wyniki to robimy to 
+-jeżeli opisałeś go tak jak sugerowałem w poprzednim wpisie, to prawdopodobnie masz podobną nazwe: zdj.2 
+-kliknij koło zębate a do System Promptu wklei, to co załączam poniżej: 
+
+skopiuj cały teskt:
+
+You are a bidding strategist and perfect Tic-Tac-Toe player. You play a modified game of Tic-Tac-Toe where before each move, both players secretly submit a bid (from a limited token budget). The highest bidder places their mark (X or O) on the board at the chosen position. 
+
+Your goal is to win the game while conserving as much of your bidding budget as possible. If you lose all your budget early, you may lose the game even with better positioning.
+
+Follow these strategic principles:
+
+Prioritize winning: Always bid more aggressively when:
+You can win in the next move.
+You must block an opponent’s winning move.
+Predict opponent: Estimate how much the opponent is likely to bid in the current situation.
+If the opponent is likely to bid low, consider bidding slightly higher to win cheaply.
+If a bidding war is likely, consider letting the opponent win the bid if the board position isn’t dangerous.
+Control center and forks:
+Favor the center (position 5) early in the game.
+Create and prevent forks.
+Budget management:
+Avoid overspending early.
+Save your highest bids for critical win/block moments.
+Keep at least 20–30% of your budget for late game.
+Decision output:
+Output your bid amount (as an integer).
+Output your intended move (cell 1–9, top-left to bottom-right).
+Briefly explain reasoning (optional, for evaluation).
+
+You are rational, opportunistic, and budget-conscious. You play to win, not to show off.
+KONIEC promptu to ... You play to win, not to show off.        
+
+
+Teraz kolei na BTC Tradewars zdjęcie 3
+tutaj poprawa proptu była juz nieco mniejsza bo z okolicy - 11,11% podniosła sie do -4.29%   (ale po dziejszej sensji znowu nieco spadło :memes_gif_sus:
+-zasada ta sama co przy poprzednim agencie, czyli zakładka dasboard, wybierasz agenta i pod ikoną ustawień wklejasz nowy prompt:
+skopiuj całość:
+RSI, EMA Crossover, MACD, and OBV to determine market conditions and price movements.
+Analysis Methods:
+Divergence: Identify trend reversals.
+Momentum Comparison: Compare indicator strengths (e.g., RSI vs. MACD).
+Trend Strength Scoring: Use ADX for strong trend validation.
+Capital Allocation:
+90% capital for strong signals, 50% for moderate signals, and 10-30% for weak signals.
+Risk Management:
+No TP/SL; hold positions for 10 candles.
+Exit based on volume divergence or momentum changes.
+Order Entry:
+Long if indicators show strong bullish conditions, and Short if bearish.
+Avoid Conflicts:
+Use divergence analysis to resolve conflicts between RSI and MACD.
+KONIEC promptu to ..between RSI and MACD...
+
+Tworzenie nowego agenta w kolejnym wpisie:
 ` },
 
-  
-    { text: 'Fraction AI Mainet: nowy agent do handlu na BTC', url: 'https://discord.com/channels/758584467484442695/1056793384041332746/1384543350769844325', search: true, detail: `Fraction AI Mainet: nowy agent do handlu na BTC
+ { text: 'Fraction AI Mainet: nowy agent do handlu na BTC', url: 'https://discord.com/channels/758584467484442695/1056793384041332746/1384543350769844325', search: true, detail: `Natomiast teraz stworzymy nowego agenta, którego zadaniem jest handel na BTC:
+Wejdz w Dasboard i kliknij po prawej niebieskie: Create new Agent
+-i teraz tak jak na zdjeciu 1 wybierz agenta BTC Tradewars , ustaw nazwe (ja ustawim cos prostego dodaje 1 zeby poźniej wiedzieć co jest co)
+-na razie wybieram dwie pierwsze strategie zdj.2 i srawdze jak działa po 5/10 sesjach: jesli bedzie miernie, to wprowadzę zmiany, ktrymi sie tutaj podziele
+https://fractionai.xyz/dapp/dashboard
+ jesli nie będzie chciało Ci zapisać i dodać twojej strategii, to zmień dowolny parametr i wtedy pójdzie 
+Teraz jak już wiesz wejdź w link, kliknij join space i puść swojego nowego agenta na walke handlowa 
+🔗 https://fractionai.xyz/dapp/spaces
 
+Podsumowując:
+do daily dodaje codzienną aktyność na nowym agencie
+-oraz bedzie ich uruchamiał 2razy dziennie: dlatego podczas robienieautyny jak już "wypuszcze" wszytie boty, to nie zamykam strony tylko przesuwam ją w zakładkach i wracam za ok 15/20min do ponownego uruchomienia` },
+
+  
+    { text: 'Fraction AI nowy bot', url: 'https://discord.com/channels/758584467484442695/1056793384041332746/1388923313006317750', search: true, detail: `Na Fraction AI pojawił sie nowy bot i zrobimy sobie również jego 
+Informacyjnie:
+Boty odgrywają symuację meczu piłki nożnej, dzieki temu Agenci AI uczą się pracy zespołowej, pozycjonowania i mądrej strategii.
+Wejdz w link i kliknij nowego bota Join Space zdj.1
+https://fractionai.xyz/dapp/spaces
+następnie Create New Agent, uzupełnij nazwę, a następnie możesz uzyc opcji Autofill Data  i poszukac różnych opcji na ustawinie sił na: obrone, pomoc i atak. Ja na razie zaczynam z takim ustawiniem zdj.2 i zobcze jak pojda pierwsze mecze
 ` }
 ])">ℹ️</span>
 
