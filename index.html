@@ -1,28 +1,12 @@
   <!-- ░░░░░░░░░░░░░░░░░░░░░ SEPARATOR ░░░░░░░░░░░░░░░░░░░░░ -->
 
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <title>RUTYNA DW</title>
-  <style>
+<!DOCTYPE html><html lang="pl"><head>  <meta charset="UTF-8">  <title>RUTYNA DW</title>  <style>
 
 body {
-  background: linear-gradient(135deg, #f0faff, #d0e4f2 25%, #aebdc9 50%, #8798a3 75%, #606c74);
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: #101820;
-  font-family: 'Segoe UI', sans-serif;
-}
+  background: linear-gradient(135deg, #f0faff, #d0e4f2 25%, #aebdc9 50%, #8798a3 75%, #606c74);  background-attachment: fixed;  background-repeat: no-repeat;
+  background-size: cover;  color: #101820;  font-family: 'Segoe UI', sans-serif;}
 
-
-
-
-
-
-  
-    
+     
     .tooltip-icon {position: relative; cursor: pointer; font-weight: bold; display: inline-block;}
     .tooltip-text {visibility: hidden; background: #fff; color: #000; text-align: left; padding: 10px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.2); position: absolute; bottom: 125%; left: 50%; transform: translateX(-50%); z-index: 1000; width: max-content; max-width: 200px; font-size: 12px; line-height: 1.4; white-space: normal;}
     .tooltip-icon.active .tooltip-text {visibility: visible;}
@@ -30,34 +14,17 @@ body {
     
     /* Kontener na obie tabele – elastyczny układ obok siebie */
     .tables-container {display: flex; gap: 20px; align-items: flex-start;} /* ✅ tabele będą równe tylko od góry */
-    /* Tabela projektów – lewa, szersza (54%) */
-    .tables-container table:first-of-type {flex: 0 0 54%;}
-    /* Tabela faucetów – prawa, węższa (46%) */
-    .tables-container table:last-of-type {flex: 0 0 46%;}
-    /* Wspólne ustawienia dla obu tabel */
-    .tables-container table {border-collapse: collapse; width: 100%;}
-    /* Styl komórek */
-    th, td {border: 1px solid #aaa; padding: 8px; text-align: left; vertical-align: top;}
-    /* Nagłówki */
-   th {  background: linear-gradient(90deg, #dde7f2, #cadbe9);
-  color: #101820;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.4);
-  font-weight: bold;
-  padding: 8px;
-  border-bottom: 2px solid #aebdc9;}
-    th .reset-btn {display: block; margin: 0 auto;}
-    /* Domyślny układ kolumn – dla wszystkich tabel (np. PROJEKTY) */
-    td:first-child, th:first-child {width: 30%;}
-    td:last-child, th:last-child {width: 70%;}
-    /* Nadpisanie tylko dla tabeli FAUCETY */
-    .faucets-table td:first-child, .faucets-table th:first-child {width: 38%;}
-    .faucets-table td:last-child, .faucets-table th:last-child {width: 62%;}
+    /* Tabela projektów – lewa, szersza (54%) */    .tables-container table:first-of-type {flex: 0 0 54%;}
+    /* Tabela faucetów – prawa, węższa (46%) */    .tables-container table:last-of-type {flex: 0 0 46%;}
+    /* Wspólne ustawienia dla obu tabel */    .tables-container table {border-collapse: collapse; width: 100%;}
+    /* Styl komórek */    th, td {border: 1px solid #aaa; padding: 8px; text-align: left; vertical-align: top;}
+    /* Nagłówki */   th {  background: linear-gradient(90deg, #dde7f2, #cadbe9);  color: #101820;  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.4);  font-weight: bold;  padding: 8px;  border-bottom: 2px solid #aebdc9;}    th .reset-btn {display: block; margin: 0 auto;}
+    /* Domyślny układ kolumn – dla wszystkich tabel (np. PROJEKTY) */    td:first-child, th:first-child {width: 30%;}    td:last-child, th:last-child {width: 70%;}
+    /* Nadpisanie tylko dla tabeli FAUCETY */    .faucets-table td:first-child, .faucets-table th:first-child {width: 38%;}    .faucets-table td:last-child, .faucets-table th:last-child {width: 62%;}
 
-    /* Przycisk RESET ALL */
-    .reset-all {margin-bottom: 20px; padding: 10px 18px; font-weight: bold; background: #e74c3c; color: white; border: none; border-radius: 6px; cursor: pointer;}
+    /* Przycisk RESET ALL */    .reset-all {margin-bottom: 20px; padding: 10px 18px; font-weight: bold; background: #e74c3c; color: white; border: none; border-radius: 6px; cursor: pointer;}
     
-    .link-item {list-style: none;}
-    .centered {text-align: center; font-weight: bold;}
+    .link-item {list-style: none;}    .centered {text-align: center; font-weight: bold;}
     
     .discord-table {margin-top: 40px; border-collapse: collapse; border: 1px solid #aaa; width: auto; table-layout: auto;}
     .discord-table th, .discord-table td {padding: 8px; white-space: nowrap; border: 1px solid #aaa; vertical-align: top;}
@@ -99,9 +66,8 @@ body {
 
 
     <!-- Tabela 1 – Projekty --> <table>
-      
+   
       <tr><td colspan="2" style="text-align: center;"><strong>KLIKNIJ WYKRZYKNIK ⚠️ I SPRAWDŹ SZCZEGÓŁY</strong></td></tr>  
-
       <tr> <th class="centered">PROJEKTY</th> <th><button class="reset-btn" id="reset-table1">RESET</button></th> </tr>
     
           
@@ -111,17 +77,12 @@ body {
 
     
        <!-- ---------------------MICRO3------------------------------------- -->
-
      <tr><td><a href="https://micro3.io/">MICRO 3</a> (<a href="https://micro3.io/" target="_blank">C</a>)</td><td><label><input type="checkbox" class="check table1" data-id="kampania2"> CHECK</label></td></tr>
 
-   
-       <!-- -------------------------INTRACT---------------------------------- -->
-
+          <!-- -------------------------INTRACT---------------------------------- -->
      <tr><td><a href="https://quest.intract.io/achievements">INTRACT</a> (<a href="https://quest.intract.io/achievements" target="_blank">C</a>)</td><td><label><input type="checkbox" class="check table1" data-id="kampania3"> CHECK</label></td></tr>
-
    
        <!-- --------------------------OPENSEA----------------------------------- -->
-
      <tr><td><a href="https://opensea.io/rewards">OPEN SEA</a> (<a href="https://opensea.io/rewards" target="_blank">C</a>)<span class="tooltip-icon" onclick="toggleTooltip(this)">⚠️<span class="tooltip-text">
     👉daily misje<br>
    👉śledźcie wpisy i nie róbcie na własną rękę </span></span></td><td>
@@ -132,8 +93,7 @@ body {
   </td></tr>
    
        <!-- -----------------------LAYER 3------------------------------ -->
-    
-     <tr><td><a href="https://app.layer3.xyz/">LAYER 3 STREAK</a> (<a href="https://app.layer3.xyz/" target="_blank">C</a>)<span class="tooltip-icon" onclick="toggleTooltip(this)">⚠️<span class="tooltip-text">
+         <tr><td><a href="https://app.layer3.xyz/">LAYER 3 STREAK</a> (<a href="https://app.layer3.xyz/" target="_blank">C</a>)<span class="tooltip-icon" onclick="toggleTooltip(this)">⚠️<span class="tooltip-text">
     👉Daily check-in<br>
    👉Kampanie miesięczne wykonuj bieżące misje Nasz target to Platyna & Diamond<br> 
     👉Otwórz Weekly Lootbox w guildii   </span></span> </td><td>
@@ -148,15 +108,12 @@ body {
 
 <tr><td colspan="2"><strong>&nbsp;</strong></td></tr>
 
-
      
 
   <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ POZOSTAŁE ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ --> 
   <tr><td colspan="2" style="text-align: center;"><strong>🔶🔷 POZOSTAŁE 🔷🔶</strong></td></tr>
 
-
  <!-- ---------------------------SAHARA--------------------- -->
-
  <tr>     <td> 
   <a href="https://legends.saharalabs.ai/"> SAHARA  </a> (<a href="https://legends.saharalabs.ai/" target="_blank">  C</a>) 
       <span class="tooltip-icon" onclick="toggleTooltip(this)">   ⚠️  <span class="tooltip-text">
@@ -165,8 +122,7 @@ body {
         👉w Gobby Desert odbierz punkty za 3 misje <br/>
         👉wykonuj misje socialowe na discordzie
         <br/>  </span> </span>
-         
-     </td>
+             </td>
      
      <td>     
  <label><input class="check table1" data-id="SAHARAGALXE" type="checkbox"/>
@@ -319,15 +275,10 @@ Zespół KiteAI wprowadził nowy interfejs użytkownika do sieci testowej Ozone.
 
 
 <tr><td><a href="https://somnia.exchange/#/">SOMNIA EXCHANGE</a> (<a href="https://somnia.exchange/#/" target="_blank">C</a>)</td><td>
-
 <label><input type="checkbox" class="check table1" data-id="somniaexchrewards"><a href="https://somnia.exchange/#/rewards">REWARDS</a> (<a href="https://somnia.exchange/#/rewards" target="_blank">C</a>)</label>&nbsp;
-
 <label><input type="checkbox" class="check table1" data-id="somniaexchswap"><a href="https://somnia.exchange/#/swap">SWAP</a> (<a href="https://somnia.exchange/#/swap" target="_blank">C</a>)</label>&nbsp;
-
 <label><input type="checkbox" class="check table1" data-id="somniaexchpools"><a href="https://somnia.exchange/#/pools">POOLS</a> (<a href="https://somnia.exchange/#/pools" target="_blank">C</a>)</label>&nbsp;
-
 <label><input type="checkbox" class="check table1" data-id="somniaexchleaderboard"><a href="https://somnia.exchange/#/leaderboard">LEADERBOARD</a> (<a href="https://somnia.exchange/#/leaderboard" target="_blank">C</a>)</label>&nbsp;
-
 </td></tr>
 
   
@@ -335,14 +286,10 @@ Zespół KiteAI wprowadził nowy interfejs użytkownika do sieci testowej Ozone.
 
 
 <tr><td><a href="https://lensreputation.xyz/">LENS</a> (<a href="https://lensreputation.xyz/" target="_blank">C</a>)</td><td>
-
 <label><input type="checkbox" class="check table1" data-id="lensreputation"><a href="https://lensreputation.xyz/">REPUTATION</a> (<a href="https://lensreputation.xyz/" target="_blank">C</a>)</label>&nbsp;
-
 <label><input type="checkbox" class="check table1" data-id="profile hey"><a href="https://hey.xyz/">PROFILE HEY</a> (<a href="https://hey.xyz/" target="_blank">C</a>)</label>&nbsp;
-
 <label><input type="checkbox" class="check table1" data-id="LENS BRIDGE"><a href="https://portal.testnet.lens.dev/bridge/">LENS BRIDGE</a> (<a href="https://portal.testnet.lens.dev/bridge/" target="_blank">C</a>)<span class="tooltip-icon" onclick="toggleTooltip(this)">⚠️<span class="tooltip-text">
     👉odbiór tekenów z faucetu<br>👉bridge z Sepila do Lens następnego dnia odwrotny  </span></span></label>&nbsp;
-
 <label><input type="checkbox" class="check table1" data-id="jumper"><a href="https://jumper.exchange/">JUMPER</a> (<a href="https://jumper.exchange/" target="_blank">C</a>)</label>&nbsp;
   
 
@@ -638,8 +585,8 @@ Ten wpis jest dedykowany pod daily aby wykonać wszystkie wymagania pod Tiery. C
     
       </td></tr>   
 
-      <!-- ----------------------------SOSOVALUE------------------------------ -->   
- <tr><td><a href="https://sosovalue.com/exp">SOSOVALUE
+      <!-- ----------------------------SOSOVALUE + SOSODEX------------------------------ -->   
+ <tr><td><a href="https://sosovalue.com/exp">SOSOVALUE + SosoDEX
 </a> (<a href="https://sosovalue.com/exp" target="_blank">C</a>)
 
 <!-- -------DYMEK----------- --> 
@@ -699,17 +646,10 @@ DAILY CHECK-IN
 </a> (<a href="https://sosovalue.com/exp"  target="_blank">C</a>)</label>&nbsp;
 
  <label><input type="checkbox" class="check table1" 
-data-id="sosovaluedailymisje"> 
-<a href="https://sosovalue.com/center.">
-ODBIÓR PKT ZA 5 DAILY MISJI
-</a> (<a href="https://sosovalue.com/center"  target="_blank">C</a>)</label>&nbsp;
-
-<label><input type="checkbox" class="check table1" 
-data-id="sosovalueapka"> 
-<a href="https://play.google.com/store/apps/details?id=com.sosovalue.app">
-APKA ANDROID
-</a> (<a href="https://play.google.com/store/apps/details?id=com.sosovalue.app"  target="_blank">C</a>)</label>&nbsp;
-
+data-id="sosodex"> 
+<a href="https://testnet.sodex.com/spot/trade/BTC_USDC">
+SosoDEX
+</a> (<a href="https://testnet.sodex.com/spot/trade/BTC_USDC"  target="_blank">C</a>)</label>&nbsp;
 
 
       </td></tr>
@@ -1384,6 +1324,12 @@ data-id="citreafaucet"> <a href="https://citrea.xyz/faucet">FAUCET
     z-index: 10;"> Skopiowano!</span></span>&nbsp;  
 </td></tr>
 
+<!-- -------------------------------SOSOVALUE SOSODEX FAUCET----------------------------------- -->
+      <tr><td><a href="https://testnet.sodex.com/faucet">SOSODEX FAUCET</a> (<a href="https://testnet.sodex.com/faucet" target="_blank">C</a>)</td>
+     
+    <td><label><input type="checkbox" class="check table2" data-id="sosodexfaucetsosovalue"><a href="https://testnet.sodex.com/faucet">CHECK</a>(<a href="https://testnet.sodex.com/faucet" target="_blank">C</a>)</label>&nbsp; 
+</td></tr>
+   
  <!-- -------------------------------RUBY SCORE FAUCET------------------------------------ -->
       <tr><td><a href="https://rubyscore.io/faucet">RUBY SCORE FAUCET SEPOLIA</a> (<a href="https://rubyscore.io/faucet" target="_blank">C</a>)</td>
         
