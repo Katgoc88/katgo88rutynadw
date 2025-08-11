@@ -3256,15 +3256,106 @@ CHECK
 </tr>
 
 
+ <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░start minikalnedarza░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+<tr>
+  <td colspan="2" style="padding:10px;">
+    <div id="miniCalExtra" class="mini-cal"></div>
+  </td>
+</tr>
+
+<style>
+  .mini-cal{font-family:inherit; max-width:420px; margin:0 auto;}
+  .mini-cal .mc-head{display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:6px;}
+  .mini-cal .mc-title{font-weight:700; text-align:center; flex:1;}
+  .mini-cal .mc-nav{display:flex; gap:6px;}
+  .mini-cal .mc-btn{border:1px solid #ccd4db; background:#f6f8fb; padding:4px 8px; border-radius:6px; cursor:pointer;}
+  .mini-cal .mc-btn:disabled{opacity:.5; cursor:default;}
+  .mini-cal .mc-grid{display:grid; grid-template-columns:repeat(7,1fr); gap:4px;}
+  .mini-cal .mc-cell{padding:6px 0; text-align:center; border:1px solid #ccd4db; border-radius:6px; background:#f6f8fb;}
+  .mini-cal .mc-dow{background:#e6eef7; font-weight:600;}
+  .mini-cal .mc-empty{background:transparent; border:none;}
+  .mini-cal .mc-today{background:#fff; outline:2px solid #e74c3c; font-weight:700;}
+</style>
+
+<script>
+(function miniCalendar(containerId){
+  const el = document.getElementById(containerId);
+  if(!el) return;
+
+  const months = ["styczeń","luty","marzec","kwiecień","maj","czerwiec","lipiec","sierpień","wrzesień","październik","listopad","grudzień"];
+  const dows   = ["Pn","Wt","Śr","Cz","Pt","So","Nd"];
+
+  const today = new Date();
+  let viewY = today.getFullYear();
+  let viewM = today.getMonth(); // 0..11
+
+  function render(){
+    // nagłówek
+    el.innerHTML = `
+      <div class="mc-head">
+        <div class="mc-nav">
+          <button type="button" class="mc-btn" id="mcPrev">‹</button>
+        </div>
+        <div class="mc-title">${months[viewM]} ${viewY}</div>
+        <div class="mc-nav">
+          <button type="button" class="mc-btn" id="mcNext">›</button>
+        </div>
+      </div>
+      <div class="mc-grid"></div>
+    `;
+
+    const grid = el.querySelector(".mc-grid");
+
+    // dni tygodnia (Pn..Nd)
+    dows.forEach(txt=>{
+      const d=document.createElement("div");
+      d.className="mc-cell mc-dow";
+      d.textContent=txt;
+      grid.appendChild(d);
+    });
+
+    // obliczenia miesiąca
+    const first = new Date(viewY, viewM, 1);
+    const daysInMonth = new Date(viewY, viewM+1, 0).getDate();
+    const startIdx = (first.getDay() + 6) % 7; // 0=Pn ... 6=Nd
+
+    // puste komórki do pierwszego dnia
+    for(let i=0;i<startIdx;i++){
+      const e=document.createElement("div");
+      e.className="mc-cell mc-empty";
+      grid.appendChild(e);
+    }
+
+    // dni miesiąca
+    for(let d=1; d<=daysInMonth; d++){
+      const cell=document.createElement("div");
+      const isToday = (viewY===today.getFullYear() && viewM===today.getMonth() && d===today.getDate());
+      cell.className = "mc-cell" + (isToday ? " mc-today" : "");
+      cell.textContent = d;
+      grid.appendChild(cell);
+    }
+
+    // nawigacja
+    el.querySelector("#mcPrev").onclick = ()=> {
+      viewM--; if(viewM<0){viewM=11; viewY--;} render();
+    };
+    el.querySelector("#mcNext").onclick = ()=> {
+      viewM++; if(viewM>11){viewM=0; viewY++;} render();
+    };
+  }
+
+  render();
+})("miniCalExtra");
+</script>
+     
+ <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░koniec minikalnedarza░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ --> 
+      
+
+
+
 
 
       
-<!-- ----------------------------GM ON INK------------------------------ -->   
-      <tr><td><a href="https://gm.inkonchain.com/">INK GM</a> (<a href="https://gm.inkonchain.com/" target="_blank">C</a>)
-      <span class="tooltip-icon" onclick="toggleTooltip(this)">⚠️<span class="tooltip-text">
-    👉GM na stronce gm.inkonchain.com<br> </span></span>
-      </td><td> <label><input type="checkbox" class="check table2" data-id="gmink"> DAILY GM</label></td></tr>
-
 
       <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ BRIDGE ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ --> 
       
