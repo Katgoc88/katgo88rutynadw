@@ -16,23 +16,30 @@ body {
 
   
 /* Kontener na trzy tabele – elastyczny układ obok siebie */
-.tables-container {display: flex; gap: 10px; align-items: flex-start;}
+.tables-container {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
 
-/* Tabela projektów – lewa, szersza */
+/* Wrappery odpowiadają za szerokości całych tabel */
 .projects-table-wrapper {flex: 0 0 35%;}
-
-/* Tabela faucetów – środkowa */
 .faucets-table-wrapper {flex: 0 0 31%;}
-
-/* Trzecia tabela – prawa */
-.extra-table-wrapper {flex: 0 0 31%;}
-
+.extra-table-wrapper   {flex: 0 0 31%;}
 
 /* Wspólne ustawienia dla wszystkich tabel */
-.tables-container table {border-collapse: collapse; width: 100%;}
+.tables-container table {
+  border-collapse: collapse;
+  width: 100%;
+}
 
 /* Styl komórek */
-th, td {border: 1px solid #aaa; padding: 8px; text-align: left; vertical-align: top;}
+th, td {
+  border: 1px solid #aaa;
+  padding: 8px;
+  text-align: left;
+  vertical-align: top;
+}
 
 /* Nagłówki */
 th {
@@ -43,11 +50,26 @@ th {
   padding: 8px;
   border-bottom: 2px solid #aebdc9;
 }
-th .reset-btn {display: block; margin: 0 auto;}
+
+th .reset-btn {
+  display: block;
+  margin: 0 auto;
+}
 
 /* Domyślny układ kolumn w tabelach */
 td:first-child, th:first-child {width: 30%;}
-td:last-child, th:last-child {width: 70%;}
+td:last-child,  th:last-child  {width: 70%;}
+
+/* Indywidualne szerokości kolumn dla poszczególnych tabel */
+.projects-table td:first-child, .projects-table th:first-child {width: 25%;}
+.projects-table td:last-child,  .projects-table th:last-child  {width: 75%;}
+
+.faucets-table td:first-child,  .faucets-table th:first-child  {width: 20%;}
+.faucets-table td:last-child,   .faucets-table th:last-child   {width: 80%;}
+
+.extra-table td:first-child,    .extra-table th:first-child    {width: 28%;}
+.extra-table td:last-child,     .extra-table th:last-child     {width: 72%;}
+
 
 
 /* Przycisk RESET ALL */
