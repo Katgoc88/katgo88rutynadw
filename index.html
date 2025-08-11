@@ -17,79 +17,96 @@ body {
   
 /* Kontener na trzy tabele – elastyczny układ obok siebie */
 .tables-container {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-  flex-wrap: nowrap; /* zawsze w jednym wierszu */
+  display: flex !important;
+  gap: 20px !important;
+  align-items: flex-start !important;
+  flex-wrap: nowrap !important; /* zawsze w jednym wierszu */
 }
 
 /* Tabela projektów – lewa, szersza */
-.projects-table {
-  flex: 0 0 40%;
-  min-width: 0;
-  box-sizing: border-box;
+.tables-container > table.projects-table {
+  flex: 0 0 40% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
 }
 
 /* Tabela faucetów – środkowa */
-.faucets-table {
-  flex: 0 0 30%;
-  min-width: 0;
-  box-sizing: border-box;
+.tables-container > table.faucets-table {
+  flex: 0 0 30% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
 }
 
 /* Trzecia tabela – prawa */
-.extra-table {
-  flex: 0 0 26%;
-  min-width: 0;
-  box-sizing: border-box;
+.tables-container > table.extra-table {
+  flex: 0 0 26% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
 }
 
 /* Wspólne ustawienia dla wszystkich tabel */
-.tables-container table {
-  border-collapse: collapse;
-  width: 100%;
-  table-layout: fixed; /* trzyma procenty w kolumnach */
-  box-sizing: border-box;
+.tables-container > table {
+  border-collapse: collapse !important;
+  width: 100% !important;
+  table-layout: fixed !important; /* trzyma procenty w kolumnach */
+  box-sizing: border-box !important;
 }
 
 /* Styl komórek */
-th, td {
-  border: 1px solid #aaa;
-  padding: 8px;
-  text-align: left;
-  vertical-align: top;
-  word-break: break-word; /* łamanie długich słów/linków */
-  box-sizing: border-box;
+.tables-container > table th,
+.tables-container > table td {
+  border: 1px solid #aaa !important;
+  padding: 8px !important;
+  text-align: left !important;
+  vertical-align: top !important;
+  word-break: break-word !important;
+  box-sizing: border-box !important;
 }
 
 /* Nagłówki */
-th {
-  background: linear-gradient(90deg, #dde7f2, #cadbe9);
-  color: #101820;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.4);
-  font-weight: bold;
-  padding: 8px;
-  border-bottom: 2px solid #aebdc9;
+.tables-container > table th {
+  background: linear-gradient(90deg, #dde7f2, #cadbe9) !important;
+  color: #101820 !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.4) !important;
+  font-weight: bold !important;
+  padding: 8px !important;
+  border-bottom: 2px solid #aebdc9 !important;
 }
-th .reset-btn {display: block; margin: 0 auto;}
+.tables-container > table th .reset-btn {
+  display: block !important;
+  margin: 0 auto !important;
+}
 
 /* Układ kolumn – tabela PROJEKTY */
-.projects-table td:first-child,
-.projects-table th:first-child { width: 25%; }
-.projects-table td:last-child,
-.projects-table th:last-child  { width: 75%; }
+.tables-container > table.projects-table td:first-child,
+.tables-container > table.projects-table th:first-child {
+  width: 25% !important;
+}
+.tables-container > table.projects-table td:last-child,
+.tables-container > table.projects-table th:last-child {
+  width: 75% !important;
+}
 
 /* Układ kolumn – tabela FAUCETY */
-.faucets-table td:first-child,
-.faucets-table th:first-child { width: 15%; }
-.faucets-table td:last-child,
-.faucets-table th:last-child  { width: 85%; }
+.tables-container > table.faucets-table td:first-child,
+.tables-container > table.faucets-table th:first-child {
+  width: 15% !important;
+}
+.tables-container > table.faucets-table td:last-child,
+.tables-container > table.faucets-table th:last-child {
+  width: 85% !important;
+}
 
 /* Układ kolumn – tabela EXTRA */
-.extra-table td:first-child,
-.extra-table th:first-child { width: 5%; }
-.extra-table td:last-child,
-.extra-table th:last-child  { width: 95%; }
+.tables-container > table.extra-table td:first-child,
+.tables-container > table.extra-table th:first-child {
+  width: 5% !important;
+}
+.tables-container > table.extra-table td:last-child,
+.tables-container > table.extra-table th:last-child {
+  width: 95% !important;
+}
+
 
 
 
@@ -144,6 +161,9 @@ th .reset-btn {display: block; margin: 0 auto;}
   </script>
 
   <button class="reset-all" id="reset-all">RESET ALL</button>
+ 
+  
+  
   <div class="tables-container">
 
 
