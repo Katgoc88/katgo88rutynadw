@@ -14,84 +14,60 @@ body {
 
 
 
-  
-/* ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ */
 /* Kontener na trzy tabele – elastyczny układ obok siebie */
-.tables-container {
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
+.tables-container{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
 }
 
-/* Wrappery odpowiadają za szerokości całych tabel */
-.projects-table-wrapper {flex: 0 0 35%;}
-.faucets-table-wrapper  {flex: 0 0 31%;}
-.extra-table-wrapper    {flex: 0 0 31%;}
+/* Wrappery = szerokości całych tabel */
+.projects-table-wrapper{ flex:0 0 35%; }
+.faucets-table-wrapper { flex:0 0 31%; }
+.extra-table-wrapper   { flex:0 0 31%; }
 
-/* Wspólne ustawienia dla wszystkich tabel */
-.tables-container table {
-  border-collapse: collapse;
-  width: 100%;
+/* Wspólne dla tabel w kontenerze */
+.tables-container table{
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed;           /* trzyma szerokości z <colgroup> */
+  box-sizing:border-box;
 }
 
-/* Styl komórek */
-th, td {
-  border: 1px solid #aaa;
-  padding: 8px;
-  text-align: left;
-  vertical-align: top;
+/* Komórki */
+.tables-container th,
+.tables-container td{
+  border:1px solid #aaa;
+  padding:8px;
+  text-align:left;
+  vertical-align:top;
+  word-break:break-word;        /* długie linki nie rozpychają kolumn */
+  box-sizing:border-box;
 }
 
 /* Nagłówki */
-th {
-  background: linear-gradient(90deg, #dde7f2, #cadbe9);
-  color: #101820;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.4);
-  font-weight: bold;
-  padding: 8px;
-  border-bottom: 2px solid #aebdc9;
+.tables-container th{
+  background:linear-gradient(90deg,#dde7f2,#cadbe9);
+  color:#101820;
+  text-shadow:0 1px 1px rgba(255,255,255,.4);
+  font-weight:bold;
+  padding:8px;
+  border-bottom:2px solid #aebdc9;
 }
+.tables-container th .reset-btn{ display:block; margin:0 auto; }
 
-th .reset-btn {
-  display: block;
-  margin: 0 auto;
-}
+/* --- Szerokości kolumn per tabela (przez <colgroup>) --- */
+.projects-table col.left  { width:25%; }  /* PROJEKTY: lewa/prawa */
+.projects-table col.right { width:75%; }
 
-/* Domyślne szerokości kolumn – jeśli nie nadpisane */
-.tables-container td:first-child,
-.tables-container th:first-child {width: 30%;}
-.tables-container td:last-child,
-.tables-container th:last-child  {width: 70%;}
+.faucets-table  col.left  { width:25%; }  /* FAUCETY: lewa/prawa */
+.faucets-table  col.right { width:75%; }
 
-/* Indywidualne szerokości kolumn w tabelach */
-.tables-container .projects-table td:first-child,
-.tables-container .projects-table th:first-child {width: 25%;}
-.tables-container .projects-table td:last-child,
-.tables-container .projects-table th:last-child  {width: 75%;}
-
-.tables-container .faucets-table td:first-child,
-.tables-container .faucets-table th:first-child  {width: 20%;}
-.tables-container .faucets-table td:last-child,
-.tables-container .faucets-table th:last-child   {width: 80%;}
-
-.tables-container .extra-table td:first-child,
-.tables-container .extra-table th:first-child    {width: 28%;}
-.tables-container .extra-table td:last-child,
-.tables-container .extra-table th:last-child     {width: 72%;}
+.extra-table    col.left  { width:28%; }  /* EXTRA: lewa/prawa */
+.extra-table    col.right { width:72%; }
 
 
 
-/* Przycisk RESET ALL */
-.reset-all {
-  margin-bottom: 20px;
-  padding: 10px 18px;
-  font-weight: bold;
-  background: #e74c3c;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
 
 
 
@@ -157,6 +133,11 @@ th .reset-btn {
 <div class="projects-table-wrapper">
     <!-- Tabela 1 – Projekty -->
 <table class="projects-table">
+
+   <colgroup>
+      <col class="left">
+      <col class="right">
+    </colgroup>
 
    
       <tr><td colspan="2" style="text-align: center;"><strong>KLIKNIJ WYKRZYKNIK ⚠️ I SPRAWDŹ SZCZEGÓŁY</strong></td></tr>  
@@ -1450,7 +1431,14 @@ WPIS DC
 
 
       <div class="faucets-table-wrapper">
-    <!-- Tabela 2 – Faucety -->    <table class="faucets-table">  <tr>
+    <!-- Tabela 2 – Faucety -->    <table class="faucets-table"> 
+       <colgroup>
+      <col class="left">
+      <col class="right">
+    </colgroup>
+      
+      
+      <tr>
 
     <tr><td colspan="2" style="text-align: center;"><strong>💥 BĘDZIE BOLAŁO... ALE WIESZ, ŻE WARTO 💥</strong></td>
     </tr>        <th class="centered"> FAUCETY i 1/24H </th>    <th><button class="reset-btn" id="reset-table2">RESET</button></th>  </tr>
@@ -3324,7 +3312,13 @@ CHECK
    <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░EXTRA░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ --> 
 
      <div class="extra-table-wrapper">
-    <!-- Tabela 3 – EXTRA -->    <table class="extra-table">  <tr>
+    <!-- Tabela 3 – EXTRA -->    <table class="extra-table">  
+       <colgroup>
+      <col class="left">
+      <col class="right">
+    </colgroup>
+      
+      <tr>
 
     <tr><td colspan="2" style="text-align: center;"><strong>💥💥💥</strong></td>
     </tr>        <th class="centered"> extra </th>    <th><button class="reset-btn" id="reset-table2">RESET</button></th>  </tr>
