@@ -19,10 +19,10 @@ body {
 .tables-container {display: flex; gap: 20px; align-items: flex-start;}
 
 /* Tabela projektów – lewa, szersza */
-.projects-table {flex: 0 0 38%;}
+.projects-table {flex: 0 0 40%;}
 
 /* Tabela faucetów – środkowa */
-.faucets-table {flex: 0 0 31%;}
+.faucets-table {flex: 0 0 30%;}
 
 /* Trzecia tabela – prawa */
 .extra-table {flex: 0 0 26%;}
@@ -44,13 +44,24 @@ th {
 }
 th .reset-btn {display: block; margin: 0 auto;}
 
-/* Domyślny układ kolumn w tabelach */
-td:first-child, th:first-child {width: 30%;}
-td:last-child, th:last-child {width: 70%;}
+/* Układ kolumn – tabela PROJEKTY */
+.projects-table td:first-child,
+.projects-table th:first-child { width: 25%; }  /* pierwsza kolumna */
+.projects-table td:last-child,
+.projects-table th:last-child  { width: 75%; }  /* druga kolumna */
 
-/* Nadpisanie tylko dla tabeli FAUCETY */
-.faucets-table td:first-child, .faucets-table th:first-child {width: 38%;}
-.faucets-table td:last-child, .faucets-table th:last-child {width: 62%;}
+/* Układ kolumn – tabela FAUCETY */
+.faucets-table td:first-child,
+.faucets-table th:first-child { width: 25%; }
+.faucets-table td:last-child,
+.faucets-table th:last-child  { width: 75%; }
+
+/* Układ kolumn – tabela EXTRA */
+.extra-table td:first-child,
+.extra-table th:first-child { width: 25%; }
+.extra-table td:last-child,
+.extra-table th:last-child  { width: 75%; }
+
 
 /* Przycisk RESET ALL */
 .reset-all {
