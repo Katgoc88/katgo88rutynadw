@@ -16,22 +16,43 @@ body {
 
   
 /* Kontener na trzy tabele – elastyczny układ obok siebie */
-.tables-container {display: flex; gap: 20px; align-items: flex-start;}
+.tables-container {
+  display: flex;
+  gap: 15px; /* stały odstęp między tabelami */
+  align-items: flex-start;
+}
 
 /* Tabela projektów – lewa, szersza */
-.projects-table {flex: 0 0 40%;}
+.projects-table {
+  flex: 0 0 calc((100% - 30px) * 0.40); /* 2 odstępy po 15px = 30px */
+  box-sizing: border-box;
+}
 
 /* Tabela faucetów – środkowa */
-.faucets-table {flex: 0 0 30%;}
+.faucets-table {
+  flex: 0 0 calc((100% - 30px) * 0.30);
+  box-sizing: border-box;
+}
 
 /* Trzecia tabela – prawa */
-.extra-table {flex: 0 0 26%;}
+.extra-table {
+  flex: 0 0 calc((100% - 30px) * 0.26);
+  box-sizing: border-box;
+}
 
 /* Wspólne ustawienia dla wszystkich tabel */
-.tables-container table {border-collapse: collapse; width: 100%;}
+.tables-container table {
+  border-collapse: collapse;
+  width: 100%;
+}
 
 /* Styl komórek */
-th, td {border: 1px solid #aaa; padding: 8px; text-align: left; vertical-align: top;}
+th, td {
+  border: 1px solid #aaa;
+  padding: 8px;
+  text-align: left;
+  vertical-align: top;
+}
 
 /* Nagłówki */
 th {
