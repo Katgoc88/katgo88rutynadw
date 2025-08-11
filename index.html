@@ -11,18 +11,48 @@ body {
     .tooltip-text {visibility: hidden; background: #fff; color: #000; text-align: left; padding: 10px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.2); position: absolute; bottom: 125%; left: 50%; transform: translateX(-50%); z-index: 1000; width: max-content; max-width: 200px; font-size: 12px; line-height: 1.4; white-space: normal;}
     .tooltip-icon.active .tooltip-text {visibility: visible;}
     body {font-family: sans-serif; padding: 20px;}
-    
-    /* Kontener na obie tabele – elastyczny układ obok siebie */
-    .tables-container {display: flex; gap: 20px; align-items: flex-start;} /* ✅ tabele będą równe tylko od góry */
-    /* Tabela projektów – lewa, szersza (54%) */    .tables-container table:first-of-type {flex: 0 0 54%;}
-    /* Tabela faucetów – prawa, węższa (46%) */    .tables-container table:last-of-type {flex: 0 0 46%;}
-    /* Wspólne ustawienia dla obu tabel */    .tables-container table {border-collapse: collapse; width: 100%;}
-    /* Styl komórek */    th, td {border: 1px solid #aaa; padding: 8px; text-align: left; vertical-align: top;}
-    /* Nagłówki */   th {  background: linear-gradient(90deg, #dde7f2, #cadbe9);  color: #101820;  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.4);  font-weight: bold;  padding: 8px;  border-bottom: 2px solid #aebdc9;}    th .reset-btn {display: block; margin: 0 auto;}
-    /* Domyślny układ kolumn – dla wszystkich tabel (np. PROJEKTY) */    td:first-child, th:first-child {width: 30%;}    td:last-child, th:last-child {width: 70%;}
-    /* Nadpisanie tylko dla tabeli FAUCETY */    .faucets-table td:first-child, .faucets-table th:first-child {width: 38%;}    .faucets-table td:last-child, .faucets-table th:last-child {width: 62%;}
 
-    /* Przycisk RESET ALL */    .reset-all {margin-bottom: 20px; padding: 10px 18px; font-weight: bold; background: #e74c3c; color: white; border: none; border-radius: 6px; cursor: pointer;}
+
+
+  
+    /* Kontener na tabele */
+.tables-container { display:flex; gap:20px; align-items:flex-start; flex-wrap:wrap; }
+
+/* Wspólne */
+.tables-container table { border-collapse:collapse; width:100%; min-width:300px; }
+
+/* >>> ZAMIANA selektorów first/last-of-type na klasy <<< */
+.projects-table { flex:0 0 40%; }   /* lewa – szersza */
+.faucets-table  { flex:0 0 30%; }   /* prawa – dotychczasowa */
+.extra-table    { flex:0 0 30%; }   /* nowa trzecia kolumna */
+
+/* Responsywność (2 kolumny -> 1 kolumna) */
+@media (max-width:1100px){ 
+  .projects-table,.faucets-table,.extra-table { flex:0 0 50%; }
+}
+@media (max-width:700px){
+  .projects-table,.faucets-table,.extra-table { flex:0 0 100%; }
+}
+
+/* Twój istniejący styl komórek/nagłówków – bez zmian */
+th,td{border:1px solid #aaa;padding:8px;text-align:left;vertical-align:top;}
+th{background:linear-gradient(90deg,#dde7f2,#cadbe9);color:#101820;text-shadow:0 1px 1px rgba(255,255,255,.4);font-weight:bold;padding:8px;border-bottom:2px solid #aebdc9;}
+th .reset-btn{display:block;margin:0 auto;}
+
+/* Domyślny układ kolumn w tabelach – bez zmian */
+td:first-child,th:first-child{width:30%;}
+td:last-child,th:last-child{width:70%;}
+
+/* Nadpisanie tylko dla FAUCETY – jak było */
+.faucets-table td:first-child,.faucets-table th:first-child{width:38%;}
+.faucets-table td:last-child,.faucets-table th:last-child{width:62%;}
+
+/* Reset All – jak było */
+.reset-all{margin-bottom:20px;padding:10px 18px;font-weight:bold;background:#e74c3c;color:#fff;border:none;border-radius:6px;cursor:pointer;}
+
+
+
+  
     
     .link-item {list-style: none;}    .centered {text-align: center; font-weight: bold;}
     
@@ -65,7 +95,9 @@ body {
 
 
 
-    <!-- Tabela 1 – Projekty --> <table>
+    <!-- Tabela 1 – Projekty -->
+<table class="projects-table">
+
    
       <tr><td colspan="2" style="text-align: center;"><strong>KLIKNIJ WYKRZYKNIK ⚠️ I SPRAWDŹ SZCZEGÓŁY</strong></td></tr>  
       <tr> <th class="centered">PROJEKTY</th> <th><button class="reset-btn" id="reset-table1">RESET</button></th> </tr>
@@ -3222,6 +3254,31 @@ CHECK
 </table>
   </div>
 
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░Ekstra tabela░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+<!-- ░░░░░░░░<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░Ekstra tabela░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░Ekstra tabela░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░Ekstra tabela░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░Ekstra tabela░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░Ekstra tabela░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  
+<!-- Tabela 3 – Extra -->
+<table class="extra-table">
+  <tr>
+    <td colspan="2" style="text-align:center;"><strong>Nowa trzecia tabela</strong></td>
+  </tr>
+  <tr>
+    <th>Nazwa</th>
+    <th>Dane</th>
+  </tr>
+  <tr>
+    <td>Przykład</td>
+    <td>123</td>
+  </tr>
+</table>
+
+
+
+
+  
 
 
 
