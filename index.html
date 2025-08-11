@@ -15,18 +15,18 @@ body {
 
 
   
-    /* Kontener na tabele */
+ /* Kontener na tabele */
 .tables-container { display:flex; gap:20px; align-items:flex-start; flex-wrap:wrap; }
 
 /* Wspólne */
 .tables-container table { border-collapse:collapse; width:100%; min-width:300px; }
 
-/* >>> ZAMIANA selektorów first/last-of-type na klasy <<< */
-.projects-table { flex:0 0 40%; }   /* lewa – szersza */
-.faucets-table  { flex:0 0 30%; }   /* prawa – dotychczasowa */
-.extra-table    { flex:0 0 30%; }   /* nowa trzecia kolumna */
+/* Szerokości kolumn – dopasowane tak, żeby 3 zmieściły się obok siebie */
+.projects-table { flex:0 0 38%; }   /* lewa – szersza */
+.faucets-table  { flex:0 0 31%; }   /* prawa – dotychczasowa */
+.extra-table    { flex:0 0 31%; }   /* nowa trzecia kolumna */
 
-/* Responsywność (2 kolumny -> 1 kolumna) */
+/* Responsywność */
 @media (max-width:1100px){ 
   .projects-table,.faucets-table,.extra-table { flex:0 0 50%; }
 }
@@ -34,7 +34,7 @@ body {
   .projects-table,.faucets-table,.extra-table { flex:0 0 100%; }
 }
 
-/* Twój istniejący styl komórek/nagłówków – bez zmian */
+/* Styl komórek/nagłówków – bez zmian */
 th,td{border:1px solid #aaa;padding:8px;text-align:left;vertical-align:top;}
 th{background:linear-gradient(90deg,#dde7f2,#cadbe9);color:#101820;text-shadow:0 1px 1px rgba(255,255,255,.4);font-weight:bold;padding:8px;border-bottom:2px solid #aebdc9;}
 th .reset-btn{display:block;margin:0 auto;}
