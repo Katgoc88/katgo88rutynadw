@@ -28,10 +28,20 @@ body {
 .extra-table {flex: 0 0 26%;}
 
 /* Wspólne ustawienia dla wszystkich tabel */
-.tables-container table {border-collapse: collapse; width: 100%;}
+.tables-container table {
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed; /* trzyma procenty w kolumnach */
+}
 
 /* Styl komórek */
-th, td {border: 1px solid #aaa; padding: 8px; text-align: left; vertical-align: top;}
+th, td {
+  border: 1px solid #aaa;
+  padding: 8px;
+  text-align: left;
+  vertical-align: top;
+  word-break: break-word; /* łamanie długich słów/linków */
+}
 
 /* Nagłówki */
 th {
@@ -46,9 +56,9 @@ th .reset-btn {display: block; margin: 0 auto;}
 
 /* Układ kolumn – tabela PROJEKTY */
 .projects-table td:first-child,
-.projects-table th:first-child { width: 25%; }  /* pierwsza kolumna */
+.projects-table th:first-child { width: 25%; }
 .projects-table td:last-child,
-.projects-table th:last-child  { width: 75%; }  /* druga kolumna */
+.projects-table th:last-child  { width: 75%; }
 
 /* Układ kolumn – tabela FAUCETY */
 .faucets-table td:first-child,
@@ -61,6 +71,7 @@ th .reset-btn {display: block; margin: 0 auto;}
 .extra-table th:first-child { width: 5%; }
 .extra-table td:last-child,
 .extra-table th:last-child  { width: 95%; }
+
 
 
 /* Przycisk RESET ALL */
