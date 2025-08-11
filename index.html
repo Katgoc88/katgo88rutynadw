@@ -15,6 +15,7 @@ body {
 
 
   
+/* ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ */
 /* Kontener na trzy tabele – elastyczny układ obok siebie */
 .tables-container {
   display: flex;
@@ -24,8 +25,8 @@ body {
 
 /* Wrappery odpowiadają za szerokości całych tabel */
 .projects-table-wrapper {flex: 0 0 35%;}
-.faucets-table-wrapper {flex: 0 0 31%;}
-.extra-table-wrapper   {flex: 0 0 31%;}
+.faucets-table-wrapper  {flex: 0 0 31%;}
+.extra-table-wrapper    {flex: 0 0 31%;}
 
 /* Wspólne ustawienia dla wszystkich tabel */
 .tables-container table {
@@ -56,19 +57,27 @@ th .reset-btn {
   margin: 0 auto;
 }
 
-/* Domyślny układ kolumn w tabelach */
-td:first-child, th:first-child {width: 30%;}
-td:last-child,  th:last-child  {width: 70%;}
+/* Domyślne szerokości kolumn – jeśli nie nadpisane */
+.tables-container td:first-child,
+.tables-container th:first-child {width: 30%;}
+.tables-container td:last-child,
+.tables-container th:last-child  {width: 70%;}
 
-/* Indywidualne szerokości kolumn dla poszczególnych tabel */
-.projects-table td:first-child, .projects-table th:first-child {width: 25%;}
-.projects-table td:last-child,  .projects-table th:last-child  {width: 75%;}
+/* Indywidualne szerokości kolumn w tabelach */
+.tables-container .projects-table td:first-child,
+.tables-container .projects-table th:first-child {width: 25%;}
+.tables-container .projects-table td:last-child,
+.tables-container .projects-table th:last-child  {width: 75%;}
 
-.faucets-table td:first-child,  .faucets-table th:first-child  {width: 20%;}
-.faucets-table td:last-child,   .faucets-table th:last-child   {width: 80%;}
+.tables-container .faucets-table td:first-child,
+.tables-container .faucets-table th:first-child  {width: 20%;}
+.tables-container .faucets-table td:last-child,
+.tables-container .faucets-table th:last-child   {width: 80%;}
 
-.extra-table td:first-child,    .extra-table th:first-child    {width: 28%;}
-.extra-table td:last-child,     .extra-table th:last-child     {width: 72%;}
+.tables-container .extra-table td:first-child,
+.tables-container .extra-table th:first-child    {width: 28%;}
+.tables-container .extra-table td:last-child,
+.tables-container .extra-table th:last-child     {width: 72%;}
 
 
 
