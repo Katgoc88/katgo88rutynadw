@@ -15,40 +15,54 @@ body {
 
 
   
-/* Kontener na tabele */
-.tables-container { display:flex; gap:20px; align-items:flex-start; flex-wrap:wrap; }
+/* Kontener na trzy tabele – elastyczny układ obok siebie */
+.tables-container {display: flex; gap: 20px; align-items: flex-start;}
 
-/* Wspólne */
-.tables-container table { border-collapse:collapse; width:100%; min-width:0; }
+/* Tabela projektów – lewa, szersza */
+.projects-table {flex: 0 0 38%;}
 
-/* Szerokości z zapasem na gapy */
-.projects-table { flex:0 0 32%; }
-.faucets-table  { flex:0 0 32%; }
-.extra-table    { flex:0 0 25%; }
+/* Tabela faucetów – środkowa */
+.faucets-table {flex: 0 0 31%;}
 
-/* Responsywność */
-@media (max-width:900px){ 
-  .projects-table,.faucets-table,.extra-table { flex:0 0 50%; }
+/* Trzecia tabela – prawa */
+.extra-table {flex: 0 0 31%;}
+
+/* Wspólne ustawienia dla wszystkich tabel */
+.tables-container table {border-collapse: collapse; width: 100%;}
+
+/* Styl komórek */
+th, td {border: 1px solid #aaa; padding: 8px; text-align: left; vertical-align: top;}
+
+/* Nagłówki */
+th {
+  background: linear-gradient(90deg, #dde7f2, #cadbe9);
+  color: #101820;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.4);
+  font-weight: bold;
+  padding: 8px;
+  border-bottom: 2px solid #aebdc9;
 }
-@media (max-width:700px){
-  .projects-table,.faucets-table,.extra-table { flex:0 0 100%; }
+th .reset-btn {display: block; margin: 0 auto;}
+
+/* Domyślny układ kolumn w tabelach */
+td:first-child, th:first-child {width: 30%;}
+td:last-child, th:last-child {width: 70%;}
+
+/* Nadpisanie tylko dla tabeli FAUCETY */
+.faucets-table td:first-child, .faucets-table th:first-child {width: 38%;}
+.faucets-table td:last-child, .faucets-table th:last-child {width: 62%;}
+
+/* Przycisk RESET ALL */
+.reset-all {
+  margin-bottom: 20px;
+  padding: 10px 18px;
+  font-weight: bold;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
 }
-
-/* Styl komórek/nagłówków – bez zmian */
-th,td{border:1px solid #aaa;padding:8px;text-align:left;vertical-align:top;}
-th{background:linear-gradient(90deg,#dde7f2,#cadbe9);color:#101820;text-shadow:0 1px 1px rgba(255,255,255,.4);font-weight:bold;padding:8px;border-bottom:2px solid #aebdc9;}
-th .reset-btn{display:block;margin:0 auto;}
-
-/* Domyślny układ kolumn w tabelach – bez zmian */
-td:first-child,th:first-child{width:30%;}
-td:last-child,th:last-child{width:70%;}
-
-/* Nadpisanie tylko dla FAUCETY – jak było */
-.faucets-table td:first-child,.faucets-table th:first-child{width:38%;}
-.faucets-table td:last-child,.faucets-table th:last-child{width:62%;}
-
-/* Reset All – jak było */
-.reset-all{margin-bottom:20px;padding:10px 18px;font-weight:bold;background:#e74c3c;color:#fff;border:none;border-radius:6px;cursor:pointer;}
 
   
     
