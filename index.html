@@ -15,16 +15,16 @@ body {
 
 
   
- /* Kontener na tabele */
+/* Kontener na tabele */
 .tables-container { display:flex; gap:20px; align-items:flex-start; flex-wrap:wrap; }
 
 /* Wspólne */
 .tables-container table { border-collapse:collapse; width:100%; min-width:0; }
 
-/* Szerokości kolumn – dopasowane tak, żeby 3 zmieściły się obok siebie */
-.projects-table { flex:0 0 37%; }   /* lewa – szersza */
-.faucets-table  { flex:0 0 31%; }   /* prawa – dotychczasowa */
-.extra-table    { flex:0 0 31%; }   /* nowa trzecia kolumna */
+/* Szerokości z zapasem na gapy */
+.projects-table { flex:0 0 32%; }
+.faucets-table  { flex:0 0 32%; }
+.extra-table    { flex:0 0 32%; }
 
 /* Responsywność */
 @media (max-width:1100px){ 
@@ -49,8 +49,6 @@ td:last-child,th:last-child{width:70%;}
 
 /* Reset All – jak było */
 .reset-all{margin-bottom:20px;padding:10px 18px;font-weight:bold;background:#e74c3c;color:#fff;border:none;border-radius:6px;cursor:pointer;}
-
-
 
   
     
