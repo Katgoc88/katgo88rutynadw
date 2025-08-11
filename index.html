@@ -16,43 +16,22 @@ body {
 
   
 /* Kontener na trzy tabele – elastyczny układ obok siebie */
-.tables-container {
-  display: flex;
-  gap: 15px; /* stały odstęp między tabelami */
-  align-items: flex-start;
-}
+.tables-container {display: flex; gap: 20px; align-items: flex-start;}
 
 /* Tabela projektów – lewa, szersza */
-.projects-table {
-  flex: 0 0 calc((100% - 30px) * 0.40); /* 2 odstępy po 15px = 30px */
-  box-sizing: border-box;
-}
+.projects-table {flex: 0 0 40%;}
 
 /* Tabela faucetów – środkowa */
-.faucets-table {
-  flex: 0 0 calc((100% - 30px) * 0.30);
-  box-sizing: border-box;
-}
+.faucets-table {flex: 0 0 30%;}
 
 /* Trzecia tabela – prawa */
-.extra-table {
-  flex: 0 0 calc((100% - 30px) * 0.26);
-  box-sizing: border-box;
-}
+.extra-table {flex: 0 0 26%;}
 
 /* Wspólne ustawienia dla wszystkich tabel */
-.tables-container table {
-  border-collapse: collapse;
-  width: 100%;
-}
+.tables-container table {border-collapse: collapse; width: 100%;}
 
 /* Styl komórek */
-th, td {
-  border: 1px solid #aaa;
-  padding: 8px;
-  text-align: left;
-  vertical-align: top;
-}
+th, td {border: 1px solid #aaa; padding: 8px; text-align: left; vertical-align: top;}
 
 /* Nagłówki */
 th {
@@ -71,7 +50,7 @@ td:last-child, th:last-child {width: 70%;}
 
 /* Nadpisanie tylko dla tabeli FAUCETY */
 .faucets-table td:first-child, .faucets-table th:first-child {width: 38%;}
-.faucets-table td:last-child, .faucets-table th:last-child {width: 62%;}
+.faucets-table td:last-child, .faucets-table th:last-child {width: 62%;} 
 
 /* Przycisk RESET ALL */
 .reset-all {
